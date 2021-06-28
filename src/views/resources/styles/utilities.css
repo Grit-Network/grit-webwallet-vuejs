@@ -1,0 +1,19 @@
+.text-primary {
+    color: var(--clr-primary);
+}
+
+.text-gray {
+    color: var(--clr-gray);
+}
+
+.text-gray-dark {
+    color: var(--clr-gray-dark);
+}
+
+.text-blue {
+    color: var(--clr-blue);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

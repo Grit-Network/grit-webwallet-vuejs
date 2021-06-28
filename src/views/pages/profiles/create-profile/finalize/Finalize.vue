@@ -1,5 +1,39 @@
 <template>
-    <div class="finish-sec scroll" @keyup.enter="submit">
+    <div class="finalize" @keyup.enter="submit">
+        <div class="primary-title">CONGRATULATIONS, the profile was created successfully!</div>
+        <div class="title">{{ $t('safe_storage_tips') }}</div>
+
+        <ul class="ml-2">
+            <li>{{ $t('save_backups') }}</li>
+            <li>{{ $t('do_not_share_mnemonics_with_anyone') }}</li>
+            <li>{{ $t('phishing_warning') }}</li>
+            <li>{{ $t('if_you_need_to_backup_your_mnemonics_again_you_can') }}</li>
+        </ul>
+
+        <div class="mt-3">
+            <Checkbox v-model="marked">
+                <span class="checkbox-label ml-0.5">
+                    {{ $t('i_accept') }}
+                    <a href="#/terms" class="text-blue">{{ $t('terms_and_conditions') }}</a>
+                    &
+                    <a href="#/privacy" class="text-blue">{{ $t('privacy_policy') }}</a
+                    >.
+                </span>
+            </Checkbox>
+        </div>
+
+        <div class="mt-4 flex justify-end">
+            <button type="button" class="button gray w-7 mr-2" @click="$router.back()">
+                {{ $t('back') }}
+            </button>
+            <button type="submit" class="button primary w-7" :disabled="isLoading || !marked" @click="submit">
+                {{ $t('finish') }}
+            </button>
+            <Spin v-if="isLoading" size="large" fix class="absolute" />
+        </div>
+    </div>
+
+    <!-- <div class="finish-sec scroll" @keyup.enter="submit">
         <div class="finish-col">
             <div class="finish-left">
                 <p class="text1">
@@ -40,7 +74,7 @@
                 <Spin v-if="isLoading" size="large" fix class="absolute" />
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -48,5 +82,29 @@ import FinalizeTs from './FinalizeTs';
 export default class Finalize extends FinalizeTs {}
 </script>
 <style lang="less" scoped>
-@import './Finalize.less';
+// @import './Finalize.less';
+</style>
+
+<style scoped>
+.finalize {
+    padding-top: 90px;
+    padding-bottom: 30px;
+}
+
+.primary-title {
+    color: var(--clr-blue);
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+li + li {
+    margin-top: 1.1em;
+}
 </style>

@@ -1,5 +1,32 @@
 <template>
-    <div class="import-way-wrapper radius">
+    <div class="import-strategy">
+        <img src="@/assets/images/background-arrow.png" alt="" class="background-arrow" />
+
+        <div class="content">
+            <img src="@/assets/images/logo.png" alt="" class="logo" />
+            <div class="title">
+                {{ $t('access_my_profile') }}
+            </div>
+
+            <div class="title-secondary">
+                {{ $t('existing_profile') }}
+                <span class="text-blue cursor-pointer" @click="$router.push({ name: 'profiles.login' })"> {{ $t('go_to_login') }}</span>
+            </div>
+
+            <div class="boxes">
+                <div class="box" v-for="(item, index) in importInfoList" :key="index" @click="redirect(item.route)">
+                    <div class="box-content">
+                        <img src="@/assets/icons/create.png" alt="" v-if="index === 0" />
+                        <img src="@/assets/icons/import.png" alt="" v-if="index === 1" />
+                        <img src="@/assets/icons/dashboard.png" alt="" v-if="index === 2" />
+                        <div class="box-title">{{ $t(item.title) }}</div>
+                        <div class="box-description">{{ $t(item.description) }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="import-way-wrapper radius">
         <div class="import-way-inner-panel">
             <div class="welcome-head">
                 <p class="title">
@@ -41,7 +68,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -49,5 +76,7 @@ import ImportStrategyTs from './ImportStrategyTs';
 export default class ImportStrategy extends ImportStrategyTs {}
 </script>
 <style lang="less" scoped>
-@import './ImportStrategy.less';
+// @import './ImportStrategy.less';
 </style>
+
+<style scoped src="./ImportStrategy.css"></style>

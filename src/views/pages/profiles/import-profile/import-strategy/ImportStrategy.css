@@ -1,0 +1,82 @@
+.import-strategy {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background-arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+}
+
+.content {
+    width: 50%;
+}
+
+.logo {
+    width: 366px;
+    margin-bottom: 83px;
+}
+
+.title {
+    font-size: 31px;
+    text-transform: uppercase;
+    margin-bottom: 23px;
+    font-weight: 500;
+}
+
+.title-secondary {
+    font-size: 18px;
+    color: var(--clr-gray);
+}
+
+.boxes {
+    display: flex;
+    column-gap: 35px;
+    margin-top: 60px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2.5px solid var(--clr-gray-dark);
+    padding: 15px;
+    width: 233px;
+    height: 233px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.box:hover {
+    border-color: var(--clr-blue);
+}
+
+.box-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--clr-gray-dark);
+}
+
+.box img {
+    width: 60px;
+    margin-bottom: 25px;
+}
+
+.box-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.box-description {
+    font-size: 13px;
+}

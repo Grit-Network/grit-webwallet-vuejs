@@ -1,0 +1,48 @@
+.ivu-tooltip,
+.ivu-tooltip-rel {
+    width: 100%;
+}
+
+.ivu-tooltip-inner {
+    max-width: unset;
+}
+
+.ivu-select-single .ivu-select-selection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 43px;
+    border: 1.5px solid var(--clr-gray);
+    border-radius: 4px;
+    background-color: var(--clr-primary);
+}
+
+.ivu-select-visible .ivu-select-selection {
+    border-color: var(--clr-blue);
+    box-shadow: none;
+}
+
+.ivu-select-item,
+.ivu-select-dropdown,
+.ivu-select-item-focus {
+    background-color: var(--clr-primary);
+}
+
+.ivu-select-item {
+    color: var(--clr-gray);
+}
+
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder,
+.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+    color: var(--clr-gray);
+    padding-left: 17px;
+}
+
+.ivu-select-dropdown {
+    border: 1.5px solid var(--clr-gray-dark);
+}
+
+.ivu-select-item:hover {
+    background: var(--clr-gray-dark);
+    color: var(--clr-blue);
+}

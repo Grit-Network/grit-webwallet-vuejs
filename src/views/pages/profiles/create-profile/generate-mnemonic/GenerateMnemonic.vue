@@ -1,7 +1,7 @@
 <template>
-    <div class="step-2-wrapper">
-        <img src="@/views/resources/img/login/connector-pink.png" />
-        <Progress stroke-color="#ff00ff" :percent="percent" />
+    <div class="text-center">
+        <img src="@/assets/images/logo-favicon.png" class="logo" />
+        <Progress stroke-color="var(--clr-blue)" :percent="percent" />
     </div>
 </template>
 
@@ -10,5 +10,13 @@ import GenerateMnemonicTs from './GenerateMnemonicTs';
 export default class GenerateMnemonic extends GenerateMnemonicTs {}
 </script>
 <style lang="less" scoped>
-@import './GenerateMnemonic.less';
+// @import './GenerateMnemonic.less';
+</style>
+
+<style scoped>
+.logo {
+    width: 166px;
+    margin: 0 auto;
+    margin-bottom: 68px;
+}
 </style>

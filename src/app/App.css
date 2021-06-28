@@ -1,0 +1,13 @@
+.app {
+    position: relative;
+    background-color: var(--clr-primary);
+    color: #fff;
+    font-family: Montserrat;
+    font-weight: 400;
+    min-height: 100vh;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
