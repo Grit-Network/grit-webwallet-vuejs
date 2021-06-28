@@ -8,91 +8,88 @@ const web = process.env.WEB || false;
 
 console.log(`Building package ${packageVersion} for Web: ${web}`);
 
-const path = require('path')
+const path = require('path');
 
 module.exports = {
-  // base url
-  publicPath: process.env.NODE_ENV === 'production'
-      ? './'
-      : '/',
-  // output dir
-  outputDir: './dist',
-  assetsDir: 'static',
-  // eslint-loader check
-  lintOnSave: true,
-  // webpack
-  // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: (config) => {
-    config.plugin('define').tap((args) => {
-      const env = args[0]['process.env'];
-      const dataPlaceholder = {
-        testnet: [],
-        mainnet: []
-      };
-      let configFile;
+    // base url
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+    // output dir
+    outputDir: './dist',
+    assetsDir: 'static',
+    // eslint-loader check
+    lintOnSave: true,
+    // webpack
+    // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
+    chainWebpack: (config) => {
+        config.plugin('define').tap((args) => {
+            const env = args[0]['process.env'];
+            const dataPlaceholder = {
+                testnet: [],
+                mainnet: [],
+            };
+            let configFile;
 
-      try {
-        configFile = require('./keys-whitelist.json');
-      } catch(e) {
-        console.error('Failed to read "keys-whitelist.json"', e);
-        configFile = {
-          preLaunchOptin: dataPlaceholder,
-          nglFinanceBot: dataPlaceholder
-        };
-      }
-      args[0]['process.env'] = {
-          ...env,
-          PACKAGE_VERSION: packageVersion,
-          WEB: web,
-          KEYS_WHITELIST: JSON.stringify(configFile.preLaunchOptin),
-          KEYS_FINANCE: JSON.stringify(configFile.nglFinanceBot)
-      };
-      return args;
-    });
-  },
-  // generate map
-  productionSourceMap: true,
-  //use template in vue
-  runtimeCompiler: true,
-  // css
-  css: {
-    // ExtractTextPlugin
-    extract: false,
-    //  CSS source maps?
-    sourceMap: false,
-    // css loader
-    loaderOptions: {
-      postcss: {
-        config: {
-          path: '.postcss.config.js'
-        }
-      }
+            try {
+                configFile = require('./keys-whitelist.json');
+            } catch (e) {
+                console.error('Failed to read "keys-whitelist.json"', e);
+                configFile = {
+                    preLaunchOptin: dataPlaceholder,
+                    nglFinanceBot: dataPlaceholder,
+                };
+            }
+            args[0]['process.env'] = {
+                ...env,
+                PACKAGE_VERSION: packageVersion,
+                WEB: web,
+                KEYS_WHITELIST: JSON.stringify(configFile.preLaunchOptin),
+                KEYS_FINANCE: JSON.stringify(configFile.nglFinanceBot),
+            };
+            return args;
+        });
     },
-    // CSS modules for all css / pre-processor files.
-    requireModuleExtension: true
-  },
-  // use thread-loader for babel & TS in production build
-  // enabled by default if the machine has more than 1 cores
-  parallel: require('os').cpus().length > 1,
-  // webpack-dev-server
-  devServer: {
-    host: '0.0.0.0',
-    port: 8080,
-    before: app => {
+    // generate map
+    productionSourceMap: true,
+    //use template in vue
+    runtimeCompiler: true,
+    // css
+    css: {
+        // ExtractTextPlugin
+        extract: false,
+        //  CSS source maps?
+        sourceMap: false,
+        // css loader
+        loaderOptions: {
+            postcss: {
+                config: {
+                    path: '.postcss.config.js',
+                },
+            },
+        },
+        // CSS modules for all css / pre-processor files.
+        requireModuleExtension: true,
     },
-    proxy: {
-      '/nemflash': {
-        target: 'https://nemgrouplimited.github.io/symbol-news/',
-        ws: true,
-        changeOrigin: true,
-        pathRewrite: { '^/nemflash': '' }
-      },
-    }
-  },
-  // plugins
-  pluginOptions: {
-    "process.env": {
-      NODE_ENV: '"development"',
-    }
-  }
-}
+    // use thread-loader for babel & TS in production build
+    // enabled by default if the machine has more than 1 cores
+    parallel: require('os').cpus().length > 1,
+    // webpack-dev-server
+    devServer: {
+        host: '0.0.0.0',
+        port: 8080,
+        before: (app) => {},
+        proxy: {
+            '/nemflash': {
+                target: 'https://nemgrouplimited.github.io/symbol-news/',
+                ws: true,
+                changeOrigin: true,
+                pathRewrite: { '^/nemflash': '' },
+            },
+        },
+    },
+    // plugins
+    pluginOptions: {
+        'process.env': {
+            NODE_ENV: '"development"',
+        },
+    },
+};
