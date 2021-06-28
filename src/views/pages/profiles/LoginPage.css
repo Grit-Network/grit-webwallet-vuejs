@@ -1,0 +1,41 @@
+.login {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.background-logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.login-form {
+    position: relative;
+    width: 48%;
+    padding-right: 15%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    z-index: 2;
+}
+
+.logo {
+    width: 320px;
+    margin-bottom: 76px;
+}
+
+@media screen and (min-width: 1300px) {
+    .login-form {
+        width: 42%;
+        padding-right: 30%;
+    }
+}
+
+.form-title {
+    margin-bottom: 47px;
+}
