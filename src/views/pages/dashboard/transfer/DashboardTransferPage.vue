@@ -1,8 +1,6 @@
 <template>
-    <div class="transfer-container secondary_page_animate">
-        <div class="transfer-inner-container scroll">
-            <FormTransferTransaction :recipient="recipient" :show-transaction-actions="true" />
-        </div>
+    <div class="content">
+        <FormTransferTransaction :recipient="recipient" :show-transaction-actions="true" />
     </div>
 </template>
 
@@ -12,5 +10,11 @@ import { DashboardTransferPageTs } from './DashboardTransferPageTs';
 export default class DashboardTransferPage extends DashboardTransferPageTs {}
 </script>
 <style lang="less" scoped>
-@import './DashboardTransferPage.less';
+// @import './DashboardTransferPage.less';
+</style>
+
+<style scoped>
+.content {
+    padding: 30px 20px;
+}
 </style>

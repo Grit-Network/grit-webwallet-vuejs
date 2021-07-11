@@ -1,8 +1,22 @@
 <template>
-    <div class="top_network_info">
+    <div class="panel flex justify-around items-center flex-grow ml-1.5">
+        <div>
+            <div class="title">{{ $t('chain_height') }}</div>
+            <div class="value">{{ currentHeight }}</div>
+        </div>
+        <div>
+            <div class="title">{{ $t('transactions') }}</div>
+            <div class="value">{{ countTransactions }}</div>
+        </div>
+        <div>
+            <div class="title">{{ $t('peers_number') }}</div>
+            <div class="value">{{ countNodes }}</div>
+        </div>
+    </div>
+    <!-- <div class="top_network_info">
         <div class="top_account_info">
-            <!-- harvesting is conditional -->
-            <!--<div v-if="isHarvestingEnabled" class="xym-outline account-info-tile">
+            harvesting is conditional
+            <div v-if="isHarvestingEnabled" class="xym-outline account-info-tile">
                 <div class="title">
                     <span class="title_txt">{{ $t('harvesting') }}</span>
                 </div>
@@ -25,8 +39,8 @@
                 <span class="txt_info">
                     {{ countAccounts }}
                 </span>
-            </div>-->
-            <!-- end conditional -->
+            </div>
+            end conditional
 
             <div class="account-info-tile">
                 <div class="title">
@@ -53,7 +67,7 @@
                 </span>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -61,5 +75,31 @@ import { NetworkStatisticsPanelTs } from './NetworkStatisticsPanelTs';
 export default class NetworkStatisticsPanel extends NetworkStatisticsPanelTs {}
 </script>
 <style lang="less" scoped>
-@import './NetworkStatisticsPanel.less';
+// @import './NetworkStatisticsPanel.less';
+</style>
+
+<style scoped>
+.title {
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--clr-gray);
+    margin-bottom: 10px;
+}
+
+.value {
+    font-size: 31px;
+    font-weight: 600;
+    color: var(--clr-blue);
+}
+
+@media screen and (min-width: 1300px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .value {
+        font-size: 40px;
+    }
+}
 </style>

@@ -1,5 +1,59 @@
 <template>
-    <div class="accounts-main-container">
+    <div class="flex gap-x-1.5">
+        <div class="panel w-6/12">
+            <div class="header">
+                <div class="title">{{ $t('tab_accounts_accounts') }}</div>
+
+                <div class="flex">
+                    <button class="button-icon mr-1" @click="hasAddAccountModal = true">
+                        <inline-svg :src="require('@/assets/icons/plus-circle.svg')" />
+                        {{ $t('button_add_account') }}
+                    </button>
+
+                    <button v-if="!isPrivateKeyProfile" @click="hasBackupProfileModal = true" class="button-icon">
+                        <inline-svg :src="require('@/assets/icons/download-circle.svg')" />
+                        {{ $t('backup_profile') }}
+                    </button>
+                </div>
+
+                <ModalFormSubAccountCreation v-if="hasAddAccountModal" :visible="hasAddAccountModal" @close="hasAddAccountModal = false" />
+
+                <ModalBackupProfile v-if="hasBackupProfileModal" :visible="hasBackupProfileModal" @close="hasBackupProfileModal = false" />
+            </div>
+            <AccountSelectorPanel />
+            <!-- <router-view /> -->
+        </div>
+        <div class="panel w-6/12">
+            <div class="header">
+                <div class="title">{{ $t('tab_accounts_addressbook') }}</div>
+
+                <div class="flex">
+                    <button class="button-icon mr-1" @click="hasAddAccountModalContact = true">
+                        <inline-svg :src="require('@/assets/icons/plus-circle.svg')" />
+                        {{ $t('button_add_account') }}
+                    </button>
+
+                    <button v-if="addressBook.getAllContacts().length === 0" @click="hasImportProfileModal = true" class="button-icon">
+                        <inline-svg :src="require('@/assets/icons/import.svg')" />
+                        {{ $t('import_address_book') }}
+                    </button>
+                </div>
+
+                <ModalContactCreation
+                    v-if="hasAddAccountModalContact"
+                    :visible="hasAddAccountModalContact"
+                    @close="hasAddAccountModalContact = false"
+                />
+                <ModalImportAddressBook
+                    v-if="hasImportProfileModal"
+                    :visible="hasImportProfileModal"
+                    @close="hasImportProfileModal = false"
+                />
+            </div>
+            <ContactSelectorPanel />
+        </div>
+    </div>
+    <!-- <div class="accounts-main-container">
         <div class="left-container">
             <div :class="[activePanel === 0 ? 'left-top-container' : 'left-top-full-container']">
                 <div class="account-switch-container">
@@ -66,7 +120,7 @@
             :visible="showAccountRestrictionsModal"
             @close="showAccountRestrictionsModal = false"
         />
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -74,26 +128,16 @@ import { AccountsTs } from './AccountsTs';
 export default class Accounts extends AccountsTs {}
 </script>
 
-<style lang="less" scoped>
-@import './Accounts.less';
-
-.hidden-account-header {
-    padding: 0 0.4rem;
-    margin: 0.2rem 0;
-    .section-title {
-        font-weight: 600;
-        color: @purpleDark;
-        font-family: @symbolFont;
-    }
+<style scoped>
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 23px;
 }
 
-.account-switch-container {
-    display: grid;
-    height: 100%;
-    grid-template-rows: 0.6rem auto;
-
-    ::-webkit-scrollbar-track {
-        background-color: transparent;
-    }
+.title {
+    font-size: 20px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 </style>

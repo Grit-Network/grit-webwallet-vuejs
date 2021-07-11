@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="account-switch-footer-container">
+        <!-- <div class="account-switch-footer-container">
             <span type="button" class="add-account pointer button" @click="hasAddAccountModal = true">
                 <img src="@/views/resources/img/newicons/Add.svg" class="icon-left-button" />
                 {{ $t('add_contact') }}
@@ -47,7 +47,7 @@
         </div>
 
         <ModalContactCreation v-if="hasAddAccountModal" :visible="hasAddAccountModal" @close="hasAddAccountModal = false" />
-        <ModalImportAddressBook v-if="hasImportProfileModal" :visible="hasImportProfileModal" @close="hasImportProfileModal = false" />
+        <ModalImportAddressBook v-if="hasImportProfileModal" :visible="hasImportProfileModal" @close="hasImportProfileModal = false" /> -->
     </div>
 </template>
 

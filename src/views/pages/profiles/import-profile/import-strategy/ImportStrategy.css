@@ -4,6 +4,7 @@
     justify-content: flex-end;
     align-items: center;
     min-height: 100vh;
+    padding: 30px;
 }
 
 .background-arrow {
@@ -16,7 +17,7 @@
 }
 
 .content {
-    width: 50%;
+    width: 65%;
 }
 
 .logo {
@@ -32,7 +33,7 @@
 }
 
 .title-secondary {
-    font-size: 18px;
+    font-size: 15px;
     color: var(--clr-gray);
 }
 
@@ -47,16 +48,21 @@
     justify-content: center;
     align-items: center;
     border: 2.5px solid var(--clr-gray-dark);
-    padding: 15px;
+    padding: 0px;
     width: 233px;
     height: 233px;
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
 }
 
 .box:hover {
     border-color: var(--clr-blue);
+}
+
+.box:hover .box-content {
+    color: #fff;
 }
 
 .box-content {
@@ -64,6 +70,7 @@
     flex-direction: column;
     align-items: center;
     color: var(--clr-gray-dark);
+    transition: 0.3s;
 }
 
 .box img {
@@ -72,11 +79,17 @@
 }
 
 .box-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
 .box-description {
-    font-size: 13px;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 1300px) {
+    .content {
+        width: 50%;
+    }
 }

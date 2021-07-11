@@ -11,9 +11,10 @@
         </div>
         <div class="button-download-container">
             <Tooltip :content="$t('export_transactions')" placement="top" :transfer="true">
-                <a class="button-download" @click="downloadTransactions">
+                <inline-svg :src="require('@/assets/icons/file-export.svg')" @click="downloadTransactions" class="cursor-pointer" />
+                <!-- <a class="button-download" @click="downloadTransactions">
                     <font-awesome-icon icon="file-csv" />
-                </a>
+                </a> -->
             </Tooltip>
         </div>
     </div>

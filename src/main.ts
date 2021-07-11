@@ -42,6 +42,10 @@ import { faFileCsv } from '@fortawesome/free-solid-svg-icons';
 // @ts-ignore
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
+import InlineSvg from 'vue-inline-svg';
+
+Vue.component('inline-svg', InlineSvg);
+
 /// region UI plugins
 Vue.use(iView, { locale });
 Vue.use(moment as any);

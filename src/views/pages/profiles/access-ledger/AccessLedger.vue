@@ -1,5 +1,34 @@
 <template>
-    <div class="create-profile-wrapper radius">
+    <div class="access-ledger">
+        <img src="@/assets/images/logo-favicon.png" alt="" class="logo" />
+        <img src="@/assets/images/background-arrow2.png" alt="" class="background-arrow" />
+
+        <div class="left">
+            <div class="left-content" :class="{ wide: $route.name === 'profiles.accessLedger.walletSelection' }">
+                <router-view />
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="steps">
+                <div v-for="(text, index) in StepBarTitleList" :key="index" :class="['step', getStepClassName(index)]">
+                    <div class="step-number">
+                        {{ index + 1 }}
+                    </div>
+                    <div class="step-title">
+                        {{ $t(text) }}
+                    </div>
+
+                    <div v-if="getCurrentStep() === 0 && getCurrentStep() === index" class="step-description">
+                        <p class="text">
+                            {{ $t('profile_description_tips1') }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="create-profile-wrapper radius">
         <div class="explanation-box">
             <div class="text-wrapper">
                 <div v-if="getCurrentStep() === 0">
@@ -164,7 +193,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -172,5 +201,7 @@ import AccessLedgerTs from './AccessLedgerTs';
 export default class AccessLedger extends AccessLedgerTs {}
 </script>
 <style lang="less" scoped>
-@import './AccessLedger.less';
+// @import './AccessLedger.less';
 </style>
+
+<style scoped src="./AccessLedger.css"></style>

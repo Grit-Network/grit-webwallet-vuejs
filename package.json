@@ -65,10 +65,11 @@
         "utf8": "^3.0.0",
         "vee-validate": "^3.2.3",
         "view-design": "^4.0.0",
-        "vue": "^2.6.10",
+        "vue": "2.6.11",
         "vue-class-component": "^7.0.2",
         "vue-i18n": "^8.11.2",
         "vue-infinite-scroll": "^2.0.2",
+        "vue-inline-svg": "^2.0.0",
         "vue-moment": "^4.1.0",
         "vue-number-animation": "1.0.5",
         "vue-pdf": "^4.2.0",
@@ -141,7 +142,8 @@
         "typescript": "^3.7.2",
         "utf-8-validate": "^5.0.2",
         "vue-jest": "^3.0.5",
-        "vue-template-compiler": "^2.6.10"
+        "vue-svg-loader": "^0.16.0",
+        "vue-template-compiler": "2.6.11"
     },
     "resolutions": {
         "@babel/preset-env": "7.5.5"

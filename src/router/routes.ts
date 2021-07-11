@@ -33,7 +33,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_home',
-                    icon: officialIcons.dashboard,
+                    // icon: officialIcons.dashboard,
+                    icon: require('@/assets/icons/home.svg'),
                 },
                 redirect: '/home',
                 // @ts-ignore
@@ -45,7 +46,8 @@ export const routes: AppRoute[] = [
                         meta: {
                             protected: true,
                             title: 'page_title_history',
-                            icon: officialIcons.history,
+                            // icon: officialIcons.history,
+                            icon: require('@/assets/icons/history.svg'),
                         },
                         // @ts-ignore
                         component: () => import('@/views/pages/dashboard/home/DashboardHomePage.vue'),
@@ -56,7 +58,8 @@ export const routes: AppRoute[] = [
                         meta: {
                             protected: true,
                             title: 'page_title_send',
-                            icon: officialIcons.send2,
+                            // icon: officialIcons.send2,
+                            icon: require('@/assets/icons/database-arrow-up.svg'),
                         },
                         // @ts-ignore
                         component: () => import('@/views/pages/dashboard/transfer/DashboardTransferPage.vue'),
@@ -68,7 +71,8 @@ export const routes: AppRoute[] = [
                         meta: {
                             protected: true,
                             title: 'page_title_invoice',
-                            icon: officialIcons.receive2,
+                            // icon: officialIcons.receive2,
+                            icon: require('@/assets/icons/database-arrow-down.svg'),
                         },
                         // @ts-ignore
                         component: () => import('@/views/pages/dashboard/invoice/DashboardInvoicePage.vue'),
@@ -93,7 +97,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_accounts',
-                    icon: officialIcons.wallet,
+                    // icon: officialIcons.wallet,
+                    icon: require('@/assets/icons/wallet.svg'),
                 },
                 // @ts-ignore
                 component: () => import('@/views/pages/accounts/Accounts.vue'),
@@ -118,7 +123,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_mosaics',
-                    icon: officialIcons.mosaic,
+                    // icon: officialIcons.mosaic,
+                    icon: require('@/assets/icons/mosaics.svg'),
                 },
                 // @ts-ignore
                 component: () => import('@/views/pages/mosaics/MosaicsDashboardPage/MosaicsDashboardPage.vue'),
@@ -152,7 +158,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_namespaces',
-                    icon: officialIcons.namespace,
+                    // icon: officialIcons.namespace,
+                    icon: require('@/assets/icons/file-edit.svg'),
                 },
                 redirect: '/namespaceList',
                 // @ts-ignore
@@ -197,7 +204,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_multisig',
-                    icon: officialIcons.multisig,
+                    // icon: officialIcons.multisig,
+                    icon: require('@/assets/icons/lan.svg'),
                 },
                 redirect: '/multisigManagement',
                 // @ts-ignore
@@ -223,7 +231,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_harvesting',
-                    icon: officialIcons.harvest,
+                    // icon: officialIcons.harvest,
+                    icon: require('@/assets/icons/sprout.svg'),
                 },
                 // @ts-ignore
                 component: () => import('@/views/pages/harvesting/HarvestingDashboardPage/HarvestingDashboardPage.vue'),
@@ -245,7 +254,8 @@ export const routes: AppRoute[] = [
                     protected: true,
                     clickable: true,
                     title: 'sidebar_item_aggregate',
-                    icon: officialIcons.aggregate,
+                    // icon: officialIcons.aggregate,
+                    icon: require('@/assets/icons/arrow-decision.svg'),
                 },
                 // @ts-ignore
                 component: () => import('@/views/forms/FormAggregateTransaction/FormAggregateTransaction.vue'),
@@ -292,28 +302,28 @@ export const routes: AppRoute[] = [
                     },
                 ],
             },
-            {
-                path: '/communityPanel', //TODO: Harvesting
-                name: 'community',
-                redirect: '/information',
-                meta: {
-                    protected: true,
-                    clickable: true,
-                    title: 'sidebar_item_community',
-                    icon: officialIcons.news,
-                },
-                // @ts-ignore
-                component: () => import('@/views/pages/community/Community.vue'),
-                children: [
-                    {
-                        path: '/information',
-                        name: 'community.index',
-                        meta: { protected: true },
-                        // @ts-ignore
-                        component: () => import('@/views/pages/community/information/Information.vue'),
-                    },
-                ],
-            },
+            // {
+            //     path: '/communityPanel', //TODO: Harvesting
+            //     name: 'community',
+            //     redirect: '/information',
+            //     meta: {
+            //         protected: true,
+            //         clickable: true,
+            //         title: 'sidebar_item_community',
+            //         icon: officialIcons.news,
+            //     },
+            //     // @ts-ignore
+            //     component: () => import('@/views/pages/community/Community.vue'),
+            //     children: [
+            //         {
+            //             path: '/information',
+            //             name: 'community.index',
+            //             meta: { protected: true },
+            //             // @ts-ignore
+            //             component: () => import('@/views/pages/community/information/Information.vue'),
+            //         },
+            //     ],
+            // },
         ],
         /// end-region PageLayout children
     },

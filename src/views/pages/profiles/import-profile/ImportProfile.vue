@@ -1,5 +1,44 @@
 <template>
-    <div class="import-profile-wrapper radius">
+    <div class="import-profile">
+        <img src="@/assets/images/logo-favicon.png" alt="" class="logo" />
+        <img src="@/assets/images/background-arrow2.png" alt="" class="background-arrow" />
+
+        <div class="left">
+            <div class="left-content" :class="{ wide: $route.name === 'profiles.importProfile.walletSelection' }">
+                <router-view />
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="steps">
+                <div v-for="(text, index) in StepBarTitleList" :key="index" :class="['step', getStepClassName(index)]">
+                    <div class="step-number">
+                        {{ index + 1 }}
+                    </div>
+                    <div class="step-title">
+                        {{ $t(text) }}
+                    </div>
+
+                    <div v-if="getCurrentStep() === 0 && getCurrentStep() === index" class="step-description">
+                        <p>
+                            {{ $t('import_private_key_profile_description_tip1') }}
+                        </p>
+                        <p>
+                            {{ $t('import_private_key_profile_description_tip2') }}
+                        </p>
+                        <p class="text-blue font-semibold">
+                            {{ $t('profile_description_tips3') }}
+                        </p>
+                    </div>
+
+                    <div v-if="getCurrentStep() === 1 && getCurrentStep() === index" class="step-description">
+                        <p>{{ $t('input_mnemonic_tips') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="import-profile-wrapper radius">
         <div class="explanation-box">
             <div class="text-wrapper">
                 <div v-if="getCurrentStep() === 0">
@@ -158,7 +197,7 @@
                 <router-view />
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -166,5 +205,7 @@ import ImportProfileTs from './ImportProfileTs';
 export default class ImportProfile extends ImportProfileTs {}
 </script>
 <style lang="less" scoped>
-@import './ImportProfile.less';
+// @import './ImportProfile.less';
 </style>
+
+<style scoped src="./ImportProfile.css"></style>

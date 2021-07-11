@@ -18,6 +18,7 @@ import { mapGetters } from 'vuex';
 // internal dependencies
 import { AccountModel } from '@/core/database/entities/AccountModel';
 import { AccountService } from '@/services/AccountService';
+import WalletSVG from '@/assets/icons/wallet.svg';
 
 @Component({
     computed: {

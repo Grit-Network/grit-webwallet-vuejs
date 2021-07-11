@@ -1,0 +1,96 @@
+.import-profile {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+}
+
+.logo {
+    position: absolute;
+    left: 35px;
+    top: 35px;
+    width: 86px;
+}
+
+.background-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 70%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+
+.left-content {
+    width: 60%;
+}
+
+.left-content.wide {
+    width: 80%;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    background-color: #1d1d1d;
+    padding: 60px 30px 60px 0;
+}
+
+.steps {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10%;
+    row-gap: 60px;
+}
+
+.step-title {
+    font-size: 21px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--clr-gray-dark);
+    padding-top: 7px;
+}
+
+.step.active .step-title {
+    color: #fff;
+}
+
+.step-number {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    transform: translateX(-50%);
+    background-color: #1d1d1d;
+    color: var(--clr-gray-dark);
+    font-size: 13px;
+    font-weight: 800;
+    border-radius: 100px;
+    border: 2px solid var(--clr-primary);
+}
+
+.step.active .step-number {
+    background-color: #fff;
+    color: var(--clr-gray-dark);
+}
+
+.step.done .step-number {
+    background: linear-gradient(180deg, #0032bd 0%, #0f87e5 100%);
+    color: #fff;
+}
+
+.step-description {
+    margin-top: 20px;
+}

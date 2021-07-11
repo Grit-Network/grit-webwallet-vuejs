@@ -1,9 +1,5 @@
 <template>
-    <div class="monitor-dashboard-wrapper secondary_page_animate">
-        <div class="transaction-list-wrapper">
-            <TransactionList v-if="!!accountAddress" :address="accountAddress" pagination-type="scroll" />
-        </div>
-    </div>
+    <TransactionList v-if="!!accountAddress" :address="accountAddress" pagination-type="scroll" />
 </template>
 
 <script lang="ts">
@@ -12,5 +8,5 @@ import { DashboardHomePageTs } from './DashboardHomePageTs';
 export default class DashboardHomePage extends DashboardHomePageTs {}
 </script>
 <style lang="less" scoped>
-@import './DashboardHomePage.less';
+// @import './DashboardHomePage.less';
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div class="invoice-container secondary_page_animate">
-        <div class="invoice-inner-container scroll">
+    <div class="content">
+        <div>
             <FormTransferTransaction
                 :hide-encryption="true"
                 :hide-signer="true"
@@ -52,5 +52,14 @@ import { DashboardInvoicePageTs } from './DashboardInvoicePageTs';
 export default class DashboardInvoicePage extends DashboardInvoicePageTs {}
 </script>
 <style lang="less" scoped>
-@import './DashboardInvoicePage.less';
+// @import './DashboardInvoicePage.less';
+</style>
+
+<style scoped>
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+}
 </style>

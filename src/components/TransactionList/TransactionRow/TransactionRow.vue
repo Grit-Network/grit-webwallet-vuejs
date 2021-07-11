@@ -1,17 +1,17 @@
 <template>
-    <div class="transaction-row-container transaction-row-columns" @click="$emit('click', transaction)">
+    <div class="tr" @click="$emit('click', transaction)">
         <!-- FIRST COLUMN -->
-        <div class="icon-cell">
+        <!-- <div class="td">
             <img :src="getIcon()" class="icon-cell-image" />
-        </div>
+        </div> -->
 
         <!-- SECOND COLUMN -->
-        <div class="address-cell">
+        <div class="td">
             <ActionDisplay :transaction="transaction" :is-optin-payout-transaction="isOptinPayoutTransaction" />
         </div>
 
         <!-- THIRD COLUMN -->
-        <div class="amount-cell">
+        <div class="td">
             <MosaicAmountDisplay
                 v-if="getAmount() !== undefined"
                 :id="getAmountMosaicId()"
@@ -23,12 +23,12 @@
         </div>
 
         <!-- FOURTH COLUMN -->
-        <div class="confirmation-cell">
+        <div class="td">
             {{ getHeight() }}
         </div>
 
         <!-- FIFTH COLUMN -->
-        <div class="hash-cell">
+        <div class="td">
             <!--
             <span class="hash-cell-transaction-hash">
                 <a class="url_text" target="_blank" :href="explorerUrl">
@@ -36,10 +36,8 @@
                 </a>
             </span>
             -->
-            <span class="hash-cell-time">
-                <!-- @TODO: Should be transaction time instead of deadline -->
-                {{ date }}
-            </span>
+            <!-- @TODO: Should be transaction time instead of deadline -->
+            {{ date }}
         </div>
     </div>
 </template>
@@ -50,3 +48,19 @@ import { TransactionRowTs } from './TransactionRowTs';
 
 export default class TransactionRow extends TransactionRowTs {}
 </script>
+
+
+<style scoped>
+.tr {
+    display: table-row;
+}
+
+.td {
+    display: table-cell;
+    padding: 10px 14px;
+}
+
+.td:nth-child(even) {
+    background-color: var(--clr-gray-dark);
+}
+</style>

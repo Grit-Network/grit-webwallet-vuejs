@@ -258,4 +258,13 @@ export default class AccountSelectionTs extends Vue {
     protected onAddAddressOptIn(pathNumber: number): void {
         this.$store.commit('account/addToSelectedAddressesOptInToInteract', pathNumber);
     }
+
+    /**
+     * Called when clicking on an address to remove it from the selection
+     * @protected
+     * @param {number} pathNumber
+     */
+    protected onRemoveAddress(pathNumber: number): void {
+        this.$store.commit('account/removeFromSelectedAddressesToInteract', pathNumber);
+    }
 }

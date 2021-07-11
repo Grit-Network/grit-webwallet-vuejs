@@ -21,6 +21,11 @@ module.exports = {
     // webpack
     // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
     chainWebpack: (config) => {
+        // const svgRule = config.module.rule('svg');
+
+        // svgRule.uses.clear();
+        // svgRule.use('vue-loader').loader('vue-loader').end().use('vue-svg-loader').loader('vue-svg-loader');
+
         config.plugin('define').tap((args) => {
             const env = args[0]['process.env'];
             const dataPlaceholder = {
@@ -45,6 +50,7 @@ module.exports = {
                 KEYS_WHITELIST: JSON.stringify(configFile.preLaunchOptin),
                 KEYS_FINANCE: JSON.stringify(configFile.nglFinanceBot),
             };
+
             return args;
         });
     },

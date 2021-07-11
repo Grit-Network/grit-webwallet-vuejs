@@ -4,19 +4,17 @@
             <div v-if="!noLabel">{{ $t(label) }}:</div>
         </template>
         <template v-slot:inputs>
-            <div class="inputs-container select-container">
-                <Select
-                    v-model="chosenAccount"
-                    :placeholder="$t('address')"
-                    class="select-size select-style"
-                    :disabled="disabled"
-                    @change="onChangeCurrentAccount"
-                >
-                    <Option v-for="item in accountModels" :key="item.id + item.name" :value="item.id">
-                        {{ `${item.name} - ${item.address.slice(0, 5)}...${item.address.slice(34)}` }}
-                    </Option>
-                </Select>
-            </div>
+            <Select
+                v-model="chosenAccount"
+                :placeholder="$t('address')"
+                class="mt-0.5"
+                :disabled="disabled"
+                @change="onChangeCurrentAccount"
+            >
+                <Option v-for="item in accountModels" :key="item.id + item.name" :value="item.id">
+                    {{ `${item.name} - ${item.address.slice(0, 5)}...${item.address.slice(34)}` }}
+                </Option>
+            </Select>
         </template>
     </FormRow>
 </template>

@@ -1,5 +1,23 @@
 <template>
-    <div class="create-mnemonic-sec" @keyup.enter="submit">
+    <div class="import-mnemonic" @keyup.enter="submit">
+        <p class="title">{{ $t('input_mnemonic') }}</p>
+        <MnemonicInput :seed="importedMnemonic" @handle-words="setSeed" />
+
+        <div class="flex justify-end mt-3">
+            <button type="button" class="button gray mr-1.5 w-6" @click="deleteProfileAndBack">
+                {{ $t('back') }}
+            </button>
+            <button
+                type="submit"
+                class="button primary w-6"
+                :disabled="!(wordsArray.length === 12 || wordsArray.length === 24)"
+                @click="processVerification"
+            >
+                {{ $t('next') }}
+            </button>
+        </div>
+    </div>
+    <!-- <div class="create-mnemonic-sec" @keyup.enter="submit">
         <p class="set-title">
             {{ $t('input_mnemonic') }}
         </p>
@@ -32,7 +50,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -41,5 +59,13 @@ import ImportMnemonicTs from './ImportMnemonicTs';
 export default class ImportMnemonic extends ImportMnemonicTs {}
 </script>
 <style lang="less" scoped>
-@import './ImportMnemonic.less';
+// @import './ImportMnemonic.less';
+</style>
+
+<style scoped>
+.title {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
 </style>

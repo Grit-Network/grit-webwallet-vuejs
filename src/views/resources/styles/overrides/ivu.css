@@ -5,3 +5,7 @@
 .selected-words .ivu-icon {
     color: #fff;
 }
+
+.ivu-checkbox-inner {
+    background-color: transparent;
+}

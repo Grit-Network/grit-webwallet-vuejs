@@ -14,7 +14,7 @@
     height: 43px;
     border: 1.5px solid var(--clr-gray);
     border-radius: 4px;
-    background-color: var(--clr-primary);
+    background-color: transparent;
 }
 
 .ivu-select-visible .ivu-select-selection {
@@ -32,8 +32,11 @@
     color: var(--clr-gray);
 }
 
-.ivu-select-single .ivu-select-selection .ivu-select-placeholder,
-.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+.ivu-select-item.ivu-select-item-selected {
+    color: var(--clr-blue);
+}
+
+.ivu-select-single .ivu-select-selection .ivu-select-placeholder {
     color: var(--clr-gray);
     padding-left: 17px;
 }
@@ -45,4 +48,9 @@
 .ivu-select-item:hover {
     background: var(--clr-gray-dark);
     color: var(--clr-blue);
+}
+
+.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
+    color: #fff;
+    padding-left: 17px;
 }

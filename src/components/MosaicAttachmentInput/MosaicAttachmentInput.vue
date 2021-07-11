@@ -1,12 +1,12 @@
 <template>
     <FormRow>
         <template v-slot:label>
-            <span v-show="isFirstItem">{{ $t('mosaic') }}:</span>
+            <div v-show="isFirstItem" class="mb-0.5">{{ $t('mosaic') }}:</div>
         </template>
         <template v-slot:inputs>
-            <div class="row-mosaic-attachment-input inputs-container">
+            <div class="select-input">
                 <MosaicSelector v-model="chosenValue.mosaicHex" :mosaic-hex-ids="mosaicHexIds" @input="onChangeMosaic" />
-                <AmountInput v-model="relativeAmount" :mosaic-hex="chosenValue.mosaicHex" class="ml-2" @input="onChangeAmount" />
+                <AmountInput v-model="relativeAmount" :mosaic-hex="chosenValue.mosaicHex" @input="onChangeAmount" />
                 <div v-show="isShowDelete" class="delete-mosaic-container">
                     <span class="delete-mosaic-icon" @click="$emit('input-deleted', uid)" />
                 </div>
@@ -19,3 +19,10 @@
 import { MosaicAttachmentInputTs } from './MosaicAttachmentInputTs';
 export default class MosaicAttachmentInput extends MosaicAttachmentInputTs {}
 </script>
+
+<style scoped>
+.select-input {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+}
+</style>

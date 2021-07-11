@@ -1,15 +1,18 @@
 .form .form-input {
     width: 100%;
-    padding: 12px 18px;
+    padding: 7px 18px;
     border-radius: 4px;
     border: 1.5px solid var(--clr-gray);
     outline: none;
-    background-color: var(--clr-primary);
+    background-color: transparent;
     color: #fff;
+    height: 43px;
+    align-items: center;
 }
 
-.form .form-input.large {
-    padding: 12px 18px;
+.form .form-input.textarea {
+    height: auto;
+    min-height: 100px;
 }
 
 .form .form-input:focus,

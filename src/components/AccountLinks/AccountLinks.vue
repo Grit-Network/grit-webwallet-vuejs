@@ -1,8 +1,10 @@
 <template>
     <div>
         <slot name="trigger">
-            <a class="trigger-accountlink pointer" :href="link" target="_blank">
-                <img class="navbar-icon" :src="icon" />
+            <a class="navbar-item" :href="link" target="_blank">
+                <!-- <img class="navbar-icon" :src="icon" /> -->
+                <inline-svg :src="require('@/assets/icons/web.svg')" class="navbar-item-icon" />
+
                 <span>{{ title }}</span>
             </a>
         </slot>

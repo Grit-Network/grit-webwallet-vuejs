@@ -1,6 +1,8 @@
 <template>
     <FormRow>
-        <template v-slot:label> {{ $t('fee') }}: </template>
+        <template v-slot:label>
+            <div class="mb-0.5">{{ $t('fee') }}:</div>
+        </template>
         <template v-slot:inputs>
             <div :class="{ 'row-75-25': !hideSubmit }">
                 <MaxFeeSelector
@@ -12,13 +14,8 @@
                     :slowest-fee="slowestFee"
                     :fast-fee="fastFee"
                 />
-                <div v-if="!hideSubmit" class="ml-2">
-                    <button
-                        type="submit"
-                        :class="'centered-button button-style submit-button ' + submitButtonClasses"
-                        :disabled="disableSubmit"
-                        @click="$emit('button-clicked')"
-                    >
+                <div v-if="!hideSubmit" class="ml-2 flex justify-end mt-5">
+                    <button type="submit" class="button primary w-6" :disabled="disableSubmit" @click="$emit('button-clicked')">
                         {{ $t(submitButtonText) }}
                     </button>
                 </div>

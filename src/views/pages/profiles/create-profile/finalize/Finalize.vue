@@ -4,10 +4,10 @@
         <div class="title">{{ $t('safe_storage_tips') }}</div>
 
         <ul class="ml-2">
-            <li>{{ $t('save_backups') }}</li>
-            <li>{{ $t('do_not_share_mnemonics_with_anyone') }}</li>
-            <li>{{ $t('phishing_warning') }}</li>
-            <li>{{ $t('if_you_need_to_backup_your_mnemonics_again_you_can') }}</li>
+            <li><img src="@/assets/icons/chevron-right.png" alt="" />{{ $t('save_backups') }}</li>
+            <li><img src="@/assets/icons/chevron-right.png" alt="" />{{ $t('do_not_share_mnemonics_with_anyone') }}</li>
+            <li><img src="@/assets/icons/chevron-right.png" alt="" />{{ $t('phishing_warning') }}</li>
+            <li><img src="@/assets/icons/chevron-right.png" alt="" />{{ $t('if_you_need_to_backup_your_mnemonics_again_you_can') }}</li>
         </ul>
 
         <div class="mt-3">
@@ -23,10 +23,10 @@
         </div>
 
         <div class="mt-4 flex justify-end">
-            <button type="button" class="button gray w-7 mr-2" @click="$router.back()">
+            <button type="button" class="button gray w-6 mr-1.5" @click="$router.back()">
                 {{ $t('back') }}
             </button>
-            <button type="submit" class="button primary w-7" :disabled="isLoading || !marked" @click="submit">
+            <button type="submit" class="button primary w-6" :disabled="isLoading || !marked" @click="submit">
                 {{ $t('finish') }}
             </button>
             <Spin v-if="isLoading" size="large" fix class="absolute" />
@@ -106,5 +106,16 @@ export default class Finalize extends FinalizeTs {}
 
 li + li {
     margin-top: 1.1em;
+}
+
+li {
+    display: flex;
+    column-gap: 10px;
+    align-items: flex-start;
+}
+
+li img {
+    vertical-align: middle;
+    margin-top: 5px;
 }
 </style>

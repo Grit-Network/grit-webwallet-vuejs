@@ -18,6 +18,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
 
 // internal dependencies
+import { AddressBook } from 'symbol-address-book';
 // child components
 // @ts-ignore
 import NavigationTabs from '@/components/NavigationTabs/NavigationTabs.vue';
@@ -37,6 +38,15 @@ import ModalMetadataUpdate from '@/views/modals/ModalMetadataUpdate/ModalMetadat
 import ModalAccountRestrictions from '@/views/modals/ModalAccountRestrictions/ModalAccountRestrictions.vue';
 // @ts-ignore
 import ModalConfirm from '@/views/modals/ModalConfirm/ModalConfirm.vue';
+// @ts-ignore
+import ModalFormSubAccountCreation from '@/views/modals/ModalFormSubAccountCreation/ModalFormSubAccountCreation.vue';
+// @ts-ignore
+import ModalBackupProfile from '@/views/modals/ModalBackupProfile/ModalBackupProfile.vue';
+// @ts-ignore
+import ModalImportAddressBook from '@/views/modals/ModalImportAddressBook/ModalImportAddressBook.vue';
+// @ts-ignore
+import ModalContactCreation from '@/views/modals/ModalContactCreation/ModalContactCreation.vue';
+import { UIHelpers } from '@/core/utils/UIHelpers';
 
 @Component({
     components: {
@@ -49,9 +59,16 @@ import ModalConfirm from '@/views/modals/ModalConfirm/ModalConfirm.vue';
         ModalMetadataUpdate,
         ModalAccountRestrictions,
         ModalConfirm,
+        ModalFormSubAccountCreation,
+        ModalBackupProfile,
+        ModalImportAddressBook,
+        ModalContactCreation,
     },
     computed: {
-        ...mapGetters({}),
+        ...mapGetters({
+            isPrivateKeyProfile: 'profile/isPrivateKeyProfile',
+            addressBook: 'addressBook/getAddressBook',
+        }),
     },
 })
 export class AccountsTs extends Vue {
@@ -71,6 +88,14 @@ export class AccountsTs extends Vue {
     public set activePanel(panel) {
         this.activeIndex = panel;
     }
+
+    /**
+     * Address book
+     * @see {Store.addressBook}
+     * @var {AddressBook}
+     */
+    public addressBook: AddressBook;
+
     /**
      * Show add metadata modal
      */
@@ -83,4 +108,66 @@ export class AccountsTs extends Vue {
      * Show add metadata modal
      */
     public showAccountRestrictionsModal: boolean = false;
+
+    /**
+     * Whether currently viewing export
+     * @var {boolean}
+     */
+    public isViewingExportModal: boolean = false;
+
+    /**
+     * Whether user is currently adding an account (modal)
+     * @var {boolean}
+     */
+    public isAddingAccount: boolean = false;
+
+    /**
+     * Whether currently viewing export
+     * @var {boolean}
+     */
+    public isViewingExportModalContact: boolean = false;
+
+    /**
+     * Whether user is currently adding an account (modal)
+     * @var {boolean}
+     */
+    public isAddingAccountContact: boolean = false;
+
+    public hasImportProfileModal: boolean = false;
+
+    public get hasBackupProfileModal(): boolean {
+        return this.isViewingExportModal;
+    }
+
+    public set hasBackupProfileModal(f: boolean) {
+        this.isViewingExportModal = f;
+    }
+
+    public get hasAddAccountModal(): boolean {
+        return this.isAddingAccount;
+    }
+
+    public set hasAddAccountModal(f: boolean) {
+        this.isAddingAccount = f;
+    }
+
+    public get hasBackupProfileModalContact(): boolean {
+        return this.isViewingExportModalContact;
+    }
+
+    public set hasBackupProfileModalContact(f: boolean) {
+        this.isViewingExportModalContact = f;
+    }
+
+    public get hasAddAccountModalContact(): boolean {
+        return this.isAddingAccountContact;
+    }
+
+    public set hasAddAccountModalContact(f: boolean) {
+        this.isAddingAccountContact = f;
+    }
+
+    public downloadAddressBook() {
+        UIHelpers.downloadBytesAsFile(this.addressBook.toJSON(), `address-book.json`, 'application/json');
+    }
 }

@@ -1,9 +1,10 @@
 <template>
     <div>
         <slot name="trigger" :trigger="onClick">
-            <div class="trigger-importqr pointer level" @click="onClick">
-                <img class="navbar-icon level-item" src="@/views/resources/img/newicons/NavQRCode.svg" />
-                <span class="level-item">{{ $t('import_qr_code') }}</span>
+            <div @click="onClick" class="navbar-item">
+                <inline-svg :src="require('@/assets/icons/qrcode-scan.svg')" class="navbar-item-icon" />
+                <!-- <img class="navbar-icon" src="@/views/resources/img/newicons/NavQRCode.svg" /> -->
+                <span>{{ $t('import_qr_code') }}</span>
             </div>
         </slot>
         <ModalImportQR v-if="visible" :visible="visible" :valid-qr-types="validQrTypes" @close="onClose" />
@@ -17,5 +18,12 @@ export default class ImportQRButton extends ImportQRButtonTs {}
 </script>
 
 <style lang="less" scoped>
-@import './ImportQRButton.less';
+// @import './ImportQRButton.less';
+</style>
+
+<style scoped>
+.navbar-icon {
+    fill: var(--clr-gray);
+    font-size: 20px;
+}
 </style>

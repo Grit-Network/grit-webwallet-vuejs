@@ -1,9 +1,11 @@
 <template>
     <div class="transactions-filter">
-        <div class="filter-button" @click.stop="toggleSelection">
+        <!-- <div class="filter-button" @click.stop="toggleSelection">
             <span>Filter</span>
             <div class="filter-button-arrow" :class="{ 'arrow-up': isSelectionShown }" />
-        </div>
+        </div> -->
+        <inline-svg :src="require('@/assets/icons/filter.svg')" class="cursor-pointer" @click.stop="toggleSelection" />
+
         <div v-show="isSelectionShown" v-click-outside="closeSelection" class="filter-options-container">
             <div class="filter-options-container__option">
                 <Checkbox id="Confirmed" @input="(value) => onChange(transactionFilterOptions.confirmed, value)" />

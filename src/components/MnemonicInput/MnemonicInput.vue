@@ -14,7 +14,8 @@
                 @keydown.delete="deleteWord"
             />
         </div>
-        <ButtonCopyToClipboard v-model="waitingCopyString" class="copy-button" />
+
+        <ButtonCopyToClipboard v-model="waitingCopyString" type="icon-gray" class="copy-button" />
     </div>
 </template>
 <script lang="ts">
@@ -22,5 +23,43 @@ import { MnemonicInputTs } from './MnemonicInputTs';
 export default class MnemonicInput extends MnemonicInputTs {}
 </script>
 <style lang="less" scoped>
-@import './MnemonicInput.less';
+// @import './MnemonicInput.less';
+</style>
+
+<style scoped>
+.show-mnemonic {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    padding: 10px;
+    border: 1px solid var(--clr-gray-dark);
+    border-radius: 4px;
+}
+
+.input-already {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 4px;
+    text-transform: lowercase;
+    background-color: var(--clr-gray);
+    margin: 7px;
+}
+
+.mnemonic-input-container {
+    display: inline-block;
+}
+
+.mnemonic-input {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    width: 100%;
+    padding: 8px 15px;
+}
+
+.copy-button {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+}
 </style>

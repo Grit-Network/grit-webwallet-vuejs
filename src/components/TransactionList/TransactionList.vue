@@ -1,5 +1,5 @@
 <template>
-    <div class="transaction-list-outer-container">
+    <div class="w-full">
         <div class="transaction-list-tabs-container">
             <TransactionListFilters @downloadTransactions="downloadTransactions" />
             <TransactionTable
@@ -38,5 +38,5 @@ import { TransactionListTs } from './TransactionListTs';
 export default class TransactionList extends TransactionListTs {}
 </script>
 <style lang="less" scoped>
-@import './TransactionList.less';
+// @import './TransactionList.less';
 </style>

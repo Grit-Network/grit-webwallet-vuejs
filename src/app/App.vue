@@ -19,6 +19,8 @@
 
 <style src="../views/resources/styles/components/form.css"></style>
 <style src="../views/resources/styles/components/button.css"></style>
+<style src="../views/resources/styles/components/navbar.css"></style>
+<style src="../views/resources/styles/components/panel.css"></style>
 
 <style src="../views/resources/styles/overrides/ivu.css"></style>
 <style src="../views/resources/styles/overrides/ivu-select.css"></style>

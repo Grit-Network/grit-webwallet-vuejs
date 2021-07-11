@@ -5,7 +5,7 @@
                 {{ $t('mnemonic_copy') }}
             </Button>
         </slot>
-        <!-- <Tooltip v-else-if="type === 'icon-black'" :content="$t(tooltipText)" placement="right">
+        <Tooltip v-else-if="type === 'icon-black'" :content="$t(tooltipText)" placement="right">
             <img src="@/views/resources/img/account/cloneIcon.svg" class="icon" />
         </Tooltip>
         <Tooltip v-else-if="type === 'icon-white'" :content="$t(tooltipText)" placement="right">
@@ -13,8 +13,8 @@
         </Tooltip>
         <Tooltip v-else-if="type === 'icon-gray'" :content="$t(tooltipText)" placement="right">
             <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" />
-        </Tooltip> -->
-        <Tooltip :content="$t(tooltipText)" placement="right">
+        </Tooltip>
+        <Tooltip :content="$t(tooltipText)" placement="right" v-else-if="type === 'icon-gray'">
             <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" />
         </Tooltip>
     </div>

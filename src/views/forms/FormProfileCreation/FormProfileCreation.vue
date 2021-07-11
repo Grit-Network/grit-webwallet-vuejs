@@ -1,5 +1,5 @@
 <template>
-    <div class="form-account-creation-container">
+    <div class="form-account-creation-container py-5">
         <FormWrapper :whitelisted="true">
             <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
                 <form onsubmit="event.preventDefault()" class="form">

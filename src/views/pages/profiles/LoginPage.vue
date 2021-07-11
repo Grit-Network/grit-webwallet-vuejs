@@ -23,14 +23,14 @@
                                     :class="['select-account', !profilesClassifiedByNetworkType ? 'un_click' : 'profile-name-input']"
                                     :disabled="performingLogin"
                                 >
-                                    <div class="auto-complete-sub-container scroll">
-                                        <div class="tips-in-sub-container">
+                                    <div>
+                                        <div class="px-1 py-0.5 font-semibold">
                                             {{ $t(profilesClassifiedByNetworkType ? 'select_a_profile' : 'no_profiles_in_database') }}
                                         </div>
                                         <div v-if="profilesClassifiedByNetworkType">
                                             <div v-for="pair in profilesClassifiedByNetworkType" :key="pair.networkType">
-                                                <div v-if="pair.profiles.length">
-                                                    <span class="network-type-head-title">{{ getNetworkTypeLabel(pair.networkType) }}</span>
+                                                <div v-if="pair.profiles.length" class="py-0.5 font-semibold">
+                                                    <span class="px-1">{{ getNetworkTypeLabel(pair.networkType) }}</span>
                                                 </div>
                                                 <Option
                                                     v-for="(profile, index) in pair.profiles"
@@ -72,8 +72,8 @@
                         </div>
 
                         <span
-                            class="pointer create-profile"
-                            :class="{ disabled: performingLogin }"
+                            class="create-profile-link cursor-pointer"
+                            v-if="!performingLogin"
                             @click="
                                 if (!performingLogin) {
                                     $router.push({

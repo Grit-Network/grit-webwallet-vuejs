@@ -1,6 +1,7 @@
 <template>
     <Tooltip :content="$t('refresh')" placement="top" :transfer="true">
-        <Icon type="md-refresh" class="button-refresh" @click="$emit('click')" />
+        <inline-svg :src="require('@/assets/icons/refresh.svg')" @click="$emit('click')" class="cursor-pointer" />
+        <!-- <Icon type="md-refresh" class="button-refresh" @click="$emit('click')" /> -->
     </Tooltip>
 </template>
 <script lang="ts">
