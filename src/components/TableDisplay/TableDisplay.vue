@@ -1,23 +1,70 @@
 <template>
-    <div class="table-container">
-        <div class="upper-section-container">
+    <div class="h-full">
+        <div class="flex absolute top-1 right-1">
+            <span class="add-metadata-button mr-1.5">
+                <ButtonAdd :title="$t('add_metadata')" :disabled="false" size="26" @click="$emit('on-add-metadata')" />
+            </span>
+            <Checkbox v-if="assetType !== 'metadata'" v-model="showExpired" class="flex-shrink-0">
+                <span v-show="assetType === 'mosaic'" class="ml-0.5 text-gray whitespace-nowrap">
+                    {{ $t('show_expired_mosaics') }}
+                </span>
+                <span v-show="assetType === 'namespace'" class="ml-0.5 text-gray whitespace-nowrap">
+                    {{ $t('show_expired_namespaces') }}
+                </span>
+            </Checkbox>
+            <div v-if="signers.length > 1" style="min-width: 2rem">
+                <SignerFilter :signers="signers" @signer-change="onSignerSelectorChange" />
+            </div>
+            <div class="flex items-center ml-1 cursor-pointer" @click="onRefresh">
+                <ButtonRefresh v-if="assetType !== 'metadata'" />
+                <span class="text-gray ml-0.5">Refresh</span>
+            </div>
+        </div>
+        <!-- <div class="upper-section-container">
             <div class="table-title-container section-title">
                 <div class="user-operation">
                     <span class="add-metadata-button">
                         <ButtonAdd :title="$t('add_metadata')" :disabled="false" size="26" @click="$emit('on-add-metadata')" />
                     </span>
                     <Checkbox v-if="assetType !== 'metadata'" v-model="showExpired" class="table-filter-item-container">
-                        <span v-show="assetType === 'mosaic'" style="margin-left: 0.1rem;">{{ $t('show_expired_mosaics') }}</span>
-                        <span v-show="assetType === 'namespace'" style="margin-left: 0.1rem;">{{ $t('show_expired_namespaces') }}</span>
+                        <span v-show="assetType === 'mosaic'" style="margin-left: 0.1rem">{{ $t('show_expired_mosaics') }}</span>
+                        <span v-show="assetType === 'namespace'" style="margin-left: 0.1rem">{{ $t('show_expired_namespaces') }}</span>
                     </Checkbox>
-                    <div v-if="signers.length > 1" style="min-width: 2rem;">
+                    <div v-if="signers.length > 1" style="min-width: 2rem">
                         <SignerFilter :signers="signers" @signer-change="onSignerSelectorChange" />
                     </div>
                     <ButtonRefresh v-if="assetType !== 'metadata'" @click="onRefresh" />
                 </div>
             </div>
-        </div>
-        <div
+        </div> -->
+
+        <!-- <Spin v-if="isLoading || isFetchingMore" size="large" fix class="absolute" /> -->
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th v-for="({ name, label }, index) in tableFields" :key="index">
+                        {{ $t(label) }}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <TableRow
+                    v-for="(rowValues, index) in currentPageRows"
+                    :key="index"
+                    :row-values="rowValues"
+                    :asset-type="assetType"
+                    :owned-asset-hex-ids="ownedAssetHexIds"
+                    @on-show-alias-form="showAliasForm"
+                    @on-show-extend-namespace-duration-form="showExtendNamespaceDurationForm"
+                    @on-show-mosaic-supply-change-form="showModifyMosaicSupplyForm"
+                    @on-show-metadata="showMetadataValue"
+                    @on-show-edit="showModalUpdateMetadata"
+                />
+            </tbody>
+        </table>
+        <!-- <div
             :class="[
                 'table-header-container',
                 assetType !== 'metadata' ? (assetType === 'mosaic' ? 'mosaic-columns' : 'namespace-columns') : 'metadata-columns',
@@ -36,10 +83,10 @@
                     :type="sortedBy.direction === 'asc' ? 'md-arrow-dropup' : 'md-arrow-dropdown'"
                 />
             </div>
-            <!-- Enmpty header for the action button column -->
             <div>&nbsp;</div>
-        </div>
-        <div class="table-body-container">
+        </div> -->
+
+        <!-- <div class="table-body-container">
             <Spin v-if="isLoading || isFetchingMore" size="large" fix class="absolute" />
             <div
                 v-show="displayedValues.length"
@@ -64,18 +111,11 @@
                 </div>
             </div>
             <div v-if="!isLoading && (!displayedValues || displayedValues.length === 0)" class="no-data-outer-container">
-                <!--<div class="no-data-message-container">
-                    <div>
-                        {{ assetType === 'mosaic' ? $t('no_data_mosaics') : $t('no_data_namespaces') }}
-                    </div>
-                </div>-->
                 <div class="no-data-inner-container">
-                    <div v-for="item in nodata" :key="item">
-                        &nbsp;
-                    </div>
+                    <div v-for="item in nodata" :key="item">&nbsp;</div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div v-if="paginationType === 'pagination'" class="table-footer-container">
             <Page class="page" :total="displayedValues.length" :page-size="pageSize" @on-change="handlePageChange" />
@@ -154,5 +194,5 @@ import { TableDisplayTs } from './TableDisplayTs';
 export default class TableDisplay extends TableDisplayTs {}
 </script>
 <style lang="less" scoped>
-@import './TableDisplay.less';
+// @import './TableDisplay.less';
 </style>

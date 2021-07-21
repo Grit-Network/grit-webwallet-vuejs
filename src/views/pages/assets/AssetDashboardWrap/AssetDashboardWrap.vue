@@ -1,14 +1,25 @@
 <template>
-    <div class="dashboard-outer-container">
+    <div class="panel h-full relative">
+        <NavigationTabs direction="horizontal" :parent-route-name="parentRouteName" />
+
+        <!-- <div class="flex justify-between p-1">
+            <div class="flex gap-x-1.5">
+                <router-link to="/mosaicList" tag="div" active-class="active" class="tab-link">OWNED MOSAICS</router-link>
+                <router-link to="/createMosaic" tag="div" active-class="active" class="tab-link">CREATE NEW MOSAICS</router-link>
+            </div>
+        </div> -->
+
+        <router-view />
+    </div>
+    <!-- <div class="dashboard-outer-container">
         <div class="dashboard-inner-container">
             <div class="header-container">
-                <NavigationTabs direction="horizontal" :parent-route-name="parentRouteName" />
             </div>
             <div class="bottom-container">
-                <router-view />
+                
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">
@@ -24,5 +35,8 @@ export default class AssetDashboardWrap extends Vue {
 </script>
 
 <style lang="less" scoped>
-@import './AssetDashboardWrap.less';
+// @import './AssetDashboardWrap.less';
+</style>
+
+<style scoped>
 </style>

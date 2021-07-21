@@ -1,9 +1,9 @@
 <template>
     <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
-        <form class="account-detail-row-3cols" onsubmit="event.preventDefault()">
-            <div class="label">{{ label }}:</div>
+        <form class="contents form" onsubmit="event.preventDefault()">
+            <div class="text-gray">{{ label }}:</div>
 
-            <div class="value field-name">
+            <div>
                 <span v-if="!editing" class="accountName">{{ value }}</span>
                 <ValidationProvider
                     v-if="editing"
@@ -20,8 +20,8 @@
                             v-model="newValue"
                             type="text"
                             name="name"
-                            class="input-size input-style"
-                            style="width: 100%;"
+                            class="form-input"
+                            style="width: 100%"
                             autocomplete="new-password"
                         />
                     </ErrorTooltip>
@@ -50,33 +50,33 @@ export default class FormInputEditable extends FormInputEditableTs {}
 </script>
 
 <style lang="less" scoped>
-@import '../../views/resources/css/variables.less';
+// @import '../../views/resources/css/variables.less';
 
-.edit-button {
-    height: 0.1rem !important;
-    width: 0.1rem !important;
-    background: transparent;
-    border: none;
-    color: @blackLight;
-    text-align: center;
-    cursor: pointer;
-    font-size: 1em;
-    margin-right: 30px;
-}
+// .edit-button {
+//     height: 0.1rem !important;
+//     width: 0.1rem !important;
+//     background: transparent;
+//     border: none;
+//     color: @blackLight;
+//     text-align: center;
+//     cursor: pointer;
+//     font-size: 1em;
+//     margin-right: 30px;
+// }
 
-.value {
-    display: inline;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
+// .value {
+//     display: inline;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+// }
 
-.edit-input {
-    border: 0;
-    padding-left: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    background-color: @grayLightest;
-    width: 100%;
-}
+// .edit-input {
+//     border: 0;
+//     padding-left: 8px;
+//     padding-top: 8px;
+//     padding-bottom: 8px;
+//     background-color: @grayLightest;
+//     width: 100%;
+// }
 </style>

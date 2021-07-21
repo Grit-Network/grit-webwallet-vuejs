@@ -37,6 +37,8 @@ import ModalBackupProfile from '@/views/modals/ModalBackupProfile/ModalBackupPro
 import NavigationLinks from '@/components/NavigationLinks/NavigationLinks.vue';
 // @ts-ignore
 import ModalContactCreation from '@/views/modals/ModalContactCreation/ModalContactCreation.vue';
+// @ts-ignore
+import ContactDetailPanel from '@/components/ContactDetailPanel/ContactDetailPanel.vue';
 import { UIHelpers } from '@/core/utils/UIHelpers';
 
 @Component({
@@ -51,6 +53,7 @@ import { UIHelpers } from '@/core/utils/UIHelpers';
         ModalBackupProfile,
         ModalContactCreation,
         NavigationLinks,
+        ContactDetailPanel,
     },
     computed: {
         ...mapGetters({

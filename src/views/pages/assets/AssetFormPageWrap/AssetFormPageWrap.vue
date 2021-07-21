@@ -21,5 +21,5 @@ export default class AssetFormPageWrap extends AssetFormPageWrapTs {}
 </script>
 
 <style lang="less" scoped>
-@import './AssetFormPageWrap.less';
+// @import './AssetFormPageWrap.less';
 </style>

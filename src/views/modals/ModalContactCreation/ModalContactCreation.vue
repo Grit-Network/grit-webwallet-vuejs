@@ -1,10 +1,8 @@
 <template>
-    <div class="container">
-        <Modal v-model="show" class-name="modal-container" :title="$t('modal_title_enter_account_name')" :transfer="false">
-            <FormContactCreation @submit="onSubmit" />
-            <div slot="footer" class="modal-footer"></div>
-        </Modal>
-    </div>
+    <Modal v-model="show" class-name="modal-container" :title="$t('modal_title_enter_account_name')" :transfer="false">
+        <FormContactCreation @submit="onSubmit" />
+        <div slot="footer" class="modal-footer"></div>
+    </Modal>
 </template>
 
 <script lang="ts">

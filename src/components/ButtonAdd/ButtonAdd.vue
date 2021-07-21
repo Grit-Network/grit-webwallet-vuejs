@@ -1,7 +1,8 @@
 <template>
-    <div v-if="!disabled" class="round-button" @click="$emit('click')">
-        <Icon type="md-add-circle" :size="size" />
-        <span v-if="title" class="add-button-title">{{ title }}</span>
+    <div v-if="!disabled" class="flex cursor-pointer items-center" @click="$emit('click')">
+        <!-- <Icon type="md-add-circle" :size="size" /> -->
+        <inline-svg :src="require('@/assets/icons/plus-circle.svg')"></inline-svg>
+        <span v-if="title" class="text-gray whitespace-nowrap ml-0.5">{{ title }}</span>
     </div>
 </template>
 
@@ -17,5 +18,5 @@ export default class ButtonAdd extends Vue {
 </script>
 
 <style lang="less" scoped>
-@import './ButtonAdd.less';
+// @import './ButtonAdd.less';
 </style>

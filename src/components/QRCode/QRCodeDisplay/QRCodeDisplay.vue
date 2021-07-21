@@ -1,14 +1,14 @@
 <template>
     <div class="qrcode-display">
-        <span v-if="header !== ''" class="qrcode-display-header">{{ $t(header) }}</span>
+        <div v-if="header !== ''" class="qrcode-display-header">{{ $t(header) }}</div>
         <img :src="qrCodeBase64$" :alt="$t(alt)" @click="copyAsText" />
-        <span v-if="showDownload" class="qrcode-display-footer">
+        <div v-if="showDownload" class="qrcode-display-footer">
             <slot name="download">
-                <a :href="qrCodeBase64$" :download="downloadName"
-                    ><Icon :type="'md-download'" size="17" /> {{ $t('button_download_qr') }}</a
-                >
+                <a :href="qrCodeBase64$" :download="downloadName" class="download-link">
+                    <Icon :type="'md-download'" size="17" /> {{ $t('button_download_qr') }}
+                </a>
             </slot>
-        </span>
+        </div>
     </div>
 </template>
 
@@ -17,5 +17,35 @@ import QRCodeDisplayTs from './QRCodeDisplayTs';
 export default class QRCodeDisplay extends QRCodeDisplayTs {}
 </script>
 <style lang="less" scoped>
-@import './QRCodeDisplay.less';
+// @import './QRCodeDisplay.less';
+</style>
+
+<style scoped>
+.qrcode-display img {
+    width: 120px;
+}
+
+.qrcode-display-header,
+.qrcode-display-footer {
+    color: var(--clr-gray);
+    font-size: 12px;
+    text-align: center;
+}
+
+.qrcode-display-header {
+    margin-bottom: 3px;
+}
+
+.qrcode-display-footer {
+    display: flex;
+}
+
+.download-link {
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.download-link:link:hover {
+    color: var(--clr-blue);
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex gap-x-1.5">
+    <div class="flex gap-x-1.5 h-full">
         <div class="panel w-6/12">
             <div class="header">
                 <div class="title">{{ $t('tab_accounts_accounts') }}</div>
@@ -21,7 +21,6 @@
                 <ModalBackupProfile v-if="hasBackupProfileModal" :visible="hasBackupProfileModal" @close="hasBackupProfileModal = false" />
             </div>
             <AccountSelectorPanel />
-            <!-- <router-view /> -->
         </div>
         <div class="panel w-6/12">
             <div class="header">
@@ -33,23 +32,24 @@
                         {{ $t('button_add_account') }}
                     </button>
 
-                    <button v-if="addressBook.getAllContacts().length === 0" @click="hasImportProfileModal = true" class="button-icon">
+                    <button @click="hasImportProfileModal = true" class="button-icon">
                         <inline-svg :src="require('@/assets/icons/import.svg')" />
                         {{ $t('import_address_book') }}
                     </button>
-                </div>
 
-                <ModalContactCreation
-                    v-if="hasAddAccountModalContact"
-                    :visible="hasAddAccountModalContact"
-                    @close="hasAddAccountModalContact = false"
-                />
-                <ModalImportAddressBook
-                    v-if="hasImportProfileModal"
-                    :visible="hasImportProfileModal"
-                    @close="hasImportProfileModal = false"
-                />
+                    <ModalContactCreation
+                        v-if="hasAddAccountModalContact"
+                        :visible="hasAddAccountModalContact"
+                        @close="hasAddAccountModalContact = false"
+                    />
+                    <ModalImportAddressBook
+                        v-if="hasImportProfileModal"
+                        :visible="hasImportProfileModal"
+                        @close="hasImportProfileModal = false"
+                    />
+                </div>
             </div>
+
             <ContactSelectorPanel />
         </div>
     </div>

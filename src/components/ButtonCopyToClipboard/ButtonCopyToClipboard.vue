@@ -6,13 +6,16 @@
             </Button>
         </slot>
         <Tooltip v-else-if="type === 'icon-black'" :content="$t(tooltipText)" placement="right">
-            <img src="@/views/resources/img/account/cloneIcon.svg" class="icon" />
+            <inline-svg :src="require('@/assets/icons/content-copy.svg')" :class="type" />
+            <!-- <img src="@/views/resources/img/account/cloneIcon.svg" class="icon" /> -->
         </Tooltip>
         <Tooltip v-else-if="type === 'icon-white'" :content="$t(tooltipText)" placement="right">
-            <img src="@/views/resources/img/account/cloneIcon_white.svg" class="icon" />
+            <inline-svg :src="require('@/assets/icons/content-copy.svg')" :class="type" />
+            <!-- <img src="@/views/resources/img/account/cloneIcon_white.svg" class="icon" /> -->
         </Tooltip>
         <Tooltip v-else-if="type === 'icon-gray'" :content="$t(tooltipText)" placement="right">
-            <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" />
+            <!-- <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" /> -->
+            <inline-svg :src="require('@/assets/icons/content-copy.svg')" :class="type" />
         </Tooltip>
         <Tooltip :content="$t(tooltipText)" placement="right" v-else-if="type === 'icon-gray'">
             <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" />
@@ -25,4 +28,19 @@ export default class ButtonCopyToClipboard extends ButtonCopyToClipboardTs {}
 </script>
 <style lang="less" scoped>
 @import './ButtonCopyToClipboard.less';
+</style>
+
+
+<style scoped>
+/deep/.icon-gray path {
+    fill: var(--clr-gray);
+}
+
+/deep/.icon-white path {
+    fill: #fff;
+}
+
+/deep/.icon-black path {
+    fill: black;
+}
 </style>

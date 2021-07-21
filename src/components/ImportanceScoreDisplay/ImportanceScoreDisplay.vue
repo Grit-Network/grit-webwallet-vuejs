@@ -1,7 +1,7 @@
 <template>
-    <div class="account-detail-row">
-        <span class="label">{{ $t('importance') }}:</span>
-        <span class="value">{{ score }}</span>
+    <div class="contents">
+        <span class="text-gray">{{ $t('importance') }}:</span>
+        <span>{{ score }}</span>
     </div>
 </template>
 

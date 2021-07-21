@@ -1,6 +1,16 @@
 <template>
-    <div class="account-selector-panel">
-        <div v-auto-scroll="'active-background'" class="account-switch-body-container scroll">
+    <div class="contact-selector mt-3">
+        <div class="flex flex-col">
+            <div v-for="(item, index) in allContacts" :key="index" class="contact-container">
+                <div @click="selectedContactId = item.id" :class="{ active: isActiveContact(item) }" class="contact">
+                    <img src="@/assets/images/logo-favicon.png" class="contact-image" alt />
+                    <div class="contact-title">{{ item.name }}</div>
+                </div>
+
+                <ContactDetailPanel v-if="isActiveContact(item)" />
+            </div>
+        </div>
+        <!-- <div v-auto-scroll="'active-background'" class="account-switch-body-container scroll">
             <div
                 v-for="(item, index) in allContacts"
                 :key="index"
@@ -15,7 +25,7 @@
                     <span class="mosaic_name">{{ item.name }}</span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- <div class="account-switch-footer-container">
             <span type="button" class="add-account pointer button" @click="hasAddAccountModal = true">
@@ -58,14 +68,32 @@ import './ContactSelectorPanel.less';
 export default class ContactSelectorPanel extends ContactSelectorPanelTs {}
 </script>
 
-<style lang="less" scoped>
-.walletMethod {
-    text-align: center;
+
+<style scoped>
+.title {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 17px 23px;
 }
 
-.button-add-account {
-    height: 0.35rem !important;
-    padding: 0 0.3rem;
-    margin: auto;
+.contact {
+    display: flex;
+    align-items: center;
+    padding: 10px 23px;
+    cursor: pointer;
+}
+
+.contact.active {
+    background-color: var(--clr-gray-dark);
+}
+
+.contact-image {
+    width: 16px;
+    margin-right: 10px;
+}
+
+.contact-title {
+    flex-grow: 1;
+    font-weight: 500;
 }
 </style>

@@ -22,12 +22,7 @@
                 <span>{{ $t('invalid_address_book') }}</span>
             </div>
             <div class="upload-qrcode-button">
-                <button
-                    type="button"
-                    class="fat-button centered-button button-style inverted-button"
-                    :disabled="showError || !fileName"
-                    @click="importAddressBook()"
-                >
+                <button type="button" class="button primary" :disabled="showError || !fileName" @click="importAddressBook()">
                     {{ $t('import_address_book') }}
                 </button>
             </div>

@@ -1,16 +1,33 @@
 <template>
-    <div :class="[direction === 'horizontal' ? 'tabs' : '', direction]">
-        <div
-            v-for="(tabEntry, index) in tabEntries"
-            :key="index"
-            :class="['tab-item', tabEntry.isActive($route) ? 'active' : '']"
-            @click="tabEntry.isActive($route) ? '' : $router.push({ name: tabEntry.route }).catch((err) => {})"
-        >
-            <div>
-                <!-- <img v-if="tabEntry.icon" class="tab-icon" :src="tabEntry.icon" /> -->
-                <inline-svg :src="tabEntry.icon || ''" class="tab-icon" />
-                <div class="tab-title">
+    <div>
+        <div class="flex justify-between p-1" v-if="direction === 'horizontal'">
+            <div class="flex gap-x-1.5">
+                <div
+                    class="tab-link"
+                    v-for="(tabEntry, index) in tabEntries"
+                    :key="index"
+                    :class="{ active: tabEntry.isActive($route) }"
+                    @click="tabEntry.isActive($route) ? '' : $router.push({ name: tabEntry.route }).catch((err) => {})"
+                >
                     {{ $t(tabEntry.title) }}
+                </div>
+            </div>
+
+            <slot name="actions"></slot>
+        </div>
+
+        <div class="tabs" v-else>
+            <div
+                v-for="(tabEntry, index) in tabEntries"
+                :key="index"
+                :class="['tab-item', tabEntry.isActive($route) ? 'active' : '']"
+                @click="tabEntry.isActive($route) ? '' : $router.push({ name: tabEntry.route }).catch((err) => {})"
+            >
+                <div>
+                    <inline-svg :src="tabEntry.icon || ''" class="tab-icon" />
+                    <div class="tab-title">
+                        {{ $t(tabEntry.title) }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -64,5 +81,19 @@ export default class NavigationTabs extends NavigationTabsTs {}
 /deep/.tab-item:hover .tab-icon path,
 /deep/.tab-item.active .tab-icon path {
     fill: var(--clr-blue);
+}
+
+.tab-link {
+    padding: 5px;
+    color: var(--clr-gray);
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+}
+
+.tab-link:hover,
+.tab-link.active {
+    color: #fff;
+    border-color: var(--clr-blue);
 }
 </style>

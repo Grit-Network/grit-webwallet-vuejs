@@ -54,3 +54,7 @@
     color: #fff;
     padding-left: 17px;
 }
+
+.ivu-select-single.text-black .ivu-select-selection .ivu-select-selected-value {
+    color: black;
+}

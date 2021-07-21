@@ -21,10 +21,12 @@
 <style src="../views/resources/styles/components/button.css"></style>
 <style src="../views/resources/styles/components/navbar.css"></style>
 <style src="../views/resources/styles/components/panel.css"></style>
+<style src="../views/resources/styles/components/table.css"></style>
 
 <style src="../views/resources/styles/overrides/ivu.css"></style>
 <style src="../views/resources/styles/overrides/ivu-select.css"></style>
 <style src="../views/resources/styles/overrides/ivu-auto-complete.css"></style>
+<style src="../views/resources/styles/overrides/ivu-modal.css"></style>
 
 <style src="../views/resources/fonts/Montserrat/Montserrat.css"></style>
 <style scoped src="./App.css"></style>

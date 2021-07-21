@@ -1,6 +1,30 @@
 <template>
-    <div v-if="selectedContact" class="account-detail-outer-container">
-        <div class="account-detail-inner-container">
+    <div class="contact-detail">
+        <div class="flex-shrink-0">
+            <AddressQR :contact="selectedContact" />
+        </div>
+
+        <div class="form-grid">
+            <FormInputEditable
+                :model="selectedContact"
+                :value="selectedContact.name"
+                :new-value="selectedContact.name"
+                :editing="false"
+                :label="$t('contact_name')"
+                :on-edit="saveProperty('name')"
+            />
+
+            <FormInputEditable
+                :model="selectedContact"
+                :value="address"
+                :new-value="address"
+                :editing="false"
+                :rules="validationRules.addressOrPublicKey"
+                :label="$t('contact_address')"
+                :on-edit="saveProperty('address')"
+            />
+        </div>
+        <!-- <div class="account-detail-inner-container">
             <div class="left-container">
                 <AddressQR :contact="selectedContact" />
             </div>
@@ -70,7 +94,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <ModalConfirm
             v-model="showDeleteModal"
             :title="$t('delete_contact_confirmation_title')"
@@ -85,29 +109,26 @@ import { ContactDetailPanelTs } from './ContactDetailPanelTs';
 export default class ContactDetailPanel extends ContactDetailPanelTs {}
 </script>
 
-<style lang="less" scoped>
-@import './ContactDetailPanel.less';
-
-.title {
-    color: @primary;
-    font-size: 18px;
-}
-
-.bottom-buttons-container {
-    margin-left: auto;
-    margin-right: 1em;
-    width: 50%;
+<style scoped>
+.contact-detail {
     display: grid;
-    grid-template-columns: 50% 50%;
-}
-.bottom-buttons-container button {
-    margin: 0 0.5em;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 20px 7%;
 }
 
-.overflow-elipsis {
-    display: inline;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.form-grid {
+    display: grid;
+    grid-template-columns: min-content 1fr auto;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 8px;
+    flex-grow: 1;
+    padding-left: 25px;
+}
+
+.form-grid .label {
     white-space: nowrap;
+    color: var(--clr-gray);
 }
 </style>

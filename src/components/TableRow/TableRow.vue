@@ -1,5 +1,15 @@
 <template>
-    <div
+    <tr>
+        <td v-for="(value, name, index) in visibleRowValues" :key="index">
+            <div v-if="name === 'balance'">
+                <AmountDisplay :value="value" />
+            </div>
+            <div v-else-if="name !== 'metadataList'">
+                {{ value }}
+            </div>
+        </td>
+    </tr>
+    <!-- <div
         :class="[
             'table-row-container',
             assetType !== 'metadata' ? (assetType === 'mosaic' ? 'mosaic-columns' : 'namespace-columns') : 'metadata-columns',
@@ -53,7 +63,7 @@
                 </div>
             </Poptip>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template>
     <FormWrapper>
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
-            <form onsubmit="event.preventDefault()">
+            <form onsubmit="event.preventDefault()" class="form">
                 <SignerSelector v-model="formItems.signerAddress" :signers="signers" @input="onChangeSigner" />
 
                 <!-- hide supply input in aggregate transactions -->
@@ -18,7 +18,7 @@
 
                 <FormRow>
                     <template v-slot:inputs>
-                        <div class="inputs-container checkboxes">
+                        <div class="flex mt-0.5">
                             <Checkbox v-model="formItems.permanent">
                                 {{ $t('duration_permanent') }}
                             </Checkbox>
@@ -41,7 +41,7 @@
                     :disable-submit="currentAccount.isMultisig"
                     @button-clicked="handleSubmit(onSubmit)"
                 />
-                <div v-else-if="!hideSave" class="ml-2" style="text-align: right;">
+                <div v-else-if="!hideSave" class="ml-2" style="text-align: right">
                     <button
                         type="submit"
                         class="save-button centered-button button-style inverted-button"
@@ -72,27 +72,27 @@ export default class FormMosaicDefinitionTransaction extends FormMosaicDefinitio
 </script>
 
 <style lang="less" scoped>
-.checkboxes {
-    display: grid;
-    grid-auto-flow: column;
-    grid-column-gap: 0.3rem;
-    align-items: baseline;
-    color: #44004e;
-    width: max-content;
-}
+// .checkboxes {
+//     display: grid;
+//     grid-auto-flow: column;
+//     grid-column-gap: 0.3rem;
+//     align-items: baseline;
+//     color: #44004e;
+//     width: max-content;
+// }
 
-/deep/ .form-row {
-    .form-row-inner-container {
-        grid-template-columns: 3rem calc(100% - 3rem);
-    }
-}
+// /deep/ .form-row {
+//     .form-row-inner-container {
+//         grid-template-columns: 3rem calc(100% - 3rem);
+//     }
+// }
 
-.save-button {
-    text-align: center;
-    width: 120px;
-}
+// .save-button {
+//     text-align: center;
+//     width: 120px;
+// }
 
-/deep/.multisig_ban_container {
-    padding-left: 0.7rem;
-}
+// /deep/.multisig_ban_container {
+//     padding-left: 0.7rem;
+// }
 </style>

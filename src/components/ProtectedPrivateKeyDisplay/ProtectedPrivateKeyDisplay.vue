@@ -1,37 +1,34 @@
 <template>
-    <div class="detail-row">
-        <div :class="[$route.fullPath === '/delegatedHarvesting' ? 'account-detail-harvesting' : 'account-detail-row-3cols']">
-            <span v-if="$route.fullPath !== '/delegatedHarvesting'" class="label">{{ $t('private_key') }}</span>
-            <span v-if="hasPlainPrivateKey" class="value accountPublicKey">{{ plainInformation }}</span>
-            <span v-if="hasPlainPrivateKey">
-                <span>
-                    <ButtonCopyToClipboard v-model="plainInformation" type="icon-black" />
-                </span>
-            </span>
-            <div v-else>
-                <Tooltip
-                    v-if="!hasPrivateKey"
-                    word-wrap
-                    placement="bottom"
-                    class="linked-label not-linked-input"
-                    :content="$t('please_link_your_public_key')"
-                >
-                    <span> {{ $t('not_linked') }}:</span>
-                    <Icon type="ios-information-circle-outline" />
-                </Tooltip>
-                <div v-else class="value">
-                    <button type="button" class="show-button" @click="onClickDisplay">
-                        {{ $t('show_button') }}
-                    </button>
-                </div>
+    <div class="contents">
+        <span v-if="$route.fullPath !== '/delegatedHarvesting'" class="text-gray">{{ $t('private_key') }}</span>
+        <span v-if="hasPlainPrivateKey" class="flex justify-between">
+            {{ plainInformation }}
+            <ButtonCopyToClipboard v-model="plainInformation" />
+        </span>
+
+        <div v-else>
+            <Tooltip
+                v-if="!hasPrivateKey"
+                word-wrap
+                placement="bottom"
+                class="linked-label not-linked-input"
+                :content="$t('please_link_your_public_key')"
+            >
+                <span> {{ $t('not_linked') }}:</span>
+                <Icon type="ios-information-circle-outline" />
+            </Tooltip>
+            <div v-else class="value">
+                <button type="button" class="text-white" @click="onClickDisplay">
+                    {{ $t('show_button') }}
+                </button>
             </div>
-            <ModalFormProfileUnlock
-                v-if="hasAccountUnlockModal"
-                :visible="hasAccountUnlockModal"
-                :on-success="onAccountUnlocked"
-                @close="hasAccountUnlockModal = false"
-            />
         </div>
+        <ModalFormProfileUnlock
+            v-if="hasAccountUnlockModal"
+            :visible="hasAccountUnlockModal"
+            :on-success="onAccountUnlocked"
+            @close="hasAccountUnlockModal = false"
+        />
     </div>
 </template>
 

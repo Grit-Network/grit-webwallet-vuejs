@@ -1,7 +1,7 @@
 <template>
     <FormRow>
         <template v-slot:label>
-            <div class="mb-0.5">{{ $t('fee') }}:</div>
+            <div class="mt-0.5">{{ $t('fee') }}:</div>
         </template>
         <template v-slot:inputs>
             <div :class="{ 'row-75-25': !hideSubmit }">

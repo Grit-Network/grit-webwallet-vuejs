@@ -54,6 +54,8 @@ import { MetadataModel } from '@/core/database/entities/MetadataModel';
 import ModalMetadataUpdate from '@/views/modals/ModalMetadataUpdate/ModalMetadataUpdate.vue';
 // @ts-ignore
 import ModalConfirm from '@/views/modals/ModalConfirm/ModalConfirm.vue';
+// @ts-ignore
+import ModalFormAccountNameUpdate from '@/views/modals/ModalFormAccountNameUpdate/ModalFormAccountNameUpdate.vue';
 @Component({
     components: {
         AccountNameDisplay,
@@ -71,6 +73,7 @@ import ModalConfirm from '@/views/modals/ModalConfirm/ModalConfirm.vue';
         ModalMetadataDisplay,
         ModalMetadataUpdate,
         ModalConfirm,
+        ModalFormAccountNameUpdate,
     },
     computed: {
         ...mapGetters({
@@ -130,6 +133,12 @@ export class AccountDetailsPageTs extends Vue {
      */
     public currentAccount: AccountModel;
     public readonly accountService: AccountService = new AccountService();
+
+    /**
+     * Whether name is currently being edited
+     * @var {boolean}
+     */
+    public isEditingName: boolean = false;
 
     public deleteAccountConfirmation() {
         this.showConfirmationModal = true;
@@ -229,6 +238,14 @@ export class AccountDetailsPageTs extends Vue {
 
     public get isOptinAccount(): boolean {
         return this.currentAccount.type === AccountType.OPT_IN || this.currentAccount.type === AccountType.LEDGER_OPT_IN;
+    }
+
+    public get hasNameFormModal(): boolean {
+        return this.isEditingName;
+    }
+
+    public set hasNameFormModal(f: boolean) {
+        this.isEditingName = f;
     }
 
     /**

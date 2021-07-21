@@ -130,9 +130,6 @@ export default class AccountSelectorPanel extends AccountSelectorPanelTs {}
     padding: 17px 23px;
 }
 
-.account-container {
-}
-
 .account {
     display: flex;
     align-items: center;
@@ -151,5 +148,6 @@ export default class AccountSelectorPanel extends AccountSelectorPanelTs {}
 
 .account-title {
     flex-grow: 1;
+    font-weight: 500;
 }
 </style>

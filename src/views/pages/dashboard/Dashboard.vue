@@ -39,7 +39,7 @@
             </div>
 
             <div class="flex flex-grow panel ml-1.5 right-bottom-panel">
-                <NavigationTabs direction="horizontal" :parent-route-name="parentRouteName" />
+                <NavigationTabs direction="vertical" :parent-route-name="parentRouteName" />
                 <div class="navigation-content">
                     <router-view :key="$route.fullPath" />
                 </div>
