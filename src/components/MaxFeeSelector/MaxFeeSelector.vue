@@ -1,7 +1,7 @@
 <template>
     <div class="select-container">
         <div class="label-and-select">
-            <div v-if="showFeeLabel" class="fee-label">{{ $t('fee') }}:</div>
+            <div v-if="showFeeLabel" class="mb-0.5">{{ $t('fee') }}</div>
             <Select
                 v-if="!displayOnly"
                 v-model="chosenMaxFee"
@@ -35,5 +35,5 @@ export default class MaxFeeSelector extends MaxFeeSelectorTs {}
 </script>
 
 <style lang="less" scoped>
-@import './MaxFeeSelector.less';
+// @import './MaxFeeSelector.less';
 </style>

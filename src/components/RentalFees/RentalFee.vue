@@ -2,7 +2,7 @@
     <div>
         <FormRow>
             <template v-slot:label>
-                <div class="mt-0.5">{{ $t('estimated_rental_fee') }}</div>
+                <div class="mt-0.5 mb-[3px]">{{ $t('estimated_rental_fee') }}</div>
             </template>
             <template v-slot:inputs>
                 <div class="form-input">

@@ -83,7 +83,7 @@
                             <div v-else-if="!hideSave" class="ml-2" style="text-align: right">
                                 <button
                                     type="submit"
-                                    class="save-button centered-button button-style inverted-button"
+                                    class="button w-6 primary"
                                     :disabled="currentAccount.isMultisig"
                                     @click="emitToAggregate"
                                 >

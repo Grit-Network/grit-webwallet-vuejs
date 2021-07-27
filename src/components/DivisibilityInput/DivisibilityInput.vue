@@ -1,7 +1,7 @@
 <template>
     <FormRow>
         <template v-slot:label>
-            <div class="mt-0.5">{{ $t('divisibility') }}:</div>
+            <div class="mt-0.5 mb-[3px]">{{ $t('divisibility') }}</div>
         </template>
         <template v-slot:inputs>
             <ValidationProvider

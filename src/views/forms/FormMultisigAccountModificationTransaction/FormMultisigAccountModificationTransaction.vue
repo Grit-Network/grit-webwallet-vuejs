@@ -1,25 +1,18 @@
 <template>
     <FormWrapper>
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
-            <form onsubmit="event.preventDefault()">
-                <FormRow :class-name="'emphasis'">
-                    <template v-slot:label> {{ $t('form_label_multisig_operation_type') }}: </template>
-
-                    <template v-slot:inputs>
-                        <div class="row-left-message">
-                            <span>
-                                {{ $t('label_multisig_operation_' + multisigOperationType) }}
-                            </span>
-                        </div>
-                    </template>
-                </FormRow>
+            <form onsubmit="event.preventDefault()" class="form">
+                <div>
+                    <span class="text-gray mr-1">{{ $t('form_label_multisig_operation_type') }}:</span>
+                    <span>{{ $t('label_multisig_operation_' + multisigOperationType) }}</span>
+                </div>
 
                 <FormRow>
                     <template v-slot:label>
-                        <div v-if="multisigOperationType === 'conversion'" style="padding-top: 0.22rem;">
-                            {{ $t('form_label_account_to_be_converted') }}:
+                        <div v-if="multisigOperationType === 'conversion'" class="mt-0.5 mb-[3px]">
+                            {{ $t('form_label_account_to_be_converted') }}
                         </div>
-                        <div v-else style="padding-top: 0.22rem;">{{ $t('form_label_multisig_account') }}:</div>
+                        <div v-else class="mt-0.5 mb-[3px]">{{ $t('form_label_multisig_account') }}:</div>
                     </template>
 
                     <template v-slot:inputs>
@@ -64,25 +57,32 @@
                     @undo="onClickUndo"
                 />
 
-                <ApprovalAndRemovalInput
-                    v-model="formItems.minApprovalDelta"
-                    :type="'approval'"
-                    :operation="multisigOperationType"
-                    :multisig="currentMultisigInfo"
-                />
+                <div class="flex flex-wrap -mx-0.5">
+                    <div class="md:w-6/12 px-0.5 w-full">
+                        <ApprovalAndRemovalInput
+                            v-model="formItems.minApprovalDelta"
+                            :type="'approval'"
+                            :operation="multisigOperationType"
+                            :multisig="currentMultisigInfo"
+                        />
+                    </div>
 
-                <ApprovalAndRemovalInput
-                    v-model="formItems.minRemovalDelta"
-                    :type="'removal'"
-                    :operation="multisigOperationType"
-                    :multisig="currentMultisigInfo"
-                />
+                    <div class="md:w-6/12 px-0.5 w-full">
+                        <ApprovalAndRemovalInput
+                            v-model="formItems.minRemovalDelta"
+                            :type="'removal'"
+                            :operation="multisigOperationType"
+                            :multisig="currentMultisigInfo"
+                        />
+                    </div>
+                </div>
 
                 <!-- global form input validation -->
                 <ValidationProvider rules="required|is:OK">
                     <input v-show="false" v-model="areInputsValid" />
                 </ValidationProvider>
 
+                <div class="mt-1"></div>
                 <!-- Transaction fee selector -->
                 <MaxFeeAndSubmit
                     v-model="formItems.maxFee"

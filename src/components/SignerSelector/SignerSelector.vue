@@ -1,10 +1,10 @@
 <template>
     <FormRow class-name="emphasis" :no-label="noLabel">
         <template v-slot:label>
-            <span v-if="!noLabel">{{ $t(label) }}:</span>
+            <span v-if="!noLabel">{{ $t(label) }}</span>
         </template>
         <template v-slot:inputs>
-            <Select v-model="chosenSigner" :placeholder="$t('address')" class="mt-0.5" :disabled="disabled">
+            <Select v-model="chosenSigner" :placeholder="$t('address')" class="mt-[3px]" :disabled="disabled">
                 <Option v-for="item in signers" :key="item.address.plain()" :value="item.address.plain()">
                     {{ item.label }}
                     {{ item.multisig ? $t('label_postfix_multisig') : '' }}

@@ -6,7 +6,7 @@
                     class="tab-link"
                     v-for="(tabEntry, index) in tabEntries"
                     :key="index"
-                    :class="{ active: tabEntry.isActive($route) }"
+                    :class="{ active: tabEntry.isActive($route), 'border-0': noBorder }"
                     @click="tabEntry.isActive($route) ? '' : $router.push({ name: tabEntry.route }).catch((err) => {})"
                 >
                     {{ $t(tabEntry.title) }}
@@ -88,6 +88,7 @@ export default class NavigationTabs extends NavigationTabsTs {}
     color: var(--clr-gray);
     font-weight: 500;
     border-bottom: 2px solid transparent;
+    text-transform: uppercase;
     cursor: pointer;
 }
 

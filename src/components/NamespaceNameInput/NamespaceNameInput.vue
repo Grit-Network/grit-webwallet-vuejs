@@ -1,6 +1,8 @@
 <template>
     <FormRow>
-        <template v-slot:label> {{ $t('form_label_namespace_name') }}: </template>
+        <template v-slot:label>
+            <div class="mt-0.5 mb-[3px]">{{ $t('form_label_namespace_name') }}</div>
+        </template>
         <template v-slot:inputs>
             <ValidationProvider
                 v-slot="{ errors }"
@@ -15,17 +17,11 @@
                         v-if="isNeedAutoFocus"
                         v-model="chosenValue"
                         v-focus
-                        class="input-size input-style"
+                        class="form-input"
                         :placeholder="$t('input_namespace_name')"
                         type="text"
                     />
-                    <input
-                        v-else
-                        v-model="chosenValue"
-                        class="input-size input-style"
-                        :placeholder="$t('input_namespace_name')"
-                        type="text"
-                    />
+                    <input v-else v-model="chosenValue" class="form-input" :placeholder="$t('input_namespace_name')" type="text" />
                 </ErrorTooltip>
             </ValidationProvider>
         </template>

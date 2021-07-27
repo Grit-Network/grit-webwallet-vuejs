@@ -1,7 +1,7 @@
 <template>
     <FormRow>
         <template v-slot:label
-            ><div class="mt-0.5">{{ $t(label) }}:</div>
+            ><div class="mt-0.5 mb-[3px]">{{ $t(label) }}</div>
         </template>
         <template v-slot:inputs>
             <ValidationProvider v-slot="{ errors }" vid="form_label_duration" :name="$t(label)" :rules="validationRule" tag="div">

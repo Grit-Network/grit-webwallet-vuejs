@@ -1,6 +1,32 @@
 <template>
-    <div class="top_harvesting_info">
-        <div class="top_account_info">
+    <div class="panel primary flex justify-between items-center h-[130px] px-2">
+        <div>
+            <div class="uppercase text-[15px]">{{ $t('harvesting_status') }}</div>
+            <div class="text-[25px] font-semibold uppercase mt-0.5">{{ harvestingStatusIndicator.text }}</div>
+        </div>
+
+        <div>
+            <div class="uppercase text-[15px]">{{ $t('blocks_made') }}</div>
+            <div class="text-[25px] font-semibold uppercase mt-0.5">
+                <Spin v-if="isFetchingHarvestedBlockStats" v-show="isFetchingHarvestedBlockStats" class="inline-spin" size="small"></Spin>
+
+                <span v-if="!isFetchingHarvestedBlockStats">
+                    {{ harvestedBlockStats.totalBlockCount }}
+                </span>
+            </div>
+        </div>
+
+        <div>
+            <div class="uppercase text-[15px]">{{ $t('fees_collected') }}</div>
+            <div class="text-[25px] font-semibold uppercase mt-0.5">
+                <Spin v-if="isFetchingHarvestedBlockStats" v-show="isFetchingHarvestedBlockStats" class="inline-spin" size="small"></Spin>
+
+                <span v-if="!isFetchingHarvestedBlockStats">
+                    {{ harvestedBlockStats.totalBlockCount }}
+                </span>
+            </div>
+        </div>
+        <!-- <div class="top_account_info">
             <div class="harvesting-status">
                 <div class="title">
                     <span class="title_txt">{{ $t('harvesting_status') }}</span>
@@ -50,7 +76,7 @@
                     </span>
                 </span>
             </div>
-        </div>
+        </div> -->
     </div>
 </template>
 

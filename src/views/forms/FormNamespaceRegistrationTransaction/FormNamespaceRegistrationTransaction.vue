@@ -2,12 +2,14 @@
     <div>
         <FormWrapper class="namespace-transaction-form-wrapper">
             <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
-                <form onsubmit="event.preventDefault()" class="form-container mt-3 create-namespace-form">
+                <form onsubmit="event.preventDefault()" class="form">
                     <SignerSelector v-model="formItems.signerAddress" :signers="signers" @input="onChangeSigner" />
                     <FormRow>
-                        <template v-slot:label> {{ $t('form_label_registration_type') }}: </template>
+                        <template v-slot:label>
+                            <div class="mt-0.5 mb-[3px]">{{ $t('form_label_registration_type') }}</div>
+                        </template>
                         <template v-slot:inputs>
-                            <div class="inputs-container">
+                            <div class="form-input">
                                 <div
                                     v-if="$route.path.substring(1) === 'createNamespace' || isAggregate"
                                     :value="typeRootNamespace"
@@ -67,13 +69,8 @@
                         :disable-submit="currentAccount.isMultisig"
                         @button-clicked="handleSubmit(onSubmit)"
                     />
-                    <div v-else-if="!hideSave" class="ml-2" style="text-align: right;">
-                        <button
-                            type="submit"
-                            class="save-button centered-button button-style inverted-button"
-                            :disabled="currentAccount.isMultisig"
-                            @click="emitToAggregate"
-                        >
+                    <div v-else-if="!hideSave" class="mt-2 text-right">
+                        <button type="submit" class="button primary w-6" :disabled="currentAccount.isMultisig" @click="emitToAggregate">
                             {{ $t('save') }}
                         </button>
                     </div>
@@ -98,16 +95,16 @@ import { FormNamespaceRegistrationTransactionTs } from './FormNamespaceRegistrat
 export default class FormNamespaceRegistrationTransaction extends FormNamespaceRegistrationTransactionTs {}
 </script>
 <style lang="less" scoped>
-@import './FormNamespaceRegistrationTransaction.less';
+// @import './FormNamespaceRegistrationTransaction.less';
 
-/deep/ .form-row {
-    .form-row-inner-container {
-        grid-template-columns: 3rem calc(100% - 3rem);
-    }
-}
+// /deep/ .form-row {
+//     .form-row-inner-container {
+//         grid-template-columns: 3rem calc(100% - 3rem);
+//     }
+// }
 
-.save-button {
-    text-align: center;
-    width: 120px;
-}
+// .save-button {
+//     text-align: center;
+//     width: 120px;
+// }
 </style>

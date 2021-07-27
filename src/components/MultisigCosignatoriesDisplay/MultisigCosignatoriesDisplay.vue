@@ -1,14 +1,23 @@
 <template>
-    <div style="margin-bottom: 0.3rem;">
-        <FormRow v-if="!(multisig && multisig.cosignatoryAddresses.length) && !addModifications.length && !removeModifications.length">
+    <div style="margin-bottom: 0.3rem">
+        <!-- <FormRow v-if="!(multisig && multisig.cosignatoryAddresses.length) && !addModifications.length && !removeModifications.length">
             <template v-slot:inputs>
                 <div>
-                    <div class="row-cosignatory-modification-display inputs-container empty-message mx-1">
+                    <div class="text-blue italic ml-2 mt-1">
                         <span>{{ $t('message_empty_cosignatories') }}</span>
                     </div>
                 </div>
             </template>
-        </FormRow>
+        </FormRow> -->
+
+        <div class="ml-2 mt-1">
+            <div class="text-blue italic">{{ $t('message_empty_cosignatories') }}</div>
+
+            <div class="mt-1 mb-[3px]">
+                {{ $t('form_label_add_cosignatory') }}
+            </div>
+            <AddCosignatoryInput @added="onAddCosignatory" />
+        </div>
 
         <div class="form-row-inner-container">
             <!-- COSIGNATORIES -->
@@ -30,14 +39,8 @@
                         <div class="cosignatory-address-container">
                             <span v-if="address">{{ address.pretty() }}</span>
                         </div>
-                        <Icon
-                            v-if="address && modifiable && removeModifications && removeModifications.length === 0"
-                            type="md-trash"
-                            size="21"
-                            class="icon-button"
-                            @click="onRemoveCosignatory(address)"
-                        />
-                        <span v-else>&nbsp;</span>
+
+                        <inline-svg :src="require('@/assets/icons/plus-circle.svg')"></inline-svg>
                     </div>
                 </template>
             </FormRow>
@@ -87,18 +90,18 @@
                             src="@/views/resources/img/icons/bin.svg"
                             size="21"
                             class="icon-button"
-                            style="font-size: 0.3rem;"
+                            style="font-size: 0.3rem"
                             @click="onUndoModification(address)"
                         />
                     </div>
                 </template>
             </FormRow>
 
-            <AddCosignatoryInput v-if="isAddingCosignatory" @added="onAddCosignatory" />
-            <div v-if="!isAddingCosignatory" class="row-cosignatory-modification-display inputs-container link mx-1">
+            <!-- <AddCosignatoryInput v-if="isAddingCosignatory" @added="onAddCosignatory" /> -->
+            <!-- <div v-if="!isAddingCosignatory" class="row-cosignatory-modification-display inputs-container link mx-1">
                 <img src="@/views/resources/img/newicons/Add.svg" class="icon-left-button clickable" @click="isAddingCosignatory = true" />
-                <a href="#" style="color: #5200c6;" @click="isAddingCosignatory = true">{{ $t('form_label_add_cosignatory') }}</a>
-            </div>
+                <a href="#" style="color: #5200c6" @click="isAddingCosignatory = true">{{ $t('form_label_add_cosignatory') }}</a>
+            </div> -->
         </div>
     </div>
 </template>
@@ -110,23 +113,23 @@ export default class MultisigCosignatoriesDisplay extends MultisigCosignatoriesD
 </script>
 
 <style lang="less" scoped>
-@import '../../views/resources/css/variables.less';
+// @import '../../views/resources/css/variables.less';
 
-.icon-button {
-    cursor: pointer;
-    color: @blackLight;
-    justify-self: left;
-}
+// .icon-button {
+//     cursor: pointer;
+//     color: @blackLight;
+//     justify-self: left;
+// }
 
-.icon-button:hover {
-    color: @red;
-}
-/deep/.ivu-tooltip {
-    text-transform: none;
-}
+// .icon-button:hover {
+//     color: @red;
+// }
+// /deep/.ivu-tooltip {
+//     text-transform: none;
+// }
 
-/deep/ .inputs-container {
-    overflow: auto !important;
-    height: auto;
-}
+// /deep/ .inputs-container {
+//     overflow: auto !important;
+//     height: auto;
+// }
 </style>

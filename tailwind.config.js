@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'jit',
     purge: ['./src/**/*.vue', './src/**/*.ts'],
     darkMode: false, // or 'media' or 'class'
     theme: {
@@ -8,5 +9,5 @@ module.exports = {
         extend: {},
     },
     plugins: [],
-    important:true
+    important: true,
 };

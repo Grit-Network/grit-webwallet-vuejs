@@ -1,5 +1,43 @@
 <template>
-    <AssetFormPageWrap>
+    <div class="create-namespace p-1.5">
+        <div class="left">
+            <div class="uppercase font-semibold text-[15px]">Rules Description</div>
+            <br />
+            <div class="uppercase text-blue font-semibold">
+                {{ $t('namespace_name') }}
+            </div>
+            <div>
+                {{ $t('namespace_tips_key_1') }}
+            </div>
+            <div>
+                {{ $t('namespace_tips_value_1') }}
+            </div>
+            <br />
+            <div>
+                {{ $t('namespace_tips_key_2') }}
+            </div>
+            <div>
+                {{ $t('namespace_tips_value_2') }}
+            </div>
+            <br />
+            <div>
+                {{ $t('namespace_tips_key_3') }}
+            </div>
+
+            <br />
+            <div class="uppercase font-semibold text-blue">
+                {{ $t('duration') }}
+            </div>
+            <div class="asset-description-text">
+                {{ $t('namespace_duration_tip_1') }}
+            </div>
+        </div>
+
+        <div class="right">
+            <FormNamespaceRegistrationTransaction />
+        </div>
+    </div>
+    <!-- <AssetFormPageWrap>
         <template v-slot:form-section>
             <FormNamespaceRegistrationTransaction />
         </template>
@@ -31,7 +69,7 @@
                 {{ $t('namespace_duration_tip_1') }}
             </div>
         </template>
-    </AssetFormPageWrap>
+    </AssetFormPageWrap> -->
 </template>
 
 <script lang="ts">
@@ -52,7 +90,22 @@ export default class CreateNamespacePage extends Vue {}
 </script>
 
 <style lang="less" scoped>
-/deep/ .namespace-transaction-form-wrapper {
-    max-width: 14rem;
+// /deep/ .namespace-transaction-form-wrapper {
+//     max-width: 14rem;
+// }
+</style>
+
+<style scoped>
+.create-namespace {
+    display: flex;
+}
+
+.left {
+    width: 40%;
+    padding-right: 20px;
+}
+
+.right {
+    width: 60%;
 }
 </style>

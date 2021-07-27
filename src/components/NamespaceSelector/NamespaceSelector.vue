@@ -1,6 +1,10 @@
 <template>
-    <FormRow>
-        <template v-slot:label> {{ $t(label) }}: </template>
+    <FormRow class="form">
+        <template v-slot:label>
+            <div class="mt-0.5 mb-[3px]">
+                {{ $t(label) }}
+            </div>
+        </template>
         <template v-slot:inputs>
             <ValidationProvider
                 v-slot="{ errors }"
@@ -14,7 +18,7 @@
                 <ErrorTooltip :errors="errors">
                     <Select
                         v-model="chosenValue"
-                        class="select-size select-style"
+                        class="form-input text-black"
                         :disabled="disabled"
                         :placeholder="$t('select_a_namespace')"
                     >

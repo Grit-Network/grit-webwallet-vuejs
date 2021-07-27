@@ -10,18 +10,18 @@
                     tag="div"
                     class="row-cosignatory-action inputs-container"
                 >
-                    <div class="input-container">
+                    <div class="flex items-center">
                         <ErrorTooltip :errors="errors">
                             <input
                                 v-model="cosignatory"
                                 :placeholder="$t('placeholder_address_or_public_key')"
-                                class="input-style input-size"
+                                class="form-input"
                                 type="text"
                                 @input="stripTagsCosignatory"
                             />
                         </ErrorTooltip>
+                        <ButtonAdd class="ml-0.5 add-btn" @click="handleSubmit(onAddCosignatory())" />
                     </div>
-                    <ButtonAdd class="button-add align-right" @click="handleSubmit(onAddCosignatory())" />
                 </ValidationProvider>
             </ValidationObserver>
         </template>
@@ -33,3 +33,11 @@ import { AddCosignatoryInputTs } from './AddCosignatoryInputTs';
 
 export default class AddCosignatoryInput extends AddCosignatoryInputTs {}
 </script>
+
+
+<style scoped>
+/deep/.add-btn svg {
+    height: 22px;
+    width: 22px;
+}
+</style>

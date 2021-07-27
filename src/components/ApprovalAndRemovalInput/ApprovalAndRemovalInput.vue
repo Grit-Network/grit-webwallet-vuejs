@@ -1,6 +1,8 @@
 <template>
     <FormRow>
-        <template v-slot:label> {{ $t(label) }}: </template>
+        <template v-slot:label>
+            <div class="mb-[3px]">{{ $t(label) }}</div>
+        </template>
         <template v-slot:inputs>
             <div class="row-approval-and-removal-input inputs-container">
                 <div class="select-container">
@@ -10,7 +12,7 @@
                         </Option>
                     </Select>
                 </div>
-                <div class="inline-field-description pl-2">
+                <div class="text-blue italic">
                     {{ $t(description) }}
                 </div>
             </div>

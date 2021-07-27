@@ -1,7 +1,7 @@
 <template>
     <FormRow class-name="emphasis" :no-label="noLabel">
         <template v-slot:label>
-            <div v-if="!noLabel">{{ $t(label) }}:</div>
+            <div v-if="!noLabel">{{ $t(label) }}</div>
         </template>
         <template v-slot:inputs>
             <Select

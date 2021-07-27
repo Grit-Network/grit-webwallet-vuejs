@@ -1,7 +1,7 @@
 <template>
     <div class="p-1.5 flex">
         <div class="left">
-            <div class="uppercase font-semibold">Rules Description</div>
+            <div class="uppercase font-semibold text-[15px]">Rules Description</div>
             <div class="text-blue font-semibold uppercase mt-1">Mosaic</div>
             <div class="asset-description-text">
                 {{ $t('mosaic_describe_text') }}
@@ -117,6 +117,7 @@ export default class CreateMosaicPage extends Vue {}
 <style scoped>
 .left {
     width: 40%;
+    padding-right: 20px;
 }
 .right {
     width: 60%;

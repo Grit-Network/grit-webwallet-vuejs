@@ -18,7 +18,7 @@
 
                 <FormRow>
                     <template v-slot:inputs>
-                        <div class="flex mt-0.5">
+                        <div class="flex mt-0.5 gap-x-1">
                             <Checkbox v-model="formItems.permanent">
                                 {{ $t('duration_permanent') }}
                             </Checkbox>
@@ -42,12 +42,7 @@
                     @button-clicked="handleSubmit(onSubmit)"
                 />
                 <div v-else-if="!hideSave" class="ml-2" style="text-align: right">
-                    <button
-                        type="submit"
-                        class="save-button centered-button button-style inverted-button"
-                        :disabled="currentAccount.isMultisig"
-                        @click="emitToAggregate"
-                    >
+                    <button type="submit" class="primary button w-6 mt-2" :disabled="currentAccount.isMultisig" @click="emitToAggregate">
                         {{ $t('save') }}
                     </button>
                 </div>
