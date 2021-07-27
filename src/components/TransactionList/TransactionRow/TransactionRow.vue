@@ -60,7 +60,7 @@ export default class TransactionRow extends TransactionRowTs {}
     padding: 10px 14px;
 }
 
-.td:nth-child(even) {
+.tr:nth-child(even) {
     background-color: var(--clr-gray-dark);
 }
 </style>

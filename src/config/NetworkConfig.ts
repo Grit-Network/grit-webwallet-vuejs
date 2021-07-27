@@ -51,8 +51,8 @@ export interface NetworkConfig {
 }
 
 export const defaultTestnetNetworkConfig: NetworkConfig = {
-    explorerUrl: 'http://explorer.testnet.symboldev.network/',
-    faucetUrl: 'http://faucet.testnet.symboldev.network/',
+    explorerUrl: 'http://testnet20.gritnetwork.io:90/',
+    faucetUrl: 'https://faucet20.gritnetwork.io/',
     defaultNetworkType: 152,
     networkConfigurationDefaults: {
         maxMosaicDivisibility: 6,
@@ -68,22 +68,14 @@ export const defaultTestnetNetworkConfig: NetworkConfig = {
         maxCosignedAccountsPerAccount: 25,
         maxMessageSize: 1024,
         maxMosaicAtomicUnits: 8999999999000000,
-        currencyMosaicId: '091F837E059AE13C',
-        harvestingMosaicId: '091F837E059AE13C',
+        currencyMosaicId: '3380FDE407937DF9',
+        harvestingMosaicId: '60D9C2072366B5B3',
         defaultDynamicFeeMultiplier: 100,
         epochAdjustment: 1616694977,
         totalChainImportance: 7842928625000000,
-        generationHash: '3B5E1FA6445653C971A50687E75E6D09FB30481055E3990C84B25E9222DC1155',
+        generationHash: '3039AFE37CDAAE8503C458C74E3A7AD279EEAF336CBB9BACE62501438F3AF3DD',
     },
-    nodes: [
-        { friendlyName: 'ngl-dual-001', roles: 2, url: 'http://ngl-dual-001.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-101', roles: 2, url: 'http://ngl-dual-101.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-201', roles: 2, url: 'http://ngl-dual-201.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-301', roles: 2, url: 'http://ngl-dual-301.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-401', roles: 2, url: 'http://ngl-dual-401.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-501', roles: 2, url: 'http://ngl-dual-501.testnet.symboldev.network:3000' },
-        { friendlyName: 'ngl-dual-601', roles: 2, url: 'http://ngl-dual-601.testnet.symboldev.network:3000' },
-    ],
+    nodes: [{ friendlyName: 'grit-dual-001', roles: 2, url: 'http://testnet20.gritnetwork.io:3000' }],
 };
 
 export const defaultMainnetNetworkConfig: NetworkConfig = {

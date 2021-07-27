@@ -1,20 +1,17 @@
 <template>
-    <div class="dashboard-container">
-        <div class="dashboard-left-container">
-            <div class="dashboard-top-left-container">
-                <HarvestStatisticsPanel />
-            </div>
-            <div class="dashboard-bottom-left-container">
-                <div class="harvesting-container">
-                    <router-view />
-                </div>
+    <div class="flex flex-wrap -mx-1.5 h-full">
+        <div class="px-1 md:w-8/12 w-full h-full flex flex-col">
+            <HarvestStatisticsPanel />
+
+            <div class="panel mt-2 flex-grow">
+                <router-view />
             </div>
         </div>
-        <div class="dashboard-right-container">
-            <div class="title">
-                <span class="title_txt">{{ $t('harvested_blocks') }}</span>
-            </div>
-            <div class="harvested-blocks">
+        <div class="px-1 md:w-4/12 w-full h-full">
+            <div class="panel p-1 h-full flex flex-col">
+                <div class="uppercase font-medium text-[15px] pl-0.5">
+                    {{ $t('harvested_blocks') }}
+                </div>
                 <HarvestedBlocksList />
             </div>
         </div>
@@ -38,16 +35,3 @@ import HarvestedBlocksList from '@/views/pages/harvesting/HarvestedBlocksList/Ha
 })
 export default class HarvestingDashboardPage extends Vue {}
 </script>
-<style lang="less" scoped>
-@import './HarvestingDashboardPage.less';
-
-.header-container-placeholder {
-    padding: 0 0.4rem;
-    margin: 0.2rem 0;
-    .section-title {
-        font-weight: 600;
-        color: @purpleDark;
-        font-family: @symbolFont;
-    }
-}
-</style>

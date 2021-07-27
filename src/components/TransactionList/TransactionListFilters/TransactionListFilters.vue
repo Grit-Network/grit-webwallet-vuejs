@@ -1,20 +1,15 @@
 <template>
-    <div class="transaction-list-filters-container">
-        <div class="transaction-list-filter-container">
-            <TransactionStatusFilter />
-        </div>
+    <div class="flex justify-end gap-x-1 p-1">
+        <TransactionStatusFilter />
         <div v-if="signers.length > 1" class="transaction-list-filter-container">
             <SignerFilter :signers="signers" @signer-change="onSignerSelectorChange" />
         </div>
-        <div class="button-refresh-container">
+        <div>
             <ButtonRefresh @click="refresh" />
         </div>
-        <div class="button-download-container">
+        <div>
             <Tooltip :content="$t('export_transactions')" placement="top" :transfer="true">
                 <inline-svg :src="require('@/assets/icons/file-export.svg')" @click="downloadTransactions" class="cursor-pointer" />
-                <!-- <a class="button-download" @click="downloadTransactions">
-                    <font-awesome-icon icon="file-csv" />
-                </a> -->
             </Tooltip>
         </div>
     </div>
@@ -28,5 +23,5 @@ export default class TransactionListFilters extends TransactionListFiltersTs {}
 </script>
 
 <style lang="less" scoped>
-@import './TransactionListFilters.less';
+// @import './TransactionListFilters.less';
 </style>
