@@ -69,30 +69,27 @@
 
             <!-- ADDED COSIGNATORIES -->
             <FormRow v-if="modifiable && addModifications && addModifications.length">
-                <template v-slot:label> {{ $t('form_label_new_cosignatories') }}: </template>
+                <template v-slot:label>
+                    <div class="mt-1 ml-2">{{ $t('form_label_new_cosignatories') }}</div>
+                </template>
                 <template v-slot:inputs>
-                    <div
-                        v-for="({ address }, index) in addModifications"
-                        :key="index"
-                        :class="[
-                            'row-cosignatory-modification-display',
-                            'inputs-container',
-                            'mx-1',
-                            'pl-2',
-                            'pr-2',
-                            'accent-pink-background',
-                        ]"
-                    >
+                    <div v-for="({ address }, index) in addModifications" :key="index" class="mx-1 pl-2 pr-2 flex gap-x-1">
                         <div class="cosignatory-address-container">
                             <span v-if="address">{{ address.pretty() }}</span>
                         </div>
-                        <img
+
+                        <inline-svg
+                            :src="require('@/assets/icons/alert.svg')"
+                            class="cursor-pointer"
+                            @click="onUndoModification(address)"
+                        ></inline-svg>
+                        <!-- <img
                             src="@/views/resources/img/icons/bin.svg"
                             size="21"
                             class="icon-button"
                             style="font-size: 0.3rem"
                             @click="onUndoModification(address)"
-                        />
+                        /> -->
                     </div>
                 </template>
             </FormRow>

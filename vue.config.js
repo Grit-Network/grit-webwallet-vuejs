@@ -68,7 +68,7 @@ module.exports = {
         loaderOptions: {
             postcss: {
                 config: {
-                    path: '.postcss.config.js',
+                    // path: '.postcss.config.js',
                 },
             },
         },

@@ -1,5 +1,5 @@
 <template>
-    <div class="form-persistent-delegation-request">
+    <div class="p-1.5">
         <NavigationLinks
             :direction="'horizontal'"
             :items="['delegated_harvesting', 'key_links']"
@@ -10,7 +10,7 @@
         <FormWrapper>
             <ValidationObserver v-slot="{ handleSubmit }" ref="observer" slim>
                 <form onsubmit="event.preventDefault()">
-                    <div v-if="activePanel === 0">
+                    <div v-if="activePanel === 0" class="px-1.5 py-0.5">
                         <div class="info-text">
                             <p v-if="harvestingStatus === 'INACTIVE'">
                                 {{ $t('harvesting_delegated_description') }}
@@ -37,8 +37,10 @@
                         </div>
 
                         <!-- Transaction signer selector -->
+                        <br />
                         <SignerSelector v-model="formItems.signerAddress" :signers="signers" @input="onChangeSigner" />
 
+                        <br />
                         <NetworkNodeSelector
                             v-model="formItems.nodeModel"
                             :disabled="harvestingStatus !== 'INACTIVE' && isPublicAndPrivateKeysLinked"
@@ -47,6 +49,7 @@
                             :missing-keys="harvestingStatus === 'KEYS_LINKED' && !isPublicAndPrivateKeysLinked"
                         />
 
+                        <br />
                         <FormRow class="fee-selector">
                             <template v-slot:label> {{ $t('fee') }}: </template>
                             <template v-slot:inputs>
@@ -109,7 +112,7 @@
                             </template>
                         </FormRow>
                     </div>
-                    <div v-if="activePanel === 1">
+                    <div v-if="activePanel === 1" class="px-1.5 py-0.5">
                         <div class="info-text">
                             <span>
                                 {{ $t('delegated_harvesting_keys_info') }}
@@ -329,5 +332,5 @@ export default class FormPersistentDelegationRequestTransaction extends FormPers
 </script>
 
 <style lang="less" scoped>
-@import './FormPersistentDelegationRequestTransaction.less';
+// @import './FormPersistentDelegationRequestTransaction.less';
 </style>

@@ -3,17 +3,17 @@
         <div v-if="!isEditionMode">
             <div class="title">
                 {{ $t('assets') }}
-                <img
+                <!-- <img
                     slot="extra"
                     class="asset_list pointer"
                     src="@/views/resources/img/monitor/monitorAssetListPurple.svg"
                     @click="isEditionMode = true"
-                />
+                /> -->
             </div>
             <div class="rows">
                 <div v-for="(entry, index) in filteredBalanceEntries" :key="index" class="row">
-                    <img v-if="entry.id.equals(networkMosaic)" src="@/views/resources/img/symbol/XYMCoin.png" alt />
-                    <img v-else src="@/views/resources/img/symbol/XYMCoin.png" />
+                    <img v-if="entry.id.equals(networkMosaic)" src="@/assets/images/logo-favicon.png" alt />
+                    <img v-else src="@/assets/images/logo-favicon.png" />
 
                     <div>{{ entry.name !== '' ? entry.name : entry.id.toHex() }}</div>
                     <div class="pr-1.5">
