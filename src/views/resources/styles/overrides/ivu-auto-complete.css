@@ -1,6 +1,6 @@
 .ivu-auto-complete .ivu-input {
     height: 43px;
-    background-color: var(--clr-primary);
+    background-color: transparent;
     border-color: var(--clr-gray);
     padding-left: 18px;
     padding-right: 18px;

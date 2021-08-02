@@ -19,6 +19,10 @@
     background: linear-gradient(75deg, #0032bd 0%, #0f87e5 100%);
 }
 
+.button.danger {
+    background-color: #ed4014;
+}
+
 .button.large {
     height: 45px;
     font-size: 15px;
