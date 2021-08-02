@@ -51,7 +51,7 @@ export interface NetworkConfig {
 }
 
 export const defaultTestnetNetworkConfig: NetworkConfig = {
-    explorerUrl: 'http://testnet20.gritnetwork.io:90/',
+    explorerUrl: 'http://explorer20.gritnetwork.io/',
     faucetUrl: 'https://faucet20.gritnetwork.io/',
     defaultNetworkType: 152,
     networkConfigurationDefaults: {
