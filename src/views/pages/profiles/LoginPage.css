@@ -29,19 +29,17 @@
     margin-bottom: 76px;
 }
 
-
-
 .form-title {
     margin-bottom: 47px;
 }
 
 .create-profile-link:hover {
-  color: var(--clr-blue);
+    color: var(--clr-blue);
 }
 
 @media screen and (min-width: 1300px) {
-  .login-form {
-      width: 42%;
-      padding-right: 30%;
-  }
+    .login-form {
+        width: 40%;
+        padding-right: 10%;
+    }
 }

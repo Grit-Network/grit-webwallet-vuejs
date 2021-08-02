@@ -11,7 +11,8 @@
                 :class="['nav-item', index === currentItemIndex ? 'active-item' : 'inactive-item', index === 0 ? '' : 'border']"
                 @click="$emit('selected', index)"
             >
-                {{ $t(translationPrefix + item.toLowerCase()) }}
+                <!-- {{ $t(translationPrefix + item.toLowerCase()) }} -->
+                {{ translationPrefix + item.toLowerCase() }}
             </span>
         </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="h-full">
-        <div class="flex absolute top-1 right-1">
+        <div class="flex justify-end mb-1 pr-1">
             <span class="add-metadata-button mr-1.5">
                 <ButtonAdd :title="$t('add_metadata')" :disabled="false" size="26" @click="$emit('on-add-metadata')" />
             </span>
