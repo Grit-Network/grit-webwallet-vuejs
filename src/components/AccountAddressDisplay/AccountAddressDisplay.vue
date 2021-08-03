@@ -2,7 +2,7 @@
     <div class="contents">
         <span class="text-gray">{{ $t('account_address') }}:</span>
         <div class="flex justify-between">
-            {{ prettyAddress }}
+            <div class="break-all">{{ prettyAddress }}</div>
             <ButtonCopyToClipboard v-model="address" type="icon-gray" class="flex-shrink-0" />
         </div>
     </div>

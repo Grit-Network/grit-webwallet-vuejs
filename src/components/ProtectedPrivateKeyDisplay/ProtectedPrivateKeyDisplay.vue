@@ -2,7 +2,7 @@
     <div class="contents">
         <span v-if="$route.fullPath !== '/delegatedHarvesting'" class="text-gray">{{ $t('private_key') }}</span>
         <span v-if="hasPlainPrivateKey" class="flex justify-between">
-            {{ plainInformation }}
+            <div class="break-all">{{ plainInformation }}</div>
             <ButtonCopyToClipboard v-model="plainInformation" />
         </span>
 
