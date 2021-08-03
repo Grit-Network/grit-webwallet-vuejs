@@ -65,6 +65,10 @@
     color: #fff;
 }
 
+/deep/.box:hover svg path {
+    fill: var(--clr-blue);
+}
+
 .box-content {
     display: flex;
     flex-direction: column;
@@ -73,9 +77,13 @@
     transition: 0.3s;
 }
 
-.box img {
+.box svg {
     width: 60px;
     margin-bottom: 25px;
+}
+
+.box svg path {
+    transition: 0.3s;
 }
 
 .box-title {

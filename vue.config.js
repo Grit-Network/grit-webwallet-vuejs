@@ -12,7 +12,7 @@ const path = require('path');
 
 module.exports = {
     // base url
-    publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
     // output dir
     outputDir: './dist',
     assetsDir: 'static',

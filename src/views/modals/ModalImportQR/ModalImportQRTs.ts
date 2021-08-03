@@ -53,6 +53,16 @@ export class ModalImportQRTs extends Vue {
      */
     qrCode: QRCode = null;
 
+    /**
+     * QR Code type identified
+     */
+    qrType: number = 0;
+
+    /**
+     * Invalid qr type
+     */
+    invalidType: boolean = false;
+
     wizardSteps = {
         items: ['upload_qr_code', 'preview_and_action'],
         icons: [],
@@ -83,6 +93,11 @@ export class ModalImportQRTs extends Vue {
     public onUploadComplete(json) {
         this.$emit('jsonImported', json);
         this.qrcodeJson = json;
+        const jsonObj = JSON.parse(json);
+        this.qrType = jsonObj.type;
+        if (!this.validQrTypes.includes(this.qrType)) {
+            this.invalidType = true;
+        }
         setTimeout(() => (this.wizardSteps.currentStepInx = 1), 1200); // labor illusion
     }
 

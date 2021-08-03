@@ -98,6 +98,7 @@ export default class Dashboard extends DashboardTs {}
     flex-grow: 1;
     padding: 15px 25px;
     padding-bottom: 0;
+    max-width: calc(100% - 22%);
 }
 
 .assets {

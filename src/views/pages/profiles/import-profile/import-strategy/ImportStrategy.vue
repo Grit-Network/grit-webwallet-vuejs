@@ -16,9 +16,11 @@
             <div class="boxes">
                 <div class="box" v-for="(item, index) in importInfoList" :key="index" @click="redirect(item.route)">
                     <div class="box-content">
-                        <img src="@/assets/icons/create.png" alt="" v-if="index === 0" />
-                        <img src="@/assets/icons/import.png" alt="" v-if="index === 1" />
-                        <img src="@/assets/icons/dashboard.png" alt="" v-if="index === 2" />
+                        <inline-svg :src="require('@/assets/icons/create-profile/create.svg')" alt="" v-if="index === 0" />
+                        <inline-svg :src="require('@/assets/icons/create-profile/import.svg')" alt="" v-if="index === 1" />
+                        <inline-svg :src="require('@/assets/icons/create-profile/dashboard.svg')" alt="" v-if="index === 2" />
+                        <!-- <img src="@/assets/icons/import.png" alt="" v-if="index === 1" /> -->
+                        <!-- <img src="@/assets/icons/dashboard.png" alt="" v-if="index === 2" /> -->
                         <div class="box-title">{{ $t(item.title) }}</div>
                         <div class="box-description">{{ $t(item.description) }}</div>
                     </div>

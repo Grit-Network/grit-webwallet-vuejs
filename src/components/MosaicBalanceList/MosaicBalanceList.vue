@@ -10,13 +10,13 @@
                     @click="isEditionMode = true"
                 /> -->
             </div>
-            <div class="rows">
+            <div class="rows px-1">
                 <div v-for="(entry, index) in filteredBalanceEntries" :key="index" class="row">
                     <img v-if="entry.id.equals(networkMosaic)" src="@/assets/images/logo-favicon.png" alt />
                     <img v-else src="@/assets/images/logo-favicon.png" />
 
-                    <div>{{ entry.name !== '' ? entry.name : entry.id.toHex() }}</div>
-                    <div class="pr-1.5">
+                    <div class="flex-grow">{{ entry.name !== '' ? entry.name : entry.id.toHex() }}</div>
+                    <div class="pl-0.5 min-w-0 truncate">
                         <MosaicAmountDisplay :id="entry.id" :absolute-amount="entry.amount" :size="'normal'" />
                     </div>
                 </div>
@@ -166,8 +166,8 @@ export default class MosaicBalanceList extends MosaicBalanceListTs {}
 }
 
 .row {
-    display: grid;
-    grid-template-columns: 50px 1fr min-content;
+    display: flex;
+    /* grid-template-columns: 50px 1fr min-content; */
     align-items: center;
     height: 43px;
 }

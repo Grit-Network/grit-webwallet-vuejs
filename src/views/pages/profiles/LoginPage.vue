@@ -24,12 +24,12 @@
                                     :disabled="performingLogin"
                                 >
                                     <div>
-                                        <div class="px-1 py-0.5 font-semibold">
+                                        <div class="px-1 py-0.5 font-semibold uppercase text-blue">
                                             {{ $t(profilesClassifiedByNetworkType ? 'select_a_profile' : 'no_profiles_in_database') }}
                                         </div>
                                         <div v-if="profilesClassifiedByNetworkType">
                                             <div v-for="pair in profilesClassifiedByNetworkType" :key="pair.networkType">
-                                                <div v-if="pair.profiles.length" class="py-0.5 font-semibold">
+                                                <div v-if="pair.profiles.length" class="py-0.5 font-semibold uppercase text-blue">
                                                     <span class="px-1">{{ getNetworkTypeLabel(pair.networkType) }}</span>
                                                 </div>
                                                 <Option
