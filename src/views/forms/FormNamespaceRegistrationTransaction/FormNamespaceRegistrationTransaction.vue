@@ -43,7 +43,9 @@
                         @input="stripTagsNamespaceName"
                     />
                     <FormRow v-if="formItems.registrationType === typeSubNamespace">
-                        <template v-slot:label> {{ $t('current_validity') }}: </template>
+                        <template v-slot:label>
+                            <div class="mt-0.5">{{ $t('current_validity') }}</div>
+                        </template>
                         <template v-slot:inputs>
                             <div class="inputs-container">
                                 <div class="display-value">

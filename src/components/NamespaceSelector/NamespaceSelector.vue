@@ -16,12 +16,7 @@
                 class="select-container"
             >
                 <ErrorTooltip :errors="errors">
-                    <Select
-                        v-model="chosenValue"
-                        class="form-input text-black"
-                        :disabled="disabled"
-                        :placeholder="$t('select_a_namespace')"
-                    >
+                    <Select v-model="chosenValue" :disabled="disabled" :placeholder="$t('select_a_namespace')">
                         <Option
                             v-for="namespaceModel in filteredNamespaces"
                             :key="getName(namespaceModel)"
