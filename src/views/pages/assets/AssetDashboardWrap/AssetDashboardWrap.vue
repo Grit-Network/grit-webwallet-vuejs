@@ -1,5 +1,5 @@
 <template>
-    <div class="panel h-full relative">
+    <div class="flex flex-col panel h-full relative">
         <NavigationTabs direction="horizontal" :parent-route-name="parentRouteName" />
 
         <!-- <div class="flex justify-between p-1">

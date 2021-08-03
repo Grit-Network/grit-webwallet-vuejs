@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full">
+    <div class="flex flex-col flex-grow">
         <div class="flex justify-end mb-1 pr-1">
             <span class="add-metadata-button mr-1.5">
                 <ButtonAdd :title="$t('add_metadata')" :disabled="false" size="26" @click="$emit('on-add-metadata')" />
@@ -40,7 +40,7 @@
 
         <!-- <Spin v-if="isLoading || isFetchingMore" size="large" fix class="absolute" /> -->
 
-        <table class="table">
+        <table class="table flex-grow">
             <thead>
                 <tr>
                     <th v-for="({ name, label }, index) in tableFields" :key="index">
@@ -117,7 +117,7 @@
             </div>
         </div> -->
 
-        <div v-if="paginationType === 'pagination'" class="table-footer-container">
+        <div v-if="paginationType === 'pagination'" class="flex justify-end p-1">
             <Page class="page" :total="displayedValues.length" :page-size="pageSize" @on-change="handlePageChange" />
         </div>
         <ModalFormWrap

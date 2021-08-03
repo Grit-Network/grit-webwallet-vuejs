@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full flex flex-col">
+    <div class="flex flex-col flex-grow">
         <TableDisplay class="table-section" asset-type="mosaic" @on-add-metadata="showMetadataModal = true" />
         <ModalMetadataUpdate v-if="showMetadataModal" :visible="showMetadataModal" :type="1" @close="showMetadataModal = false" />
     </div>
