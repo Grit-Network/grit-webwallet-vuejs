@@ -1,6 +1,10 @@
 <template>
     <FormRow>
-        <template v-slot:label> {{ $t('set_explorer_link') }}: </template>
+        <template v-slot:label>
+            <div class="mb-[5px]">
+                {{ $t('set_explorer_link') }}
+            </div>
+        </template>
         <template v-slot:inputs>
             <ValidationProvider
                 v-slot="{ errors }"
@@ -29,27 +33,4 @@
 import { ExplorerUrlSetterTs } from './ExplorerUrlSetterTs';
 export default class ExplorerUrlSetter extends ExplorerUrlSetterTs {}
 </script>
-<style lang="less" scoped>
-@import '../../views/resources/css/variables.less';
 
-/deep/ .ivu-select-dropdown {
-    margin: 0 !important;
-    margin-left: -2% !important;
-    margin-top: 0.5% !important;
-    padding: 0 !important;
-    background: @grayLightest;
-}
-
-/deep/ .auto-complete-style {
-    padding-left: 2.1%;
-
-    .ivu-input {
-        background: transparent !important;
-        color: @primary;
-    }
-}
-
-/deep/ .ivu-select-item-focus {
-    color: @primary;
-}
-</style>

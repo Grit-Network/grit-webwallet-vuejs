@@ -1,5 +1,5 @@
 <template>
-    <div class="copy-button-container" :class="{ 'font-size-zero': type !== 'button' }" @click="copyToClipboard">
+    <div class="inline-block cursor-pointer" :class="{ 'font-size-zero': type !== 'button' }" @click="copyToClipboard">
         <slot v-if="type === 'button'">
             <Button type="text">
                 {{ $t('mnemonic_copy') }}
@@ -17,9 +17,9 @@
             <!-- <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" /> -->
             <inline-svg :src="require('@/assets/icons/content-copy.svg')" :class="type" />
         </Tooltip>
-        <Tooltip :content="$t(tooltipText)" placement="right" v-else-if="type === 'icon-gray'">
+        <!-- <Tooltip :content="$t(tooltipText)" placement="right" v-else-if="type === 'icon-gray'">
             <img src="@/views/resources/img/account/cloneIcon_gray.svg" class="icon" />
-        </Tooltip>
+        </Tooltip> -->
     </div>
 </template>
 <script lang="ts">
@@ -27,7 +27,7 @@ import { ButtonCopyToClipboardTs } from './ButtonCopyToClipboardTs';
 export default class ButtonCopyToClipboard extends ButtonCopyToClipboardTs {}
 </script>
 <style lang="less" scoped>
-@import './ButtonCopyToClipboard.less';
+// @import './ButtonCopyToClipboard.less';
 </style>
 
 

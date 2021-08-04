@@ -1,19 +1,13 @@
 <template>
-    <div :class="['symbol-tab-container', direction === 'horizontal' ? 'horizontal' : 'vertical']">
+    <div class="nav-links">
         <div
             v-for="(item, index) in items"
             :key="index"
-            :class="
-                direction === 'horizontal' ? ['empty'] : ['symbol-tab-nav', index === currentItemIndex ? 'active-item' : 'inactive-item']
-            "
+            :class="['nav-link', { active: index === currentItemIndex }]"
+            @click="$emit('selected', index)"
         >
-            <span
-                :class="['nav-item', index === currentItemIndex ? 'active-item' : 'inactive-item', index === 0 ? '' : 'border']"
-                @click="$emit('selected', index)"
-            >
-                <!-- {{ $t(translationPrefix + item.toLowerCase()) }} -->
-                {{ translationPrefix + item.toLowerCase() }}
-            </span>
+            {{ $t(translationPrefix + item.toLowerCase()) }}
+            <!-- {{ translationPrefix + item.toLowerCase() }} -->
         </div>
     </div>
 </template>
@@ -22,6 +16,27 @@ import { NavigationLinksTs } from './NavigationLinksTs';
 export default class NavigationLinks extends NavigationLinksTs {}
 </script>
 
-<style lang="less" scoped>
-@import './NavigationLinks.less';
+<style scoped>
+.nav-links {
+    display: flex;
+}
+
+.nav-link {
+    color: var(--clr-gray);
+    padding: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-bottom: 1.5px solid transparent;
+}
+
+.nav-link:first-child {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: black;
+    border-bottom-color: var(--clr-blue);
+}
 </style>

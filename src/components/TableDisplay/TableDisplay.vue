@@ -40,30 +40,33 @@
 
         <!-- <Spin v-if="isLoading || isFetchingMore" size="large" fix class="absolute" /> -->
 
-        <table class="table flex-grow">
-            <thead>
-                <tr>
-                    <th v-for="({ name, label }, index) in tableFields" :key="index">
-                        {{ $t(label) }}
-                    </th>
-                </tr>
-            </thead>
+        <div class="flex-grow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th v-for="({ name, label }, index) in tableFields" :key="index">
+                            {{ $t(label) }}
+                        </th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <TableRow
-                    v-for="(rowValues, index) in currentPageRows"
-                    :key="index"
-                    :row-values="rowValues"
-                    :asset-type="assetType"
-                    :owned-asset-hex-ids="ownedAssetHexIds"
-                    @on-show-alias-form="showAliasForm"
-                    @on-show-extend-namespace-duration-form="showExtendNamespaceDurationForm"
-                    @on-show-mosaic-supply-change-form="showModifyMosaicSupplyForm"
-                    @on-show-metadata="showMetadataValue"
-                    @on-show-edit="showModalUpdateMetadata"
-                />
-            </tbody>
-        </table>
+                <tbody>
+                    <TableRow
+                        v-for="(rowValues, index) in currentPageRows"
+                        :key="index"
+                        :row-values="rowValues"
+                        :asset-type="assetType"
+                        :owned-asset-hex-ids="ownedAssetHexIds"
+                        @on-show-alias-form="showAliasForm"
+                        @on-show-extend-namespace-duration-form="showExtendNamespaceDurationForm"
+                        @on-show-mosaic-supply-change-form="showModifyMosaicSupplyForm"
+                        @on-show-metadata="showMetadataValue"
+                        @on-show-edit="showModalUpdateMetadata"
+                    />
+                </tbody>
+            </table>
+        </div>
+
         <!-- <div
             :class="[
                 'table-header-container',

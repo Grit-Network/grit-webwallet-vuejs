@@ -75,7 +75,10 @@ export const defaultTestnetNetworkConfig: NetworkConfig = {
         totalChainImportance: 7842928625000000,
         generationHash: '3039AFE37CDAAE8503C458C74E3A7AD279EEAF336CBB9BACE62501438F3AF3DD',
     },
-    nodes: [{ friendlyName: 'grit-dual-001', roles: 2, url: 'http://testnet20.gritnetwork.io:3000' }],
+    nodes: [
+        { friendlyName: 'grit-dual-001', roles: 2, url: 'http://testnet20.gritnetwork.io:3000' },
+        { friendlyName: 'grit-dual-002', roles: 2, url: 'http://testnet20-peer-002.gritnetwork.io:7900' },
+    ],
 };
 
 export const defaultMainnetNetworkConfig: NetworkConfig = {

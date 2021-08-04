@@ -19,7 +19,7 @@
 
         <div class="right">
             <FormNamespaceRegistrationTransaction v-if="ownedNamespaces.length > 0" :registration-type="1" />
-            <div v-else class="no-data">
+            <div v-else class="text-blue italic text-center">
                 {{ $t('no_data_namespace_tips') }}
             </div>
         </div>

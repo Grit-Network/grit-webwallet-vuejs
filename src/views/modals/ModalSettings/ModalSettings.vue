@@ -1,35 +1,22 @@
 <template>
     <div>
-        <Modal v-model="show" class="settings-modal-container" :footer-hide="true">
+        <Modal v-model="show" class="settings-modal-container" :title="$t('settings')" :footer-hide="true">
             <div class="settings-container">
-                <div class="nav-links-wrapper">
-                    <div class="header-container">
-                        <span class="title-style">{{ $t('settings') }}</span>
-                    </div>
-                    <div class="nav-wrapper">
-                        <NavigationLinks
-                            class="settings-tabs-container"
-                            :items="availableTabs"
-                            :current-item-index="currentTabIndex"
-                            @selected="onTabChange"
-                        />
-                    </div>
-                </div>
+                <NavigationLinks
+                    class="settings-tabs-container"
+                    :items="availableTabs"
+                    :current-item-index="currentTabIndex"
+                    @selected="onTabChange"
+                />
 
-                <div v-if="knownTabs[currentTabIndex] === 'GENERAL' && !!currentAccount">
-                    <FormGeneralSettings @close="close" />
-                </div>
+                <div class="mt-2">
+                    <FormGeneralSettings v-if="knownTabs[currentTabIndex] === 'GENERAL' && !!currentAccount" @close="close" />
 
-                <div v-if="knownTabs[currentTabIndex] === 'PASSWORD' && !!currentAccount">
-                    <FormProfilePasswordUpdate />
-                </div>
+                    <FormProfilePasswordUpdate v-if="knownTabs[currentTabIndex] === 'PASSWORD' && !!currentAccount" />
 
-                <div v-if="knownTabs[currentTabIndex] === 'NETWORK' || !currentAccount">
-                    <FormNodeEdit />
-                </div>
+                    <FormNodeEdit v-if="knownTabs[currentTabIndex] === 'NETWORK' || !currentAccount" />
 
-                <div v-if="knownTabs[currentTabIndex] === 'ABOUT' && !!currentAccount">
-                    <AboutPage />
+                    <AboutPage v-if="knownTabs[currentTabIndex] === 'ABOUT' && !!currentAccount" />
                 </div>
             </div>
         </Modal>
@@ -39,6 +26,15 @@
 import { ModalSettingsTs } from './ModalSettingsTs';
 export default class ModalSettings extends ModalSettingsTs {}
 </script>
-<style lang="less" scoped>
-@import './ModalSettings.less';
+
+
+<style scoped>
+/deep/.ivu-modal {
+    width: 10rem !important;
+}
+
+.settings-container {
+    padding: 0 10px;
+    padding-bottom: 17px;
+}
 </style>

@@ -3,7 +3,10 @@
 }
 
 .ivu-modal {
-    margin-bottom: 100px;
+    top: 50px;
+    padding-bottom: 50px;
+    font-family: Montserrat;
+    color: black;
 }
 
 .ivu-modal .ivu-modal-content {

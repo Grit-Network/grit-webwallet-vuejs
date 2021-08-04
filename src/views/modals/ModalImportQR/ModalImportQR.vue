@@ -1,7 +1,7 @@
 <template>
     <div>
         <Modal v-model="show" class="modal-importqr-container" :title="$t('import_qr_code')" :footer-hide="true">
-            <div class="flex mx-1 mb-1">
+            <div class="flex gap-x-1 mx-1 mb-1">
                 <div class="w-6/12">
                     <ModalWizardDisplay
                         :items="wizardSteps.items"
@@ -72,6 +72,8 @@ import { ModalImportQRTs } from './ModalImportQRTs';
 export default class ModalImportQR extends ModalImportQRTs {}
 </script>
 
-<style lang="less" scoped>
-@import './ModalImportQR.less';
+<style scoped>
+/deep/.ivu-modal {
+    width: 12rem !important;
+}
 </style>

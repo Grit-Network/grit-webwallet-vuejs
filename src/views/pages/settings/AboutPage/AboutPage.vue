@@ -1,97 +1,53 @@
 <template>
     <div class="about-container">
-        <div class="form-container">
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_app_release') }}
-                </div>
-                <div class="value">{{ configs.package.description }} v{{ configs.package.version }}</div>
-            </div>
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_app_url') }}
-                </div>
-                <div class="value">
-                    <a :href="configs.package.homepage" target="_blank">{{ configs.package.homepage }}</a>
-                </div>
-            </div>
-            <!-- <div class="form-row"></div> -->
+        <div class="grid">
+            <div>{{ $t('about_app_release') }}</div>
+            <div>{{ configs.package.description }} v{{ configs.package.version }}</div>
 
-            <div class="subtitle">
-                {{ $t('about_network') }}
+            <div>{{ $t('about_app_url') }}</div>
+            <div>
+                <a :href="configs.package.homepage" target="_blank">{{ configs.package.homepage }}</a>
             </div>
+        </div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_default_node') }}
-                </div>
-                <div class="value">
-                    <a :href="nodeLink + '/node/info'" target="_blank">{{ nodeLink }}</a>
-                </div>
+        <div class="uppercase mt-1 text-blue font-semibold text-[15px]">
+            {{ $t('about_network') }}
+        </div>
+
+        <div class="grid">
+            <div>{{ $t('about_default_node') }}</div>
+            <div>
+                <a :href="nodeLink + '/node/info'" target="_blank">{{ nodeLink }}</a>
             </div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_network_type') }}
-                </div>
-                <div class="value">
-                    <span v-if="isNetworkType(types.MAIN_NET)">MAINNET</span>
-                    <span v-else-if="isNetworkType(types.TEST_NET)">TESTNET</span>
-                    <span v-else-if="isNetworkType(types.MIJIN)">MIJIN</span>
-                    <span v-else-if="isNetworkType(types.MIJIN_TEST)">MIJIN_TEST</span>
-                </div>
+            <div>{{ $t('about_network_type') }}</div>
+            <div>
+                <span v-if="isNetworkType(types.MAIN_NET)">MAINNET</span>
+                <span v-else-if="isNetworkType(types.TEST_NET)">TESTNET</span>
+                <span v-else-if="isNetworkType(types.MIJIN)">MIJIN</span>
+                <span v-else-if="isNetworkType(types.MIJIN_TEST)">MIJIN_TEST</span>
             </div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_generation_hash') }}
-                </div>
-                <div class="value">
-                    {{ generationHash }}
-                </div>
-            </div>
-            <!-- <div class="form-row about-list"></div> -->
+            <div>{{ $t('about_generation_hash') }}</div>
+            <div class="break-all">{{ generationHash }}</div>
+        </div>
 
-            <div class="subtitle">
-                {{ $t('about_dependencies') }}
-            </div>
+        <div class="uppercase mt-1 text-blue font-semibold text-[15px]">
+            {{ $t('about_dependencies') }}
+        </div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_sdk_version') }}
-                </div>
-                <div class="value">
-                    {{ configs.packageLock.dependencies['symbol-sdk'].version }}
-                </div>
-            </div>
+        <div class="grid">
+            <div>{{ $t('about_sdk_version') }}</div>
+            <div>{{ configs.packageLock.dependencies['symbol-sdk'].version }}</div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_typescript_version') }}
-                </div>
-                <div class="value">
-                    {{ configs.packageLock.dependencies['typescript'].version }}
-                </div>
-            </div>
+            <div>{{ $t('about_typescript_version') }}</div>
+            <div>{{ configs.packageLock.dependencies['typescript'].version }}</div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_rxjs_version') }}
-                </div>
-                <div class="value">
-                    {{ configs.packageLock.dependencies['rxjs'].version }}
-                </div>
-            </div>
+            <div>{{ $t('about_rxjs_version') }}</div>
+            <div>{{ configs.packageLock.dependencies['rxjs'].version }}</div>
 
-            <div class="form-row about-list">
-                <div class="label">
-                    {{ $t('about_vue_version') }}
-                </div>
-                <div class="value">
-                    {{ configs.packageLock.dependencies['vue'].version }}
-                </div>
-            </div>
-            <!-- <div class="form-row"></div> -->
+            <div>{{ $t('about_vue_version') }}</div>
+            <div>{{ configs.packageLock.dependencies['vue'].version }}</div>
         </div>
     </div>
 </template>
@@ -154,31 +110,14 @@ export default class AboutPage extends Vue {
 }
 </script>
 
-<style lang="less" scoped>
-@import '../../../resources/css/variables.less';
-.about-container {
-    display: block;
-    width: 100%;
-    clear: both;
-    min-height: 1rem;
-    padding-left: 6%;
-    padding-top: 0.8rem;
-    padding-bottom: 0.4rem;
+<style scoped>
+.grid {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    column-gap: 15px;
+}
 
-    .form-row {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 20% 80%;
-        font-size: @smallFont;
-        color: @primary;
-        min-height: unset;
-    }
-
-    .subtitle {
-        font-size: @normalFont;
-        font-weight: @bold;
-        color: @primary;
-        margin-top: 50px;
-    }
+.grid *:nth-child(odd) {
+    white-space: nowrap;
 }
 </style>
