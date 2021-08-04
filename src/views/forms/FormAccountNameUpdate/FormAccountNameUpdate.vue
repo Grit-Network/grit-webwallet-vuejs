@@ -1,9 +1,11 @@
 <template>
     <FormWrapper class="account-name-update-container" :whitelisted="true">
         <ValidationObserver v-slot="{ handleSubmit }" ref="observer" class="account-name-update-container" slim>
-            <form class="form-line-container mt-3" onsubmit="event.preventDefault()">
+            <form class="form" onsubmit="event.preventDefault()">
                 <FormRow>
-                    <template v-slot:label> {{ $t('form_label_new_account_name') }}: </template>
+                    <template v-slot:label>
+                        <div class="mb-[5px]">{{ $t('form_label_new_account_name') }}</div>
+                    </template>
                     <template v-slot:inputs>
                         <div class="row-75-25 inputs-container">
                             <ValidationProvider
@@ -20,15 +22,17 @@
                                         v-focus
                                         type="text"
                                         name="name"
-                                        class="input-size input-style"
+                                        class="form-input text-black"
                                         @input="stripTagsAccountName"
                                     />
                                 </ErrorTooltip>
                             </ValidationProvider>
 
-                            <button class="button-style inverted-button right-side-button" type="submit" @click="handleSubmit(onSubmit)">
-                                {{ $t('confirm') }}
-                            </button>
+                            <div class="text-right mt-2">
+                                <button class="button primary" type="submit" @click="handleSubmit(onSubmit)">
+                                    {{ $t('confirm') }}
+                                </button>
+                            </div>
                         </div>
                     </template>
                 </FormRow>

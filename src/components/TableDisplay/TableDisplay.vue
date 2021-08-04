@@ -40,7 +40,7 @@
 
         <!-- <Spin v-if="isLoading || isFetchingMore" size="large" fix class="absolute" /> -->
 
-        <div class="flex-grow">
+        <div class="flex-grow overflow-x-auto">
             <table class="table">
                 <thead>
                     <tr>

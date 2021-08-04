@@ -64,4 +64,12 @@ export default class FormGeneralSettings extends FormGeneralSettingsTs {}
 </script>
 
 <style scoped>
+/deep/.form input,
+/deep/.form .ivu-select-selected-value {
+    color: black;
+}
+
+/deep/.form .ivu-select-selection {
+    border: 1.5px solid var(--clr-gray);
+}
 </style>

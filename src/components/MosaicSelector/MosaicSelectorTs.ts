@@ -62,6 +62,8 @@ export class MosaicSelectorTs extends Vue {
     @Prop({ default: false }) disabled: boolean;
 
     @Prop({ default: 'networkMosaic' }) defaultMosaic: 'networkMosaic' | 'firstInList';
+
+    @Prop({ default: true }) attached: boolean;
     /**
      * Networks currency mosaic
      */

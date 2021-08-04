@@ -2,6 +2,11 @@
     width: 100%;
 }
 
+/* .table tbody {
+    display: table;
+    width: 100%;
+} */
+
 .table tr,
 .table th {
     color: var(--clr-gray);

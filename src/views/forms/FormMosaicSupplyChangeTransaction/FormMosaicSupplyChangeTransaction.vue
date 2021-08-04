@@ -22,6 +22,7 @@
                                     :mosaic-hex-ids="ownedTargetHexIds"
                                     default-mosaic="firstInList"
                                     required
+                                    :attached="false"
                                 />
                             </ErrorTooltip>
                         </ValidationProvider>

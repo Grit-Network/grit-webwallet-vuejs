@@ -1,8 +1,8 @@
 <template>
-    <div :class="[isConnected ? 'endpoint-healthy' : 'endpoint-unhealthy']">
+    <div :class="[isConnected ? 'endpoint-healthy' : 'endpoint-unhealthy', 'mb-1']">
         <Poptip v-if="!isEmbedded" v-model="poptipVisible" placement="bottom-end" class="endpoint-poptip" @on-popper-show="onPopTipShow">
             <i class="pointer point" />
-            <span v-if="isConnected" class="network-text pointer">{{ $t('node') }}</span>
+            <span v-if="isConnected" class="text-[16px] font-semibold text-blue">{{ $t('node') }}</span>
             <div slot="content" class="node-selector-container">
                 <div class="current-node-info">
                     <Row>
@@ -24,7 +24,7 @@
                     </Row>
                 </div>
                 <div class="node-list-container">
-                    <div class="node-list-head">
+                    <div class="text-[16px] font-semibold text-blue">
                         <span>{{ $t('node_list') }}</span>
                         <span> ({{ peersList.length }})</span>
                     </div>
@@ -55,9 +55,10 @@
                 </div>
             </div>
         </Poptip>
+
         <div v-else class="node-selector-container">
             <div class="node-list-container">
-                <div class="node-list-head">
+                <div class="text-[16px] font-semibold text-blue">
                     <span>{{ $t('node_list') }}</span>
                     <span> ({{ peersList.length }})</span>
                 </div>
@@ -93,5 +94,23 @@ export default class PeerSelector extends PeerSelectorTs {}
 </script>
 
 <style lang="less" scoped>
-@import './PeerSelector.less';
+// @import './PeerSelector.less';
+</style>
+
+<style scoped>
+.node-list-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    padding: 5px;
+}
+
+.list-item {
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.list-item.active {
+    background-color: rgba(15, 135, 229, 0.4);
+}
 </style>
