@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar">
+    <div class="sidebar" :class="{ expand: $store.state.navigation.sidebarExpand }">
         <div
             v-for="(route, index) in $router.getRoutes()"
             :key="index"
@@ -16,7 +16,9 @@
             </div> -->
 
             <!-- <div class="navigator-text-container"> -->
-            <div>{{ $t(route.meta.title) }}</div>
+            <div class="sidebar-title">
+                {{ $t(route.meta.title) }}
+            </div>
             <!-- </div> -->
         </div>
         <!-- <div class="network-container">
@@ -43,19 +45,39 @@ export default class PageNavigator extends PageNavigatorTs {}
 .sidebar {
     display: flex;
     flex-direction: column;
+    row-gap: 20px;
+    padding: 0 20px;
     padding-top: 30px;
-    width: 260px;
+    width: 60px;
+    overflow: hidden;
+    transition: 0.3s;
 }
 
+.sidebar.expand {
+    width: 290px;
+}
+
+/* .sidebar.expand .sidebar-item {
+    margin-right: 20px;
+} */
+
+/* .sidebar.expand .sidebar-item-icon {
+    margin-right: 15px;
+} */
+
 .sidebar-item {
+    position: relative;
     display: flex;
     align-items: center;
     font-weight: 500;
-    padding: 5px;
+    height: 40px;
+    /* padding: 5px; */
     color: var(--clr-gray);
     font-size: 14px;
     cursor: pointer;
-    margin: 10px 20px;
+    /* margin: 10px 20px;
+    margin-right: 5px; */
+    transition: 0.3s;
 }
 
 .sidebar-item.active,
@@ -71,7 +93,13 @@ export default class PageNavigator extends PageNavigatorTs {}
 }
 
 .sidebar-item-icon {
-    margin-right: 15px;
+    position: relative;
     width: 18px;
+    z-index: 10;
+}
+
+.sidebar-title {
+    position: absolute;
+    left: 40px;
 }
 </style>

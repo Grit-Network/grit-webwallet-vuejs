@@ -18,7 +18,7 @@
             <div class="navbar-logo">
                 <img src="@/assets/images/logo.png" alt="" />
                 <div class="flex-grow"></div>
-                <div class="navbar-burger">
+                <div class="navbar-burger" @click="$store.dispatch('navigation/toggleSidebar', !$store.state.navigation.sidebarExpand)">
                     <div class="navbar-burger-line"></div>
                     <div class="navbar-burger-line"></div>
                     <div class="navbar-burger-line"></div>

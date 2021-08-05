@@ -37,6 +37,7 @@ import { onPeerConnection } from '@/store/plugins/onPeerConnection';
 import { AwaitLock } from '@/store/AwaitLock';
 import AddressBook from '@/store/AddressBook';
 import AggregateTransaction from '@/store/AggregateTransaction';
+import Navigation from '@/store/Navigation';
 
 const Lock = AwaitLock.create();
 
@@ -69,6 +70,7 @@ const AppStore = new Vuex.Store({
         aggregateTransaction: AggregateTransaction,
         harvesting: HarvestingStore,
         restriction: RestrictionStore,
+        navigation: Navigation,
     },
     plugins: [onPeerConnection],
     actions: {
