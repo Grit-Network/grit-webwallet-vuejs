@@ -1,8 +1,6 @@
 <template>
     <div class="transaction-row-inner-container">
-        <div class="transaction-details-row-label-container">
-            <span> {{ $t(label) }}: </span>
-        </div>
+        <div class="transaction-details-row-label-container">{{ $t(label) }}:</div>
         <div class="transaction-details-row-value-container">
             <span v-if="label === 'hash' || label === 'inner_transaction_hash'">
                 <a class="url_text" target="_blank" :href="explorerUrl">{{ item.value }}</a>
@@ -77,5 +75,13 @@ export default class TransactionDetailRow extends Vue {
 
 <style lang="less" scoped>
 /* @TODO TransactionDetails.less shouldn't be here */
-@import '../TransactionDetails.less';
+// @import '../TransactionDetails.less';
+</style>
+
+<style scoped>
+.transaction-row-inner-container {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 15px;
+}
 </style>

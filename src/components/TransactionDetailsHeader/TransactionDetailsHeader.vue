@@ -14,5 +14,5 @@ import { TransactionDetailsHeaderTs } from './TransactionDetailsHeaderTs';
 export default class TransactionDetailsHeader extends TransactionDetailsHeaderTs {}
 </script>
 <style lang="less" scoped>
-@import './TransactionDetailsHeader.less';
+// @import './TransactionDetailsHeader.less';
 </style>

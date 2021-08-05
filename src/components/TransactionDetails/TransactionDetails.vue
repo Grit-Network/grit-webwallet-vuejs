@@ -3,10 +3,8 @@
         <div class="transaction-details-header-container">
             <TransactionDetailsHeader :view="views[0]" />
         </div>
-        <div v-if="views.length > 1" class="transaction-details-detail-section-title-container">
-            <span class="transaction-details-detail-section-title">
-                {{ $t('transaction_details') }}
-            </span>
+        <div v-if="views.length > 1" class="mt-1.5 uppercase text-[16px] font-semibold">
+            {{ $t('transaction_details') }}
         </div>
         <div class="transaction-details-outer-container">
             <div v-for="(view, index) in views" :key="index">
@@ -25,5 +23,5 @@ export default class TransactionDetails extends TransactionDetailsTs {}
 </script>
 
 <style lang="less">
-@import './TransactionDetails.less';
+// @import './TransactionDetails.less';
 </style>
