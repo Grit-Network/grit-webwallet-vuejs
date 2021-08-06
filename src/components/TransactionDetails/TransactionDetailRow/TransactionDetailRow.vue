@@ -1,7 +1,7 @@
 <template>
     <div class="transaction-row-inner-container">
         <div class="transaction-details-row-label-container">{{ $t(label) }}:</div>
-        <div class="transaction-details-row-value-container">
+        <div class="transaction-details-row-value-container break-all">
             <span v-if="label === 'hash' || label === 'inner_transaction_hash'">
                 <a class="url_text" target="_blank" :href="explorerUrl">{{ item.value }}</a>
             </span>
