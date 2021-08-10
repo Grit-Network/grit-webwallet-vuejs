@@ -10,8 +10,8 @@
                     @click="isEditionMode = true"
                 /> -->
             </div>
-            <div class="rows px-1">
-                <div v-for="(entry, index) in filteredBalanceEntries" :key="index" class="row">
+            <div class="rows">
+                <div v-for="(entry, index) in filteredBalanceEntries" :key="index" class="row px-1">
                     <img v-if="entry.id.equals(networkMosaic)" src="@/assets/images/logo-favicon.png" alt />
                     <img v-else src="@/assets/images/logo-favicon.png" />
 

@@ -1,6 +1,6 @@
 <template>
-    <div class="dashboard">
-        <div class="flex">
+    <div class="dashboard gap-y-[25px]">
+        <div class="flex flex-col xl:flex-row gap-[25px]">
             <div
                 :class="[
                     {
@@ -32,13 +32,13 @@
             <NetworkStatisticsPanel />
         </div>
 
-        <div class="flex flex-grow mt-1.5">
+        <div class="flex flex-grow flex-col xl:flex-row gap-[25px]">
             <div class="assets">
                 <Spin v-if="!balanceMosaics.length" size="large" fix class="absolute" />
                 <MosaicBalanceList />
             </div>
 
-            <div class="flex flex-grow panel ml-1.5 right-bottom-panel">
+            <div class="flex flex-grow panel right-bottom-panel">
                 <NavigationTabs direction="vertical" :parent-route-name="parentRouteName" />
                 <div class="navigation-content">
                     <router-view :key="$route.fullPath" />
@@ -84,8 +84,8 @@ export default class Dashboard extends DashboardTs {}
     background-image: linear-gradient(0deg, #0032bd 0%, #0d7ee1 81%, #0f87e5 100%);
     border-radius: 4px;
     box-shadow: 0px 0px 15px #00000080;
-    width: 38%;
-    max-width: 600px;
+    max-height: 250px;
+    overflow: hidden;
 }
 
 .address-panel-image {
@@ -104,7 +104,6 @@ export default class Dashboard extends DashboardTs {}
 .assets {
     display: flex;
     flex-direction: column;
-    width: 26%;
 }
 
 .navigation-content {
@@ -115,5 +114,16 @@ export default class Dashboard extends DashboardTs {}
 
 .right-bottom-panel {
     min-height: 500px;
+}
+
+@media screen and (min-width: 1280px) {
+    .address-panel {
+        width: 38%;
+        max-width: 600px;
+    }
+
+    .assets {
+        width: 26%;
+    }
 }
 </style>

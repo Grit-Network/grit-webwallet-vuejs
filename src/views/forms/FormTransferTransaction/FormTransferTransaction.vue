@@ -37,8 +37,15 @@
                     </div>
 
                     <!-- Add mosaic button -->
-                    <div v-if="mosaicInputsManager.hasFreeSlots()" class="form-row align-right action-link" style="margin-top: -0.1rem">
-                        <a
+                    <div
+                        v-if="mosaicInputsManager.hasFreeSlots()"
+                        @click="addMosaicAttachmentInput"
+                        class="flex items-center gap-x-0.5 mt-1 cursor-pointer"
+                    >
+                        <inline-svg :src="require('@/assets/icons/plus-circle.svg')"></inline-svg>
+                        <div>{{ $t('add_mosaic') }}</div>
+
+                        <!-- <a
                             v-if="mosaicInputsManager.hasFreeSlots()"
                             style="color: #44004e; margin-right: 0.1rem; font-size: 0.14rem"
                             @click="addMosaicAttachmentInput"
@@ -49,7 +56,7 @@
                             class="icon-left-button clickable"
                             style="vertical-align: middle"
                             @click="addMosaicAttachmentInput"
-                        />
+                        /> -->
                     </div>
 
                     <div class="flex mt-1.5">

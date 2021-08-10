@@ -48,6 +48,7 @@ import { Component, Prop } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
 import { MetadataModel } from '@/core/database/entities/MetadataModel';
 import { MosaicService } from '@/services/MosaicService';
+import { feesConfig } from '@/config';
 @Component({
     components: {
         ValidationObserver,
@@ -195,7 +196,7 @@ export class FormMetadataCreationTs extends FormTransactionBase {
         this.formItems.scopedKey = '';
 
         // - maxFee must be absolute
-        this.formItems.maxFee = this.defaultFee;
+        this.formItems.maxFee = feesConfig.median;
         // for mosaics and namespaces, target account will be the signer account's itself (as hidden)
         if (this.type !== MetadataType.Account) {
             this.formItems.targetAccount = this.formItems.signerAddress;

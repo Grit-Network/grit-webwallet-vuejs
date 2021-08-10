@@ -6,7 +6,7 @@
 }
 
 .navbar-right {
-    display: flex;
+    display: none;
     align-items: center;
     padding-left: 25px;
     flex-grow: 1;
@@ -63,4 +63,10 @@
     height: 2px;
     width: 100%;
     background-color: var(--clr-gray);
+}
+
+@media screen and (min-width: 1280px) {
+    .navbar-right {
+        display: flex;
+    }
 }

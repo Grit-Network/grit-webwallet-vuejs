@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col flex-grow">
-        <div class="flex justify-end mb-1 pr-1">
+        <div class="flex flex-col sm:flex-row flex-wrap gap-x-0.5 gap-y-1 justify-end mb-1 p-1 xl:p-0 xl:pr-1">
             <span class="add-metadata-button mr-1.5">
                 <ButtonAdd :title="$t('add_metadata')" :disabled="false" size="26" @click="$emit('on-add-metadata')" />
             </span>
@@ -15,9 +15,9 @@
             <div v-if="signers.length > 1" style="min-width: 2rem">
                 <SignerFilter :signers="signers" @signer-change="onSignerSelectorChange" />
             </div>
-            <div class="flex items-center ml-1 cursor-pointer" @click="onRefresh">
+            <div class="flex items-center cursor-pointer" @click="onRefresh">
                 <ButtonRefresh v-if="assetType !== 'metadata'" />
-                <span class="text-gray ml-0.5">Refresh</span>
+                <span class="text-gray ml-1">Refresh</span>
             </div>
         </div>
         <!-- <div class="upper-section-container">

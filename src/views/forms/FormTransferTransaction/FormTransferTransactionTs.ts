@@ -78,6 +78,7 @@ import { TransactionCommand } from '@/services/TransactionCommand';
 import { appConfig } from '@/config';
 import { NotificationType } from '@/core/utils/NotificationType';
 const { DECIMAL_SEPARATOR } = appConfig.constants;
+import { feesConfig } from '@/config';
 
 export interface MosaicAttachment {
     mosaicHex: string;
@@ -116,64 +117,40 @@ export interface MosaicAttachment {
     },
 })
 export class FormTransferTransactionTs extends FormTransactionBase {
-    @Prop({
-        default: null,
-    })
+    @Prop({ default: null })
     recipient: Address;
 
-    @Prop({
-        default: null,
-    })
+    @Prop({ default: null })
     message: Message;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     hideSubmit: boolean;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     hideSave: boolean;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     hideSigner: boolean;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     showTransactionActions: boolean;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     hideEncryption: boolean;
 
-    @Prop({
-        default: () => ({}),
-    })
+    @Prop({ default: () => ({}) })
     value: any;
 
-    @Prop({
-        default: '',
-    })
+    @Prop({ default: '' })
     title: string;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     isAggregate: boolean;
 
-    @Prop({
-        default: undefined,
-    })
+    @Prop({ default: undefined })
     submitButtonText: string;
 
-    @Prop({
-        default: false,
-    })
+    @Prop({ default: false })
     editMode: boolean;
 
     /// end-region component properties
@@ -297,7 +274,8 @@ export class FormTransferTransactionTs extends FormTransactionBase {
         this.formItems.encryptMessage = false;
         this.encyptedMessage = null;
         // - maxFee must be absolute
-        this.formItems.maxFee = this.defaultFee;
+        // this.formItems.maxFee = this.defaultFee;
+        this.formItems.maxFee = feesConfig.median;
 
         // transaction details passed via router
         this.importTransaction = this.$route.params.transaction || this.importedTransaction ? true : false;

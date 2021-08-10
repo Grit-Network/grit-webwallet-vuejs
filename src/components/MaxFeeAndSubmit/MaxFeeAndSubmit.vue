@@ -72,10 +72,9 @@ export default class MaxFeeAndSubmit extends Vue {
      * Submit button classes
      */
     @Prop({ default: 'inverted-button' }) submitButtonClasses: string;
-    @Prop({
-        default: 0,
-    })
+    @Prop({ default: 0, })
     size: number;
+    
     private transactionFees: TransactionFees;
     /**
      * Get max fee value from the value prop

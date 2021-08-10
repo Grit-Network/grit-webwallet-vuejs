@@ -1,30 +1,31 @@
 <template>
-    <div class="contact-detail">
-        <div class="flex-shrink-0">
-            <AddressQR :contact="selectedContact" />
-        </div>
+    <div>
+        <div class="contact-detail flex-col sm:flex-row gap-2">
+            <div class="flex-shrink-0">
+                <AddressQR :contact="selectedContact" />
+            </div>
 
-        <div class="form-grid">
-            <FormInputEditable
-                :model="selectedContact"
-                :value="selectedContact.name"
-                :new-value="selectedContact.name"
-                :editing="false"
-                :label="$t('contact_name')"
-                :on-edit="saveProperty('name')"
-            />
+            <div class="form-grid flex-grow">
+                <FormInputEditable
+                    :model="selectedContact"
+                    :value="selectedContact.name"
+                    :new-value="selectedContact.name"
+                    :editing="false"
+                    :label="$t('contact_name')"
+                    :on-edit="saveProperty('name')"
+                />
 
-            <FormInputEditable
-                :model="selectedContact"
-                :value="address"
-                :new-value="address"
-                :editing="false"
-                :rules="validationRules.addressOrPublicKey"
-                :label="$t('contact_address')"
-                :on-edit="saveProperty('address')"
-            />
-        </div>
-        <!-- <div class="account-detail-inner-container">
+                <FormInputEditable
+                    :model="selectedContact"
+                    :value="address"
+                    :new-value="address"
+                    :editing="false"
+                    :rules="validationRules.addressOrPublicKey"
+                    :label="$t('contact_address')"
+                    :on-edit="saveProperty('address')"
+                />
+            </div>
+            <!-- <div class="account-detail-inner-container">
             <div class="left-container">
                 <AddressQR :contact="selectedContact" />
             </div>
@@ -95,6 +96,7 @@
                 </div>
             </div>
         </div> -->
+        </div>
         <ModalConfirm
             v-model="showDeleteModal"
             :title="$t('delete_contact_confirmation_title')"
@@ -111,8 +113,7 @@ export default class ContactDetailPanel extends ContactDetailPanelTs {}
 
 <style scoped>
 .contact-detail {
-    display: grid;
-    grid-template-columns: auto 1fr;
+    display: flex;
     align-items: center;
     padding: 20px 7%;
 }
@@ -124,7 +125,7 @@ export default class ContactDetailPanel extends ContactDetailPanelTs {}
     column-gap: 10px;
     row-gap: 8px;
     flex-grow: 1;
-    padding-left: 25px;
+    padding-left: 15px;
 }
 
 .form-grid .label {

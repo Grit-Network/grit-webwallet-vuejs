@@ -15,7 +15,7 @@
         />
         <!-- v-if="!!accountMetadataList.length"  -->
 
-        <div class="flex items-center">
+        <div class="flex flex-col sm:flex-row gap-2 items-center">
             <div class="flex-shrink-0">
                 <AccountContactQR :account="currentAccount" />
             </div>
@@ -140,7 +140,7 @@ export default class AccountDetailsPage extends AccountDetailsPageTs {}
     column-gap: 10px;
     row-gap: 8px;
     flex-grow: 1;
-    padding-left: 25px;
+    padding-left: 15px;
 }
 
 .form-grid .label {

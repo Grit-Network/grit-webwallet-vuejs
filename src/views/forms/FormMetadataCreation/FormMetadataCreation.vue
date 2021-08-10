@@ -152,7 +152,7 @@ export default class FormMetadataCreation extends FormMetadataCreationTs {}
 </script>
 
 <style scoped>
-/deep/.ivu-select-selected-value {
+/deep/.ivu-select-single .ivu-select-selection .ivu-select-selected-value {
     color: black;
 }
 </style>

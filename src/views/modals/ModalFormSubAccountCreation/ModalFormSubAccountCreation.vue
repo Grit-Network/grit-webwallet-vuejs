@@ -4,11 +4,13 @@
             <ValidationObserver ref="observer" slim>
                 <form class="form-container mt-3" onsubmit="event.preventDefault()" autocomplete="off">
                     <FormRow>
-                        <template v-slot:label> {{ $t('form_label_new_account_type') }}: </template>
+                        <template v-slot:label>
+                            <div class="mb-[5px]">{{ $t('form_label_new_account_type') }}</div></template
+                        >
                         <template v-slot:inputs>
                             <div class="inputs-container">
                                 <div class="select-container">
-                                    <Select v-model="formItems.type" class="text-black mb-1" :disabled="isCreatingAccount">
+                                    <Select v-model="formItems.type" class="text-black" :disabled="isCreatingAccount">
                                         <Option v-if="isPrivateKeyAccount" value="privatekey_account">
                                             {{ $t('option_hd_account') }}
                                         </Option>
@@ -25,7 +27,11 @@
                     </FormRow>
 
                     <FormRow>
-                        <template v-slot:label> {{ $t('form_label_new_account_name') }}: </template>
+                        <template v-slot:label>
+                            <div class="mt-1 mb-[5px]">
+                                {{ $t('form_label_new_account_name') }}
+                            </div>
+                        </template>
                         <template v-slot:inputs>
                             <ValidationProvider
                                 v-slot="{ errors }"
@@ -52,7 +58,9 @@
                     </FormRow>
 
                     <FormRow v-if="formItems.type === 'privatekey_account'">
-                        <template v-slot:label> {{ $t('form_label_private_key') }}: </template>
+                        <template v-slot:label>
+                            <div class="mt-1 mb-[5px]">{{ $t('form_label_private_key') }}</div>
+                        </template>
                         <template v-slot:inputs>
                             <ValidationProvider
                                 v-slot="{ errors }"

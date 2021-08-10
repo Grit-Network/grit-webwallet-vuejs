@@ -1,10 +1,6 @@
 <template>
-    <div class="asset-list-main-container">
-        <div class="left-container">
-            <div class="table-section">
-                <slot name="table-section" />
-            </div>
-        </div>
+    <div>
+        <slot name="table-section" />
     </div>
 </template>
 

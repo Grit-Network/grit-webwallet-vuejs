@@ -43,6 +43,8 @@ import NavigationTabs from '@/components/NavigationTabs/NavigationTabs.vue';
 // @ts-ignore
 import FormMosaicSupplyChangeTransaction from '@/views/forms/FormMosaicSupplyChangeTransaction/FormMosaicSupplyChangeTransaction.vue';
 
+import { feesConfig } from '@/config';
+
 @Component({
     components: {
         FormWrapper,
@@ -85,7 +87,7 @@ export class FormAggregateTransactionTs extends FormTransactionBase {
     }
 
     public formItems = {
-        maxFee: 0,
+        maxFee: feesConfig.median,
         recipientRaw: '',
         signerPublicKey: '',
     };
@@ -292,7 +294,7 @@ export class FormAggregateTransactionTs extends FormTransactionBase {
      */
     protected resetForm() {
         // - maxFee must be absolute
-        this.formItems.maxFee = this.defaultFee;
+        this.formItems.maxFee = feesConfig.median;
         this.formItems.signerPublicKey = '';
     }
 

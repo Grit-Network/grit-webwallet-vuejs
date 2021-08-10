@@ -146,7 +146,14 @@ export default class PageLayout extends PageLayoutTs {}
     flex-direction: column;
     flex-grow: 1;
     padding: 35px;
+    padding-left: calc(60px + 35px);
     flex-shrink: 1;
     min-width: 0;
+}
+
+@media screen and (min-width: 650px) {
+    .content {
+        padding-left: 35px;
+    }
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
-    <div class="flex gap-x-1.5 h-full">
-        <div class="panel w-6/12">
+    <div class="flex flex-col xl:flex-row gap-[25px] h-full">
+        <div class="panel xl:w-6/12 min-h-[350px]">
             <div class="header">
                 <div class="title">{{ $t('tab_accounts_accounts') }}</div>
 
-                <div class="flex">
+                <div class="flex flex-wrap gap-1">
                     <button class="button-icon mr-1" @click="hasAddAccountModal = true">
                         <inline-svg :src="require('@/assets/icons/plus-circle.svg')" />
                         {{ $t('button_add_account') }}
@@ -22,7 +22,7 @@
             </div>
             <AccountSelectorPanel />
         </div>
-        <div class="panel w-6/12">
+        <div class="panel xl:w-6/12 min-h-[350px]">
             <div class="header">
                 <div class="title">{{ $t('tab_accounts_addressbook') }}</div>
 
@@ -131,6 +131,8 @@ export default class Accounts extends AccountsTs {}
 <style scoped>
 .header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     justify-content: space-between;
     padding: 17px 23px;
 }

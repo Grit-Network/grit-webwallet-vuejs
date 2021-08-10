@@ -8,6 +8,10 @@
 import { ButtonRefreshTs } from './ButtonRefreshTs';
 export default class ButtonRefresh extends ButtonRefreshTs {}
 </script>
-<style lang="less" scoped>
-@import './ButtonRefresh.less';
+
+
+<style scoped>
+.ivu-tooltip {
+    width: unset;
+}
 </style>

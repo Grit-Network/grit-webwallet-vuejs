@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="flex justify-between p-1" v-if="direction === 'horizontal'">
-            <div class="flex gap-x-1.5">
+            <div class="flex flex-wrap gap-x-1.5 gap-y-1">
                 <div
                     class="tab-link"
                     v-for="(tabEntry, index) in tabEntries"

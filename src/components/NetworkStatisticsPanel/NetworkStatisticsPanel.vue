@@ -1,5 +1,5 @@
 <template>
-    <div class="panel flex justify-around items-center flex-grow ml-1.5">
+    <div class="panel flex flex-col flex-wrap sm:flex-row gap-[25px] p-1.5 justify-around items-center flex-grow">
         <div>
             <div class="title">{{ $t('chain_height') }}</div>
             <div class="value">{{ currentHeight }}</div>
@@ -85,12 +85,17 @@ export default class NetworkStatisticsPanel extends NetworkStatisticsPanelTs {}
     text-transform: uppercase;
     color: var(--clr-gray);
     margin-bottom: 10px;
+    white-space: nowrap;
 }
 
 .value {
     font-size: 31px;
     font-weight: 600;
     color: var(--clr-blue);
+}
+
+.panel {
+    min-height: 170px;
 }
 
 @media screen and (min-width: 1300px) {

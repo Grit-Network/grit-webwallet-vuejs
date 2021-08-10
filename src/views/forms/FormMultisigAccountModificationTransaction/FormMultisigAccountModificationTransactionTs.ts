@@ -41,6 +41,7 @@ import ApprovalAndRemovalInput from '@/components/ApprovalAndRemovalInput/Approv
 // @ts-ignore
 import MultisigCosignatoriesDisplay from '@/components/MultisigCosignatoriesDisplay/MultisigCosignatoriesDisplay.vue';
 import { TransactionCommand } from '@/services/TransactionCommand';
+import { feesConfig } from '@/config';
 
 /// region custom types
 export interface CosignatoryModification {
@@ -133,7 +134,7 @@ export class FormMultisigAccountModificationTransactionTs extends FormTransactio
         }
 
         // - maxFee must be absolute
-        this.formItems.maxFee = this.defaultFee;
+        this.formItems.maxFee = feesConfig.median;
     }
 
     /**

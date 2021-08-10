@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-wrap -mx-1.5 h-full">
-        <div class="px-1 md:w-8/12 w-full h-full">
-            <div class="panel h-full">
+    <div class="flex flex-wrap -mx-1.5 flex-grow gap-y-[25px]">
+        <div class="flex flex-col px-1 md:w-8/12 w-full">
+            <div class="panel flex-grow">
                 <NavigationTabs direction="horizontal" :parent-route-name="parentRouteName" />
                 <div
                     v-if="currentSelectedTransaction && currentSelectedTransaction.title && currentSelectedTransaction.component"
@@ -24,8 +24,8 @@
                 </div>
             </div>
         </div>
-        <div class="px-1 md:w-4/12 w-full h-full">
-            <div class="panel p-2 pt-1 h-full flex flex-col justify-between">
+        <div class="flex flex-col px-1 md:w-4/12 w-full min-h-[350px]">
+            <div class="panel p-2 pt-1 flex flex-col justify-between flex-grow">
                 <div class="uppercase text-[15px] font-medium">
                     {{ $t('my_transaction_title') }}
                 </div>

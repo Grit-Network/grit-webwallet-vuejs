@@ -88,6 +88,8 @@ import ModalConfirm from '@/views/modals/ModalConfirm/ModalConfirm.vue';
 // @ts-ignore
 import MaxFeeSelector from '@/components/MaxFeeSelector/MaxFeeSelector.vue';
 
+import { feesConfig } from '@/config';
+
 export enum HarvestingAction {
     START = 1,
     STOP = 2,
@@ -149,7 +151,7 @@ export class FormPersistentDelegationRequestTransactionTs extends FormTransactio
     public formItems = {
         nodeModel: { nodePublicKey: '' } as NodeModel,
         signerAddress: '',
-        maxFee: 1,
+        maxFee: feesConfig.median,
     };
     private accountsInfo: AccountInfo[];
 
