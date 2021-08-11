@@ -7,9 +7,7 @@
 
             <ValidationObserver v-slot="{ handleSubmit }" slim>
                 <form class="form" onsubmit="event.preventDefault()">
-                    <div class="form-title">
-                        {{ $t('login_to_symbol_account') }}
-                    </div>
+                    <div class="form-title">Login to your Grit account</div>
 
                     <div class="mb-1.5">
                         <div class="form-label">{{ $t('profile_name') }}</div>
