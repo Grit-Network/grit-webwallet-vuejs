@@ -1,15 +1,14 @@
 <template>
     <div class="import-profile">
         <img src="@/assets/images/logo-favicon.png" alt="" class="logo" />
-        <img src="@/assets/images/background-arrow2.png" alt="" class="background-arrow" />
 
-        <div class="left">
-            <div class="left-content" :class="{ wide: $route.name === 'profiles.importProfile.walletSelection' }">
-                <router-view />
-            </div>
+        <div class="left" :class="{ wide: $route.name === 'profiles.importProfile.walletSelection' }">
+            <router-view />
         </div>
 
         <div class="right">
+            <img src="@/assets/images/background-arrow2.png" alt="" class="background-arrow" />
+
             <div class="steps">
                 <div v-for="(text, index) in StepBarTitleList" :key="index" :class="['step', getStepClassName(index)]">
                     <div class="step-number">

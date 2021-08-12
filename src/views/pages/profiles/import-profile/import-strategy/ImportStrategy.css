@@ -4,7 +4,7 @@
     justify-content: flex-end;
     align-items: center;
     min-height: 100vh;
-    padding: 30px;
+    padding: 70px 30px;
 }
 
 .background-arrow {
@@ -17,7 +17,10 @@
 }
 
 .content {
-    width: 65%;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 100;
+    max-width: calc(100vw - 60px);
 }
 
 .logo {
@@ -39,7 +42,9 @@
 
 .boxes {
     display: flex;
-    column-gap: 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
     margin-top: 60px;
 }
 
@@ -73,7 +78,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: var(--clr-gray-dark);
+    /* color: var(--clr-gray); */
     transition: 0.3s;
 }
 
@@ -98,6 +103,18 @@
 
 @media screen and (min-width: 1300px) {
     .content {
-        width: 50%;
+        width: 52%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+        width: 68%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .boxes {
+        justify-content: start;
     }
 }

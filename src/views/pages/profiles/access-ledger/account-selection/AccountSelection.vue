@@ -1,7 +1,7 @@
 <template>
     <div class="account-selection" @keyup.enter="submit">
         <div class="content">
-            <section class="left">
+            <div class="left">
                 <div class="title">{{ $t('address_to_interact_with') }}</div>
 
                 <table>
@@ -37,9 +37,9 @@
                         </template>
                     </tbody>
                 </table>
-            </section>
+            </div>
 
-            <section class="right">
+            <div class="right">
                 <div class="title">Selected accounts</div>
                 <table>
                     <thead>
@@ -56,7 +56,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </section>
+            </div>
         </div>
 
         <div class="mt-4 flex justify-end">
@@ -135,18 +135,22 @@ export default class AccountSelection extends AccountSelectionTs {}
 
 .content {
     display: flex;
-    column-gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 60px;
 }
 
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 28px;
+    white-space: nowrap;
 }
 
 .left,
 .right {
     width: 50%;
+    min-width: 330px;
 }
 
 table {
@@ -172,5 +176,11 @@ tbody tr {
 
 tbody tr:hover {
     color: var(--clr-blue);
+}
+
+@media screen and (min-width: 1360px) {
+    .account-selection {
+        width: 80%;
+    }
 }
 </style>

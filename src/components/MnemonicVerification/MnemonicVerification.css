@@ -14,7 +14,7 @@
     border-radius: 8px;
     margin-bottom: 20px;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .selected-words-box {

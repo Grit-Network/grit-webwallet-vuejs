@@ -97,9 +97,19 @@ export default class ShowMnemonic extends ShowMnemonicTs {}
 </style>
 
 <style scoped>
+.show-mnemonic {
+    width: 80%;
+}
+
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 15px;
+}
+
+@media screen and (min-width: 1380px) {
+    .show-mnemonic {
+        width: 70%;
+    }
 }
 </style>

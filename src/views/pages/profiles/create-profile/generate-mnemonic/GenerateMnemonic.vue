@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center w-9/12 lg:w-6/12">
         <img src="@/assets/images/logo-favicon.png" class="logo" />
         <Progress stroke-color="var(--clr-blue)" :percent="percent" />
     </div>

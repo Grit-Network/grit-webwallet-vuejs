@@ -63,9 +63,19 @@ export default class ImportMnemonic extends ImportMnemonicTs {}
 </style>
 
 <style scoped>
+.import-mnemonic {
+    width: 90%;
+}
+
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 28px;
+}
+
+@media screen and (min-width: 1380px) {
+    .import-mnemonic {
+        width: 80%;
+    }
 }
 </style>

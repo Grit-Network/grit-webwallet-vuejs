@@ -1,7 +1,9 @@
 .create-profile {
-    position: relative;
     display: flex;
+    position: relative;
+    flex-direction: column;
     min-height: 100vh;
+    row-gap: 30px;
 }
 
 .logo {
@@ -15,27 +17,25 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 70%;
+    height: 90%;
     object-fit: cover;
     object-position: center;
 }
 
 .left {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60%;
-}
-
-.left-content {
-    width: 60%;
+    padding-top: 160px;
+    z-index: 100;
 }
 
 .right {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 40%;
     background-color: #1d1d1d;
     padding: 60px 30px 60px 0;
 }
@@ -44,7 +44,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding-left: 10%;
+    padding-left: 100px;
     row-gap: 60px;
 }
 
@@ -68,7 +68,7 @@
     left: 0;
     width: 50px;
     height: 50px;
-    transform: translateX(-50%);
+    transform: translateX(50%);
     background-color: #1d1d1d;
     color: var(--clr-gray-dark);
     font-size: 13px;
@@ -89,4 +89,31 @@
 
 .step-description {
     margin-top: 20px;
+}
+
+@media screen and (min-width: 960px) {
+    .create-profile {
+        flex-direction: row;
+    }
+
+    .left {
+        width: 60%;
+        padding-top: 0;
+    }
+
+    .right {
+        width: 40%;
+    }
+
+    .step-number {
+        transform: translateX(-50%);
+    }
+
+    .steps {
+        padding-left: 10%;
+    }
+
+    .background-arrow {
+        height: 70%;
+    }
 }

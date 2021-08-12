@@ -33,13 +33,26 @@ export default class VerifyMnemonic extends VerifyMnemonicTs {}
 
 <style scoped>
 .verify-mnemonic {
-    padding-top: 120px;
+    padding-top: 90px;
     padding-bottom: 30px;
+    width: 80%;
 }
 
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+@media screen and (min-width: 960px) {
+    .verify-mnemonic {
+        padding-top: 130px;
+    }
+}
+
+@media screen and (min-width: 1380px) {
+    .verify-mnemonic {
+        width: 70%;
+    }
 }
 </style>
