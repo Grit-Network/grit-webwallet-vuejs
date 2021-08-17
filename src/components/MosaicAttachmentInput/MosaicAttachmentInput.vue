@@ -1,7 +1,7 @@
 <template>
     <FormRow>
         <template v-slot:label>
-            <div v-show="isFirstItem" class="mb-0.5">{{ $t('mosaic') }}:</div>
+            <div v-show="isFirstItem" class="mb-[5px]">{{ $t('mosaic') }}</div>
         </template>
         <template v-slot:inputs>
             <div class="select-input">

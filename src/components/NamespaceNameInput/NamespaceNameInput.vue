@@ -1,7 +1,7 @@
 <template>
     <FormRow>
         <template v-slot:label>
-            <div class="mt-0.5 mb-[3px]">{{ $t('form_label_namespace_name') }}</div>
+            <div class="mt-0.5 mb-[5px]">{{ $t('form_label_namespace_name') }}</div>
         </template>
         <template v-slot:inputs>
             <ValidationProvider

@@ -153,6 +153,9 @@ export class FormTransferTransactionTs extends FormTransactionBase {
     @Prop({ default: false })
     editMode: boolean;
 
+    @Prop()
+    origin: string;
+
     /// end-region component properties
 
     /**

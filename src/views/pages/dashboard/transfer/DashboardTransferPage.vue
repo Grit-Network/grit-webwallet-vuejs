@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <FormTransferTransaction :recipient="recipient" :show-transaction-actions="true" />
+        <FormTransferTransaction origin="dashboard_send" :recipient="recipient" :show-transaction-actions="true" />
     </div>
 </template>
 

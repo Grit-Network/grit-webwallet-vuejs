@@ -26,8 +26,8 @@ export default class NamespaceListPage extends NamespaceListPageTs {}
 
 <style scoped lang="less">
 .table-section {
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
-    height: 100%;
+    // padding-left: 0.2rem;
+    // padding-right: 0.2rem;
+    // height: 100%;
 }
 </style>

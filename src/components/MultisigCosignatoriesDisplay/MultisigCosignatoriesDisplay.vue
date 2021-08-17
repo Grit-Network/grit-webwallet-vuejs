@@ -79,7 +79,7 @@
                         </div>
 
                         <inline-svg
-                            :src="require('@/assets/icons/alert.svg')"
+                            :src="require('@/assets/icons/delete.svg')"
                             class="cursor-pointer"
                             @click="onUndoModification(address)"
                         ></inline-svg>

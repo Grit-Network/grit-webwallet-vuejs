@@ -1,7 +1,7 @@
 <template>
     <FormRow class="form">
         <template v-slot:label>
-            <div class="mt-0.5 mb-[3px]">
+            <div class="mt-0.5 mb-[5px]">
                 {{ $t(label) }}
             </div>
         </template>

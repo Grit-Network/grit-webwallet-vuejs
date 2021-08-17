@@ -5,44 +5,41 @@
                 :hide-encryption="true"
                 :hide-signer="true"
                 :hide-submit="true"
+                origin="dashboard_invoice"
                 @onTransactionsChange="onInvoiceChange"
-            />
-
-            <div class="invoice-section-container">
-                <div class="image-container">
-                    <QRCodeDisplay
-                        :qr-code="transactionQR"
-                        alt="transaction_qr_code"
-                        show-download="true"
-                        :download-name="'invoiceqr_' + recipient"
-                    />
-                </div>
-                <div class="description-container">
-                    <div id="address_text" class="address_text top-qr-text">
-                        <span class="top-qr-text-title">{{ $t('recipient') }}:</span>
-                        <span>{{ recipient }}</span>
+            >
+                <div class="pt-1.5">
+                    <div>
+                        <QRCodeDisplay
+                            :qr-code="transactionQR"
+                            alt="transaction_qr_code"
+                            show-download="true"
+                            :download-name="'invoiceqr_' + recipient"
+                        />
                     </div>
 
-                    <div class="top-qr-text overflow_ellipsis">
-                        <span class="top-qr-text-title">{{ $t('mosaic') }}:</span>
-                        <div v-if="balanceEntries.length">
-                            <div v-for="({ mosaicHex, name, amount }, index) in balanceEntries" :key="index">
-                                <span>{{ amount }}</span>
-                                <span class="ml-2">{{ name }}</span>
-                                <span :hidden="name">{{ mosaicHex }}</span>
+                    <div class="description-container">
+                        <div id="address_text" class="uppercase">{{ $t('recipient') }}: {{ recipient }}</div>
+
+                        <div class="flex gap-x-0.5 mt-1">
+                            <span class="uppercase">{{ $t('mosaic') }}:</span>
+                            <div v-if="balanceEntries.length">
+                                <div v-for="({ mosaicHex, name, amount }, index) in balanceEntries" :key="index">
+                                    <!-- <span>{{ amount }}</span> -->
+                                    <span>{{ name }}</span>
+                                    <span :hidden="name">{{ mosaicHex }}</span>
+                                </div>
                             </div>
+                            <span v-else>{{ 'N/A' }}</span>
                         </div>
-                        <span v-else>{{ 'N/A' }}</span>
-                    </div>
 
-                    <div class="top-qr-text">
-                        <span class="top-qr-text-title">{{ $t('message') }}:</span>
-                        <span class="message">{{
-                            currentTransaction && currentTransaction.message ? currentTransaction.message.payload : ''
-                        }}</span>
+                        <div class="mt-1">
+                            <span class="uppercase">{{ $t('message') }}:</span>
+                            <span>{{ currentTransaction && currentTransaction.message ? currentTransaction.message.payload : '' }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </FormTransferTransaction>
         </div>
     </div>
 </template>

@@ -59,8 +59,8 @@
                         /> -->
                     </div>
 
-                    <div class="flex mt-1.5">
-                        <div class="w-6/12">
+                    <div class="flex flex-wrap gap-y-1 -mx-1 mt-1.5" v-if="origin == 'dashboard_send'">
+                        <div class="lg:w-6/12 w-full px-1">
                             <!-- Transfer message input field -->
                             <MessageInput v-model="formItems.messagePlain" @input="onChangeMessage" />
                             <FormRow v-if="!selectedSigner.multisig && !isAggregate && !isLedger && !hideEncryption">
@@ -74,7 +74,7 @@
                             </FormRow>
                         </div>
 
-                        <div class="w-6/12 ml-1">
+                        <div class="lg:w-6/12 w-full px-1">
                             <!-- Transaction fee selector and submit button -->
                             <MaxFeeAndSubmit
                                 v-if="!isAggregate"
@@ -105,6 +105,61 @@
                                 </template>
                             </FormRow>
                         </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-y-1 -mx-1 mt-1.5" v-else-if="origin == 'dashboard_invoice'">
+                        <div class="lg:w-6/12 w-full px-1">
+                            <!-- Transfer message input field -->
+                            <MessageInput v-model="formItems.messagePlain" @input="onChangeMessage" />
+                            <FormRow v-if="!selectedSigner.multisig && !isAggregate && !isLedger && !hideEncryption">
+                                <template v-slot:inputs>
+                                    <div class="mt-0.5">
+                                        <Checkbox v-model="formItems.encryptMessage" @input="onEncryptionChange">
+                                            {{ $t('encrypt_message') }}
+                                        </Checkbox>
+                                    </div>
+                                </template>
+                            </FormRow>
+
+                            <MaxFeeAndSubmit
+                                v-if="!isAggregate"
+                                v-model="formItems.maxFee"
+                                :hide-submit="hideSubmit"
+                                :submit-button-text="submitButtonText"
+                                :calculated-recommended-fee="calculatedRecommendedFee"
+                                :disable-submit="currentAccount.isMultisig"
+                                :size="transactionSize"
+                                @button-clicked="handleSubmit(onSubmit)"
+                                @input="onChangeMaxFee"
+                            />
+                            <div v-else-if="!hideSave" class="ml-2" style="text-align: right">
+                                <button
+                                    type="submit"
+                                    class="button w-6 primary"
+                                    :disabled="currentAccount.isMultisig"
+                                    @click="emitToAggregate"
+                                >
+                                    {{ $t('save') }}
+                                </button>
+                            </div>
+
+                            <!-- Transaction URI display-->
+                            <FormRow v-if="transactions && transactions.length > 0" class="transaction-uri-display-row">
+                                <template v-slot:inputs>
+                                    <div class="mt-0.5">
+                                        <TransactionUriDisplay :transaction="transactions[0]" />
+                                    </div>
+                                </template>
+                            </FormRow>
+                        </div>
+
+                        <div class="lg:w-6/12 w-full px-1">
+                            <slot></slot>
+                        </div>
+                    </div>
+
+                    <div class="mt-1.5" v-else-if="origin == 'aggregate'">
+                        <MessageInput v-model="formItems.messagePlain" @input="onChangeMessage" />
                     </div>
                 </form>
             </ValidationObserver>

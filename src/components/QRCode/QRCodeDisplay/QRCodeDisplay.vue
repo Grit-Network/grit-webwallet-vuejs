@@ -21,8 +21,11 @@ export default class QRCodeDisplay extends QRCodeDisplayTs {}
 </style>
 
 <style scoped>
-.qrcode-display img {
+.qrcode-display {
     width: 120px;
+}
+.qrcode-display img {
+    width: 100%;
 }
 
 .qrcode-display-header,

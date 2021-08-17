@@ -59,7 +59,7 @@ export default class PageNavigator extends PageNavigatorTs {}
     padding-top: 30px;
     width: 60px;
     overflow: hidden;
-    z-index: 100;
+    z-index: 1500;
     transition: 0.3s;
 }
 

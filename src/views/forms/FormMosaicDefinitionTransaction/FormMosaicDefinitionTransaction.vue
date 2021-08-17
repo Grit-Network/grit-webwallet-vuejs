@@ -5,16 +5,22 @@
                 <SignerSelector v-model="formItems.signerAddress" :signers="signers" @input="onChangeSigner" />
 
                 <!-- hide supply input in aggregate transactions -->
-                <SupplyInput v-if="!isAggregate" v-model="formItems.supply" />
+                <div class="mt-1.5">
+                    <SupplyInput v-if="!isAggregate" v-model="formItems.supply" />
+                </div>
 
-                <DivisibilityInput v-model="formItems.divisibility" />
+                <div class="mt-1.5">
+                    <DivisibilityInput v-model="formItems.divisibility" />
+                </div>
 
-                <DurationInput
-                    v-show="!formItems.permanent"
-                    v-model="formItems.duration"
-                    :show-relative-time="true"
-                    target-asset="mosaic"
-                />
+                <div class="mt-1.5">
+                    <DurationInput
+                        v-show="!formItems.permanent"
+                        v-model="formItems.duration"
+                        :show-relative-time="true"
+                        target-asset="mosaic"
+                    />
+                </div>
 
                 <FormRow>
                     <template v-slot:inputs>
@@ -34,13 +40,19 @@
                         </div>
                     </template>
                 </FormRow>
-                <RentalFee :rental-type="'mosaic'"></RentalFee>
-                <MaxFeeAndSubmit
-                    v-if="!isAggregate"
-                    v-model="formItems.maxFee"
-                    :disable-submit="currentAccount.isMultisig"
-                    @button-clicked="handleSubmit(onSubmit)"
-                />
+
+                <div class="mt-1.5">
+                    <RentalFee :rental-type="'mosaic'"></RentalFee>
+                </div>
+
+                <div class="mt-1.5" v-if="!isAggregate">
+                    <MaxFeeAndSubmit
+                        v-model="formItems.maxFee"
+                        :disable-submit="currentAccount.isMultisig"
+                        @button-clicked="handleSubmit(onSubmit)"
+                    />
+                </div>
+
                 <div v-else-if="!hideSave" class="ml-2" style="text-align: right">
                     <button type="submit" class="primary button w-6 mt-2" :disabled="currentAccount.isMultisig" @click="emitToAggregate">
                         {{ $t('save') }}

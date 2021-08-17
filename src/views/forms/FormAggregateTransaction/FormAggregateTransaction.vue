@@ -15,6 +15,7 @@
                     <component
                         :is="currentSelectedTransaction.component"
                         ref="transactionForm"
+                        origin="aggregate"
                         v-model="currentSelectedTransaction.formItems"
                         :is-aggregate="true"
                         :title.sync="currentSelectedTransaction.title"

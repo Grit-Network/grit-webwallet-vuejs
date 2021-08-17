@@ -8,8 +8,9 @@
 .navbar-right {
     display: none;
     align-items: center;
-    padding-left: 25px;
+    justify-content: space-between;
     flex-grow: 1;
+    padding-left: 25px;
 }
 
 .navbar-item {
@@ -42,6 +43,11 @@
 .navbar-logo {
     display: flex;
     align-items: center;
+    width: 200px;
+    transition: 0.3s;
+}
+
+.navbar-logo.active {
     width: 260px;
 }
 
@@ -63,6 +69,12 @@
     height: 2px;
     width: 100%;
     background-color: var(--clr-gray);
+}
+
+@media screen and (min-width: 650px) {
+    .navbar-logo {
+        width: 260px;
+    }
 }
 
 @media screen and (min-width: 1280px) {

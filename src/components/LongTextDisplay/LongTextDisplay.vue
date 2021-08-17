@@ -1,8 +1,10 @@
 <template>
     <div class="truncate-middle-ellipses-container">
         <Poptip :title="popTipTitle" word-wrap :width="popTipWidth" :content="text">
-            <span>{{ leftPart }}</span>
-            <span>{{ rightPart }}</span>
+            <div class="flex w-full text-gray">
+                <span>{{ leftPart }}</span>
+                <span>{{ rightPart }}</span>
+            </div>
         </Poptip>
     </div>
 </template>

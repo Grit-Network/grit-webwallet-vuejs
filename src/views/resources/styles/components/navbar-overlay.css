@@ -1,0 +1,63 @@
+.navbar-overlay {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    row-gap: 30px;
+    top: 60px;
+    right: 0;
+    background-color: var(--clr-primary);
+    padding: 30px;
+    box-shadow: 0 7px 20px 2px rgba(0, 0, 0, 0.25);
+    height: calc(100vh - 60px);
+    transform: translateX(100%);
+    z-index: 2000;
+    transition: 0.3s;
+}
+
+.navbar-overlay.active {
+    transform: unset;
+}
+
+.navbar-overlay .navbar-item {
+    justify-content: start;
+}
+
+.navbar-overlay .switch_account {
+    margin: 0 14px;
+}
+
+.navbar-overlay-toggle {
+    display: block;
+    margin-left: auto;
+    margin-right: 30px;
+    transform: rotateY(180deg);
+    transition: 0.3s;
+}
+
+.navbar-overlay-toggle.active {
+    transform: unset;
+}
+
+.navbar-overlay-toggle .top,
+.navbar-overlay-toggle .bottom {
+    width: 18px;
+    height: 4px;
+    background-color: var(--clr-gray);
+    border-radius: 100px;
+    transform-origin: right;
+}
+
+.navbar-overlay-toggle .top {
+    transform: rotate(37deg) translateY(3.5px);
+}
+
+.navbar-overlay-toggle .bottom {
+    transform: rotate(-37deg) translateY(-3.5px);
+}
+
+@media screen and (min-width: 1280px) {
+    .navbar-overlay-toggle,
+    .navbar-overlay {
+        display: none;
+    }
+}

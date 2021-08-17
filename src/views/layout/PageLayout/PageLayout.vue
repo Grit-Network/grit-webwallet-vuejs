@@ -15,7 +15,7 @@
         </div>
 
         <div class="navbar">
-            <div class="navbar-logo">
+            <div class="navbar-logo" :class="{ active: $store.state.navigation.sidebarExpand }">
                 <img src="@/assets/images/logo.png" alt="" />
                 <div class="flex-grow"></div>
                 <div class="navbar-burger" @click="$store.dispatch('navigation/toggleSidebar', !$store.state.navigation.sidebarExpand)">
@@ -27,6 +27,39 @@
             </div>
 
             <div class="navbar-right">
+                <div class="flex items-center">
+                    <ImportQRButton v-if="!!currentAccount" valid-qr-types="[1, 3, 4, 8, 9]" />
+                    <AccountLinks
+                        v-if="isTestnet"
+                        :account="currentAccount"
+                        :link="faucetUrl"
+                        :icon="faucetIcon"
+                        :title="$t('accounts_links_faucet')"
+                    />
+                    <AccountLinks
+                        :account="currentAccount"
+                        :link="explorerUrl"
+                        :icon="explorerIcon"
+                        :title="$t('accounts_links_explorer')"
+                    />
+
+                    <AccountSelectorField :enable-min-width="true" @input="onChangeAccount" />
+                    <Settings />
+                </div>
+
+                <LogoutButton />
+            </div>
+
+            <div
+                class="navbar-overlay-toggle"
+                :class="{ active: $store.state.navigation.navbarExpand }"
+                @click="$store.dispatch('navigation/toggleNavbar', !$store.state.navigation.navbarExpand)"
+            >
+                <div class="top"></div>
+                <div class="bottom"></div>
+            </div>
+
+            <div class="navbar-overlay" :class="{ active: $store.state.navigation.navbarExpand }">
                 <ImportQRButton v-if="!!currentAccount" valid-qr-types="[1, 3, 4, 8, 9]" />
                 <AccountLinks
                     v-if="isTestnet"
@@ -39,9 +72,9 @@
 
                 <AccountSelectorField :enable-min-width="true" @input="onChangeAccount" />
                 <Settings />
-            </div>
 
-            <LogoutButton />
+                <LogoutButton />
+            </div>
         </div>
 
         <div class="flex flex-grow">
