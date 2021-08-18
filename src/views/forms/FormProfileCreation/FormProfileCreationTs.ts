@@ -73,6 +73,7 @@ export class FormProfileCreationTs extends Vue {
         this.formItems.networkType = NetworkType.MAIN_NET;
         const { isLedger } = this.$route.meta;
         this.isLedger = isLedger;
+        console.log(this);
     }
 
     /**
@@ -104,6 +105,11 @@ export class FormProfileCreationTs extends Vue {
         passwordAgain: '',
         hint: '',
         networkType: this.$store.getters['network/networkType'],
+    };
+
+    public fieldType = {
+        password: 'password',
+        confirmPassword: 'password',
     };
 
     /**

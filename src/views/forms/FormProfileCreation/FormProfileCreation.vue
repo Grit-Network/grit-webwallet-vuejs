@@ -60,13 +60,25 @@
                             tag="div"
                         >
                             <ErrorTooltip :errors="errors">
-                                <input
-                                    ref="passwordInput"
-                                    v-model="formItems.password"
-                                    class="form-input"
-                                    :placeholder="$t('please_enter_your_account_password')"
-                                    type="password"
-                                />
+                                <div class="relative">
+                                    <input
+                                        ref="passwordInput"
+                                        v-model="formItems.password"
+                                        class="form-input"
+                                        :placeholder="$t('please_enter_your_account_password')"
+                                        :type="fieldType.password"
+                                    />
+
+                                    <img
+                                        src="@/assets/images/eye.png"
+                                        class="w-1.5 absolute top-1/2 right-1 transform -translate-y-1/2 cursor-pointer"
+                                        @click="
+                                            fieldType.password == 'password'
+                                                ? (fieldType.password = 'text')
+                                                : (fieldType.password = 'password')
+                                        "
+                                    />
+                                </div>
                             </ErrorTooltip>
                         </ValidationProvider>
                     </div>
@@ -81,13 +93,25 @@
                             tag="div"
                         >
                             <ErrorTooltip :errors="errors">
-                                <input
-                                    v-model="formItems.passwordAgain"
-                                    class="form-input"
-                                    data-vv-name="confirmPassword"
-                                    :placeholder="$t('please_enter_your_new_password_again')"
-                                    type="password"
-                                />
+                                <div class="relative">
+                                    <input
+                                        v-model="formItems.passwordAgain"
+                                        class="form-input"
+                                        data-vv-name="confirmPassword"
+                                        :placeholder="$t('please_enter_your_new_password_again')"
+                                        :type="fieldType.confirmPassword"
+                                    />
+
+                                    <img
+                                        src="@/assets/images/eye.png"
+                                        class="w-1.5 absolute top-1/2 right-1 transform -translate-y-1/2 cursor-pointer"
+                                        @click="
+                                            fieldType.confirmPassword == 'password'
+                                                ? (fieldType.confirmPassword = 'text')
+                                                : (fieldType.confirmPassword = 'password')
+                                        "
+                                    />
+                                </div>
                             </ErrorTooltip>
                         </ValidationProvider>
                     </div>
