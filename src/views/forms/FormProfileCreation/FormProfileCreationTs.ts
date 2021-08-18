@@ -73,7 +73,6 @@ export class FormProfileCreationTs extends Vue {
         this.formItems.networkType = NetworkType.MAIN_NET;
         const { isLedger } = this.$route.meta;
         this.isLedger = isLedger;
-        console.log(this);
     }
 
     /**

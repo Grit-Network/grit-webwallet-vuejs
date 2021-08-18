@@ -10,7 +10,7 @@
                 type="text"
                 maxlength="50"
                 @paste.prevent="handlePaste($event)"
-                @keyup.space="addWord"
+                v-on:keypress="addWord"
                 @keydown.delete="deleteWord"
             />
         </div>
@@ -41,7 +41,7 @@ export default class MnemonicInput extends MnemonicInputTs {}
     padding: 7px 14px;
     border-radius: 4px;
     text-transform: lowercase;
-    background-color: var(--clr-gray);
+    background-color: var(--clr-gray-dark);
     margin: 7px;
 }
 

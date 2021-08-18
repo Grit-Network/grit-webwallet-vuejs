@@ -24,13 +24,21 @@
         </MnemonicDisplay>
 
         <div class="flex justify-end mt-5">
-            <button type="button" class="button gray mr-1 w-7" @click="$router.push({ name: 'profiles.createProfile.info' })">
+            <button
+                type="button"
+                class="button gray mr-1 w-13 sm:w-10 lg:w-6"
+                @click="$router.push({ name: 'profiles.createProfile.info' })"
+            >
                 {{ $t('back') }}
             </button>
-            <Button class="button primary mr-1 w-8" :loading="downloadInProgress" @click="downloadPassPharses">
+            <Button class="button primary mr-1 w-14 sm:w-10 lg:w-7" :loading="downloadInProgress" @click="downloadPassPharses">
                 {{ $t('button_download_qr') }}
             </Button>
-            <button type="submit" class="button primary w-7" @click="$router.push({ name: 'profiles.createProfile.verifyMnemonic' })">
+            <button
+                type="submit"
+                class="button primary w-13 sm:w-10 lg:w-6"
+                @click="$router.push({ name: 'profiles.createProfile.verifyMnemonic' })"
+            >
                 {{ $t('verify_backup_mnemonics') }}
             </button>
         </div>
@@ -98,13 +106,19 @@ export default class ShowMnemonic extends ShowMnemonicTs {}
 
 <style scoped>
 .show-mnemonic {
-    width: 80%;
+    width: 100%;
 }
 
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 15px;
+}
+
+@media screen and (min-width: 960px) {
+    .show-mnemonic {
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 1380px) {

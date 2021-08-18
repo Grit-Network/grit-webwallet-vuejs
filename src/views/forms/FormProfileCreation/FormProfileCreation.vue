@@ -133,12 +133,12 @@
                     <div class="mt-4 flex justify-end">
                         <button
                             type="button"
-                            class="button gray w-6 mr-1.5"
+                            class="button gray w-12 sm:w-10 lg:w-6 mr-1.5"
                             @click="$router.push({ name: 'profiles.importProfile.importStrategy' })"
                         >
                             {{ $t('back') }}
                         </button>
-                        <button type="submit" class="button primary w-6" @click="handleSubmit(submit)">
+                        <button type="submit" class="button primary w-12 sm:w-10 lg:w-6" @click="handleSubmit(submit)">
                             {{ $t('next') }}
                         </button>
                     </div>

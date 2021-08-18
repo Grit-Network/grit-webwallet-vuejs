@@ -1,15 +1,15 @@
 <template>
-    <div class="import-mnemonic" @keyup.enter="submit">
+    <div class="import-mnemonic pb-5 pt-9" @keyup.enter="submit">
         <p class="title">{{ $t('input_mnemonic') }}</p>
         <MnemonicInput :seed="importedMnemonic" @handle-words="setSeed" />
 
         <div class="flex justify-end mt-3">
-            <button type="button" class="button gray mr-1.5 w-6" @click="deleteProfileAndBack">
+            <button type="button" class="button gray mr-1.5 w-12 sm:w-10 lg:w-6" @click="deleteProfileAndBack">
                 {{ $t('back') }}
             </button>
             <button
                 type="submit"
-                class="button primary w-6"
+                class="button primary w-12 sm:w-10 lg:w-6"
                 :disabled="!(wordsArray.length === 12 || wordsArray.length === 24)"
                 @click="processVerification"
             >
@@ -64,13 +64,19 @@ export default class ImportMnemonic extends ImportMnemonicTs {}
 
 <style scoped>
 .import-mnemonic {
-    width: 90%;
+    width: 100%;
 }
 
 .title {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 28px;
+}
+
+@media screen and (min-width: 960px) {
+    .import-mnemonic {
+        width: 90%;
+    }
 }
 
 @media screen and (min-width: 1380px) {
