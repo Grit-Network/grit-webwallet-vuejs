@@ -77,7 +77,7 @@ export class MnemonicInputTs extends Vue {
      * @description: add word to the wordsArray
      */
     addWord(event) {
-        if (event.charCode != 32) return;
+        if (event.charCode != 32 && event.charCode != 62) return;
         if (this.inputWord.length >= 2 && this.inputWord.length <= 50) {
             if (this.wordsArray.length < 24) {
                 this.handleWordsArray(this.inputWord);
